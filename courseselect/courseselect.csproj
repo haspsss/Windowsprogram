@@ -86,7 +86,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Default.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Example\BaseMainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Example\ChangeInfoWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Example\ChangePasswordWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Example\courseselect\选课页面.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -98,7 +114,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Example\PersonInformation\我的信息.xaml">
+    <Page Include="Example\Manager\AdminMainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Example\PersonalInformation\我的信息.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Example\StudentMainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Example\Teacher\TeacherMainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -110,8 +138,17 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Example\BaseMainWindow.xaml.cs">
+      <DependentUpon>BaseMainWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Example\ChangeInfoWindow.xaml.cs">
       <DependentUpon>ChangeInfoWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Example\ChangePasswordWindow.xaml.cs">
+      <DependentUpon>ChangePasswordWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Example\courseselect\选课页面.xaml.cs">
+      <DependentUpon>选课页面.xaml</DependentUpon>
     </Compile>
     <Compile Include="Example\Forgetpw.xaml.cs">
       <DependentUpon>Forgetpw.xaml</DependentUpon>
@@ -119,8 +156,17 @@
     <Compile Include="Example\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Example\PersonInformation\我的信息.xaml.cs">
+    <Compile Include="Example\Manager\AdminMainWindow.xaml.cs">
+      <DependentUpon>AdminMainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Example\PersonalInformation\我的信息.xaml.cs">
       <DependentUpon>我的信息.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Example\StudentMainWindow.xaml.cs">
+      <DependentUpon>StudentMainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Example\Teacher\TeacherMainWindow.xaml.cs">
+      <DependentUpon>TeacherMainWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -154,11 +200,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Example\ClassSchedule\" />
-    <Folder Include="Example\GradeInquery\" />
-    <Folder Include="Example\SelectCourse\" />
-    <Folder Include="Example\TEST\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

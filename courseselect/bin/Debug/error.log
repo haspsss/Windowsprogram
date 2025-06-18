@@ -1,0 +1,11 @@
+2025/6/16 1:18:47: 数据库错误: 3F001: schema "sinformation" does not exist
+2025/6/16 1:18:52: 数据库错误: 3F001: schema "sinformation" does not exist
+2025/6/16 1:23:18: 数据库错误: 3F001: schema "sinformation" does not exist
+2025/6/16 1:49:54: 数据库错误: 3F001: schema "sinformation" does not exist
+2025/6/16 1:49:56: 数据库错误: 3F001: schema "sinformation" does not exist
+2025/6/16 1:49:59: 数据库错误: 3F001: schema "sinformation" does not exist
+2025/6/16 1:59:15: 数据库错误: 42P01: relation "student" does not exist on dn_6001
+2025/6/16 2:31:29: 数据库错误: 42P01: relation "student" does not exist on dn_6001
+2025/6/16 2:31:32: 数据库错误: 42P01: relation "student" does not exist on dn_6001
+2025/6/16 2:33:28: 数据库错误: 42P01: relation "student" does not exist on dn_6001
+2025/6/16 15:36:27: 数据库错误: 42P01: relation "student" does not exist on dn_6001

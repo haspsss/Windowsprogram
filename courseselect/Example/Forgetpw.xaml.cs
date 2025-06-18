@@ -1,53 +1,98 @@
-﻿using System;
+﻿using Npgsql;
+using System.Threading.Tasks;
 using System.Windows;
-using Npgsql;
+
 
 namespace courseselect.Example
 {
     public partial class Forgetpw : Window
     {
-        private NpgsqlConnection _connection;
+        private readonly NpgsqlConnection _connection;
+        private readonly string _userId;
+        private readonly string _question;
 
-        public Forgetpw(NpgsqlConnection connection)
+
+        public Forgetpw(NpgsqlConnection connection, string userId, string question)
         {
             InitializeComponent();
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             _connection = connection;
+            _userId = userId;
+            _question = question;
+
+            // 显示问题
+            Question.Text = _question; // 假设你有一个名为 lblQuestion 的 Label 控件
         }
 
-        private void ConfirmButton_Click(object sender, RoutedEventArgs e)
+        private async void ConfirmButton_Click(object sender, RoutedEventArgs e) // 确认按钮点击事件
         {
-            string accountId = AccountIdTextBox.Text;
+            string answer = Answer.Text; // 获取用户输入的答案
 
-            // 使用共享连接进行查询
-            string queryUser = "SELECT ifchangepw FROM \"SInformation\".\"student\" WHERE sid = @accountId " +
-                               "UNION ALL " +
-                               "SELECT ifchangepw FROM \"SInformation\".\"manager\" WHERE mid = @accountId " +
-                               "UNION ALL " +
-                               "SELECT ifchangepw FROM \"SInformation\".\"teacher\" WHERE tid = @accountId";
+            string correctAnswer = await GetCorrectAnswerAsync(_userId); // 从数据库获取正确答案
 
-            using (var cmd = new NpgsqlCommand(queryUser, _connection))
+            if (answer == correctAnswer)
             {
-                cmd.Parameters.AddWithValue("@accountId", accountId);
-                object result = cmd.ExecuteScalar();
-
-                if (result == null)
-                {
-                    MessageBox.Show("该账号不存在！");
-                }
-                else
-                {
-                    string ifChangePw = result.ToString();
-                    if (ifChangePw == "F")
-                    {
-                        MessageBox.Show("您未修改过密码！");
-                    }
-                    else if (ifChangePw == "T")
-                    {
-                        // 刷新 Forgetpw 窗口内容
-                        MessageTextBlock.Text = "仍需编写";
-                    }
-                }
+                DialogResult = true; // 设置 DialogResult 为 true，表示验证成功
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("答案错误！");
             }
         }
+        private async Task<string> GetUserRoleAsync(string userid)
+        {
+            string query = @"
+            SELECT 
+                CASE 
+                    WHEN EXISTS (SELECT 1 FROM ""SInformation"".student WHERE sid = @userid) THEN 'student'
+                    WHEN EXISTS (SELECT 1 FROM ""SInformation"".teacher WHERE ttid = @userid) THEN 'teacher'
+                    WHEN EXISTS (SELECT 1 FROM ""SInformation"".manager WHERE mid = @userid) THEN 'admin'
+                    ELSE NULL 
+                END AS role";
+
+            using (var cmd = new NpgsqlCommand(query, _connection))
+            {
+                cmd.Parameters.AddWithValue("@userid", userid);
+                return await cmd.ExecuteScalarAsync() as string;
+            }
+        }
+        private async Task<string> GetCorrectAnswerAsync(string userId)
+        {
+            string role = await GetUserRoleAsync(userId); // 获取用户角色
+
+            if (string.IsNullOrEmpty(role))
+            {
+                // 处理用户不存在的情况，例如返回 null 或抛出异常
+                return null;
+            }
+
+            string query = "";
+
+            if (role == "student")
+            {
+                query = "SELECT answer FROM \"SInformation\".student WHERE sid = @userid";
+            }
+            else if (role == "teacher")
+            {
+                query = "SELECT answer FROM \"SInformation\".teacher WHERE ttid = @userid";
+            }
+            else if (role == "admin")
+            {
+                query = "SELECT answer FROM \"SInformation\".manager WHERE mid = @userid";
+            }
+            else
+            {
+                // 处理未知角色的情况，例如返回 null 或抛出异常
+                return null;
+            }
+
+            using (var cmd = new NpgsqlCommand(query, _connection))
+            {
+                cmd.Parameters.AddWithValue("@userid", userId);
+                return await cmd.ExecuteScalarAsync() as string;
+            }
+        }
+        
     }
 }

@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\VSS\CourseSelect\App.xaml
-5-369450060
+12-1949330858
 
-9-1707825562
+1598775225
 127167961194
-Example\ChangeInfoWindow.xaml;Example\Forgetpw.xaml;Example\LoginWindow.xaml;Example\PersonInformation\我的信息.xaml;MainWindow.xaml;
+Default.xaml;Example\BaseMainWindow.xaml;Example\ChangeInfoWindow.xaml;Example\ChangePasswordWindow.xaml;Example\courseselect\选课页面.xaml;Example\Forgetpw.xaml;Example\LoginWindow.xaml;Example\Manager\AdminMainWindow.xaml;Example\PersonalInformation\我的信息.xaml;Example\StudentMainWindow.xaml;Example\Teacher\TeacherMainWindow.xaml;MainWindow.xaml;
 
 False
 

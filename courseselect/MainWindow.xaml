@@ -12,7 +12,7 @@
             <ColumnDefinition Width="*"/>
 
         </Grid.ColumnDefinitions>
-        <TreeView Grid.Row="0" Grid.Column="0" TreeViewItem.Selected="TreeView_Selected"
+       <!-- <TreeView Grid.Row="0" Grid.Column="0" TreeViewItem.Selected="TreeView_Selected"
                   ScrollViewer.VerticalScrollBarVisibility="Visible" Margin="0,0,0,0">
             <TreeViewItem Header="个人信息" Tag="PersonInformation">
                 <TreeViewItem Header="我的信息"/>
@@ -46,7 +46,7 @@
                 <TreeViewItem Header="ToolBarStatusBar"/>
             </TreeViewItem>
 
-        </TreeView>
+        </TreeView>-->
         <GridSplitter Grid.Row="0" Grid.Column="0" BorderBrush="Red"
                       BorderThickness="1" ResizeBehavior="CurrentAndNext"/>
         <Frame Name="frame1" Grid.Row="0" Grid.Column="1" Padding="10 20 10 20" HorizontalAlignment="Stretch"

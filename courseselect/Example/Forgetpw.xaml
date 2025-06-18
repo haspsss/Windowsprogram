@@ -5,12 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:courseselect.Example"
         mc:Ignorable="d"
-        Title="Forgetpw" Height="200" Width="300">
+        Title="找回密码" Height="200" Width="400">
     <Grid>
-        <Label Content="请输入账号ID：" Margin="10,10,10,0" VerticalAlignment="Top"/>
-        <TextBox Name="AccountIdTextBox" Margin="46,34,62,0" VerticalAlignment="Top"/>
-        <Button Content="确认" Margin="205,59,35,0" VerticalAlignment="Top" Click="ConfirmButton_Click" Width="60"/>
-        <TextBlock Name="MessageTextBlock" Margin="10,110,10,0" VerticalAlignment="Top" />
+        <Label Content="问题：" Margin="10,10,10,0" VerticalAlignment="Top"/>
+        <TextBox Name="Question" Margin="20,34,62,0" VerticalAlignment="Top" IsReadOnly="True" Width="300"/>
+        <Button Content="确认" Margin="210,120,35,0" VerticalAlignment="Top" Click="ConfirmButton_Click" Width="60"/>
+        <Label Content="答案：" Margin="10,50,10,0" VerticalAlignment="Top"/>
+        <TextBox Name="Answer" Margin="20,74,62,0" VerticalAlignment="Top" Width="300"/>
+
 
     </Grid>
 </Window>

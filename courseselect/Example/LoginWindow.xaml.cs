@@ -1,5 +1,12 @@
-﻿using Npgsql; // 使用 Npgsql 命名空间
+﻿using courseselect.Example.Manager;
+using courseselect.Example;
+using courseselect.Example.Teacher;
+using Npgsql;
 using System;
+using System.Data;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -7,96 +14,298 @@ namespace courseselect.Example
 {
     public partial class LoginWindow : Window
     {
-        public string Username { get; set; }
-        private NpgsqlConnection _connection;
-
+        private readonly NpgsqlConnection _connection;
+        public string userName;
         public LoginWindow(NpgsqlConnection connection)
         {
             InitializeComponent();
             _connection = connection;
-            this.WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
-            UserIdBox.Text = string.Empty;
-            Passwordbox.Password = string.Empty;
+
+            if (_connection.State != ConnectionState.Open)
+            {
+                try
+                {
+                    _connection.Open();
+                    MessageBox.Show("Data loaded successfully!");
+                }
+                catch (NpgsqlException ex)
+                {
+                    HandleDbException(ex);
+                    MessageBox.Show("Failed to load data!");
+                    return;
+                }
+            }
+
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            InitializeUI();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void InitializeUI()
         {
-            Button btn = sender as Button;
-            switch (btn.Content.ToString())
-            {
-                case "登录":
-                    ValidateUser();
-                    break;
+            showpw.IsChecked = false;
+            PassTextbox.Visibility = Visibility.Collapsed;
+            this.Closed += (s, e) => Application.Current.Shutdown();
+        }
 
-                case "忘记密码":
-                    HandleForgetPassword();
-                    break;
+        private async void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Button clickedButton = sender as Button;
+
+            if (clickedButton != null)
+            {
+                if (clickedButton.Content.ToString() == "登录")
+                {
+                    if (ValidateInput())
+                    {
+                        await HandleLoginAsync();
+                    }
+                }
+                else if (clickedButton.Content.ToString() == "忘记密码")
+                {
+                    await HandleForgotPasswordAsync();
+                }
             }
         }
 
-        private void ValidateUser()
+        private async Task HandleLoginAsync()
         {
             string userid = UserIdBox.Text;
             string password = Passwordbox.Password;
 
-            // 查询用户的名称和密码是否正确
-            string queryUser = @"
-        SELECT name FROM ""SInformation"".""student"" WHERE sid = @userid AND spassword = @password
-        UNION ALL
-        SELECT name FROM ""SInformation"".""manager"" WHERE mid = @userid AND mpassword = @password
-        UNION ALL
-        SELECT name FROM ""SInformation"".""teacher"" WHERE ttid = @userid AND tpassword = @password";
-
-            using (var cmd = new NpgsqlCommand(queryUser, _connection))
+            string role = await GetUserRoleAndValidatePasswordAsync(userid, password);
+            if (string.IsNullOrEmpty(role))
             {
-                cmd.Parameters.AddWithValue("@userid", userid);
-                cmd.Parameters.AddWithValue("@password", password);
-
-                // 执行查询并获取名称
-                object result = cmd.ExecuteScalar();
-
-                if (result == null)
-                {
-                    MessageBox.Show("用户不存在或密码错误！", "错误", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return;
-                }
-
-                // 设置 Username 为查询到的名称
-                this.Username = result.ToString();
-                this.Close();
+                ShowErrorMessage("User does not exist or password is incorrect.");
+            }
+            else
+            {
+                this.Hide();
+                Application.Current.MainWindow = CreateRoleWindow(role, userid);
+                Application.Current.MainWindow.Show();
             }
         }
-            
-        
 
-        private void HandleForgetPassword()
+
+        private async Task HandleForgotPasswordAsync()
         {
             string userid = UserIdBox.Text;
 
-            // 查询是否修改过密码
-            using (var cmd = new NpgsqlCommand("SELECT ifchangepw FROM \"SInformation\".\"student\" WHERE sid = @userid " +
-                                                "UNION ALL " +
-                                                "SELECT ifchangepw FROM \"SInformation\".\"manager\" WHERE mid = @userid " +
-                                                "UNION ALL " +
-                                                "SELECT ifchangepw FROM \"SInformation\".\"teacher\" WHERE ttid = @userid", _connection))
+            if (string.IsNullOrWhiteSpace(userid))
+            {
+                ShowErrorMessage("User ID cannot be empty for password reset.");
+                return;
+            }
+
+            string role = await GetUserRoleAsync(userid);
+            if (string.IsNullOrEmpty(role))
+            {
+                ShowErrorMessage("This user does not exist.");
+                return;
+            }
+
+            bool ifChangePw = await CheckIfChangePwAsync(role, userid);
+            if (!ifChangePw)
+            {
+                ShowErrorMessage("You have not changed your password before.");
+                return;
+            }
+
+            // 获取验证问题和答案
+            string question = await GetSecurityQuestionAsync(role, userid);
+            if (question == null)
+            {
+                ShowErrorMessage("Failed to retrieve security question."); // 处理数据库错误
+                return;
+            }
+
+            // 显示 Forgetpw 窗口，并传入问题
+            Forgetpw forgetPwWindow = new Forgetpw(_connection, userid, question);
+            bool? result = forgetPwWindow.ShowDialog();
+
+            if (result == true) // 用户在 Forgetpw 窗口点击了确认
+            {
+                // Forgetpw 窗口已经验证了答案，这里可以直接显示密码
+                string password = await GetPasswordAsync(role, userid);
+                if (password == null)
+                {
+                    ShowErrorMessage("Failed to retrieve password."); // 处理数据库错误
+                }
+                else
+                {
+                    MessageBox.Show($"Your password is: {password}");
+                }
+            }
+        }
+
+
+        private async Task<string> GetSecurityQuestionAsync(string role, string userid)
+        {
+            string query = "";
+
+            if (role == "student")
+            {
+                query = "SELECT question FROM \"SInformation\".student WHERE sid = @userid";
+            }
+            else if (role == "teacher")
+            {
+                query = "SELECT question FROM \"SInformation\".teacher WHERE ttid = @userid";
+            }
+            else if (role == "admin")
+            {
+                query = "SELECT question FROM \"SInformation\".manager WHERE mid = @userid";
+            }
+
+            using (var cmd = new NpgsqlCommand(query, _connection))
             {
                 cmd.Parameters.AddWithValue("@userid", userid);
-                object result = cmd.ExecuteScalar();
+                return await cmd.ExecuteScalarAsync() as string;
+            }
+        }
 
-                if (result == null)
+        private async Task<string> GetPasswordAsync(string role, string userid)
+        {
+            string query = "";
+
+            if (role == "student")
+            {
+                query = "SELECT password FROM \"SInformation\".student WHERE sid = @userid";
+            }
+            else if (role == "teacher")
+            {
+                query = "SELECT password FROM \"SInformation\".teacher WHERE ttid = @userid";
+            }
+            else if (role == "admin")
+            {
+                query = "SELECT password FROM \"SInformation\".manager WHERE mid = @userid";
+            }
+
+            using (var cmd = new NpgsqlCommand(query, _connection))
+            {
+                cmd.Parameters.AddWithValue("@userid", userid);
+                return await cmd.ExecuteScalarAsync() as string;
+            }
+        }
+
+        private async Task<string> GetUserRoleAsync(string userid)
+        {
+            string query = @"
+            SELECT 
+                CASE 
+                    WHEN EXISTS (SELECT 1 FROM ""SInformation"".student WHERE sid = @userid) THEN 'student'
+                    WHEN EXISTS (SELECT 1 FROM ""SInformation"".teacher WHERE ttid = @userid) THEN 'teacher'
+                    WHEN EXISTS (SELECT 1 FROM ""SInformation"".manager WHERE mid = @userid) THEN 'admin'
+                    ELSE NULL 
+                END AS role";
+
+            using (var cmd = new NpgsqlCommand(query, _connection))
+            {
+                cmd.Parameters.AddWithValue("@userid", userid);
+                return await cmd.ExecuteScalarAsync() as string;
+            }
+        }
+
+        private async Task<string> GetUserRoleAndValidatePasswordAsync(string userid, string password)
+        {
+            string query = @"
+            SELECT 
+                CASE 
+                    WHEN EXISTS (SELECT 1 FROM ""SInformation"".student WHERE sid = @userid AND password = @password) THEN 'student'
+                    WHEN EXISTS (SELECT 1 FROM ""SInformation"".teacher WHERE ttid = @userid AND password = @password) THEN 'teacher'
+                    WHEN EXISTS (SELECT 1 FROM ""SInformation"".manager WHERE mid = @userid AND password = @password) THEN 'admin'
+                    ELSE NULL 
+                END AS role";
+
+            using (var cmd = new NpgsqlCommand(query, _connection))
+            {
+                cmd.Parameters.AddWithValue("@userid", userid);
+                cmd.Parameters.AddWithValue("@password", password); // 使用明文密码
+
+                object result = await cmd.ExecuteScalarAsync();
+                return result != null ? result.ToString() : null;
+            }
+        }
+
+        private async Task<bool> CheckIfChangePwAsync(string role, string userid)
+        {
+            string query = "";
+
+            if (role == "student")
+            {
+                query = "SELECT ifchangepw FROM \"SInformation\".student WHERE sid = @userid";
+            }
+            else if (role == "teacher")
+            {
+                query = "SELECT ifchangepw FROM \"SInformation\".teacher WHERE ttid = @userid";
+            }
+            else if (role == "admin")
+            {
+                query = "SELECT ifchangepw FROM \"SInformation\".manager WHERE mid = @userid";
+            }
+
+            using (var cmd = new NpgsqlCommand(query, _connection))
+            {
+                cmd.Parameters.AddWithValue("@userid", userid);
+                object result = await cmd.ExecuteScalarAsync();
+                return result != null && result.ToString() == "T";
+            }
+        }
+
+        private bool ValidateInput()
+        {
+            if (string.IsNullOrWhiteSpace(UserIdBox.Text))
+            {
+                ShowErrorMessage("User ID cannot be empty.");
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(Passwordbox.Password))
+            {
+                ShowErrorMessage("Password cannot be empty.");
+                return false;
+            }
+
+            return true;
+        }
+
+      
+
+        private Window CreateRoleWindow(string role, string userId)
+        {
+            string query = "SELECT name FROM \"SInformation\".student WHERE sid = @userid";
+            userName = query;
+            using (var command = new NpgsqlCommand(query, _connection))
+            {
+                command.Parameters.AddWithValue("@userid", userId);
+
+                // 打开连接，如果尚未打开
+                if (_connection.State != ConnectionState.Open)
                 {
-                    MessageBox.Show("该用户不存在！", "错误", MessageBoxButton.OK, MessageBoxImage.Error);
+                    _connection.Open();
                 }
-                else if (result.ToString() == "F")
+
+                using (var reader = command.ExecuteReader())
                 {
-                    MessageBox.Show("您未修改过密码！", "提示", MessageBoxButton.OK, MessageBoxImage.Information);
+                    if (reader.Read()) // 读取结果
+                    {
+                        userName = reader.GetString(0); // 获取姓名
+                    }
                 }
-                else if (result.ToString() == "T")
-                {
-                    // 调用Forgetpw页的逻辑
-                    Forgetpw forgetPassword = new Forgetpw(_connection);
-                    forgetPassword.Show();
-                }
+            }
+            if (role == "student")
+            {
+                return new StudentMainWindow(_connection, userId, userName);
+            }
+            else if (role == "teacher")
+            {
+                return new TeacherMainWindow(_connection, userId);
+            }
+            else if (role == "admin")
+            {
+                return new AdminMainWindow(_connection, userId);
+            }
+            else
+            {
+                throw new ArgumentOutOfRangeException(nameof(role));
             }
         }
 
@@ -106,6 +315,7 @@ namespace courseselect.Example
             {
                 PassTextbox.Text = Passwordbox.Password;
                 PassTextbox.Visibility = Visibility.Visible;
+                Passwordbox.Visibility = Visibility.Collapsed;
             }
         }
 
@@ -113,16 +323,31 @@ namespace courseselect.Example
         {
             if (showpw.IsChecked == false)
             {
+                Passwordbox.Password = PassTextbox.Text;
+                Passwordbox.Visibility = Visibility.Visible;
                 PassTextbox.Visibility = Visibility.Collapsed;
             }
         }
 
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        private void ShowErrorMessage(string message)
         {
-            if (string.IsNullOrEmpty(this.Username))
-            {
-                App.Current.Shutdown();
-            }
+            MessageBox.Show(message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+
+        private void HandleDbException(NpgsqlException ex)
+        {
+            string errorMsg = ex.Message.Contains("connection failed") ?
+                "Failed to connect to the database. Please check the network and server status." :
+                "SQL query error. Please contact the administrator.";
+
+            LogError($"Database error: {ex.Message}");
+            ShowErrorMessage(errorMsg);
+        }
+
+        private void LogError(string message)
+        {
+            string logPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "error.log");
+            System.IO.File.AppendAllText(logPath, $"{DateTime.Now}: {message}{Environment.NewLine}");
         }
     }
 }
