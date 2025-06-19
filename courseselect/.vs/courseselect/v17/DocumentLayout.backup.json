@@ -7,8 +7,16 @@
       "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\courseselect\\\u9009\u8BFE\u9875\u9762.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|d:\\vss\\courseselect\\example\\courseselect\\\u9009\u8BFE\u9875\u9762.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\example\\courseselect\\\u9009\u8BFE\u9875\u9762.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\courseselect\\\u9009\u8BFE\u9875\u9762.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\example\\teachermainwindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\teachermainwindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|d:\\vss\\courseselect\\example\\teachermainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\teachermainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\example\\studentmainwindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
@@ -23,12 +31,8 @@
       "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\loginwindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\example\\personalinformation\\\u6211\u7684\u4FE1\u606F.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\personalinformation\\\u6211\u7684\u4FE1\u606F.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|d:\\vss\\courseselect\\example\\personalinformation\\\u6211\u7684\u4FE1\u606F.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\personalinformation\\\u6211\u7684\u4FE1\u606F.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\example\\loginwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\loginwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\example\\forgetpw.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
@@ -39,65 +43,60 @@
       "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\forgetpw.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|d:\\vss\\courseselect\\example\\changepasswordwindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\example\\changepasswordwindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
       "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\changepasswordwindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|d:\\vss\\courseselect\\example\\changepasswordwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\example\\changepasswordwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\changepasswordwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\example\\loginwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\loginwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|d:\\vss\\courseselect\\example\\adminmainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\adminmainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\example\\manager\\adminmainwindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
-      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\manager\\adminmainwindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\example\\teacher\\teachermainwindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
-      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\teacher\\teachermainwindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\example\\basemainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\basemainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\example\\teacher\\teachermainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\teacher\\teachermainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\example\\manager\\adminmainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\manager\\adminmainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\example\\personalinformation\\\u6211\u7684\u4FE1\u606F.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\personalinformation\\\u6211\u7684\u4FE1\u606F.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\86157\\AppData\\Local\\Temp\\.vsdbgsrc\\361f82b6b9a328e1602d17ccc30c3c9a6486f38708e103ffe2d5612ce5556794\\WpfXamlLoader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\example\\adminmainwindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\adminmainwindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\86157\\AppData\\Local\\Temp\\.vsdbgsrc\\c6ee7f6fec133611eb2a064e1a788d1d2474410b0c2beae8c7d187c8d89dcad0\\ResourcePart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\example\\changeinfowindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\changeinfowindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\mainwindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:mainwindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|courseselect||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\86157\\AppData\\Local\\Temp\\r24nysau..sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\example\\personalinformation\\\u6211\u7684\u4FE1\u606F.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\personalinformation\\\u6211\u7684\u4FE1\u606F.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\86157\\AppData\\Local\\Temp\\.vsdbgsrc\\361f82b6b9a328e1602d17ccc30c3c9a6486f38708e103ffe2d5612ce5556794\\WpfXamlLoader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\86157\\AppData\\Local\\Temp\\.vsdbgsrc\\c6ee7f6fec133611eb2a064e1a788d1d2474410b0c2beae8c7d187c8d89dcad0\\ResourcePart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
@@ -108,8 +107,28 @@
       "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:default.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\example\\changeinfowindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
-      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\changeinfowindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\VSS\\courseselect\\Example\\ChangeInfoWindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Example\\ChangeInfoWindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\VSS\\courseselect\\Example\\Manager\\AdminMainWindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Example\\Manager\\AdminMainWindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\VSS\\courseselect\\Example\\Teacher\\TeacherMainWindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Example\\Teacher\\TeacherMainWindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\VSS\\courseselect\\Example\\Teacher\\TeacherMainWindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Example\\Teacher\\TeacherMainWindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\VSS\\courseselect\\Example\\Manager\\AdminMainWindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Example\\Manager\\AdminMainWindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\VSS\\courseselect\\Example\\ChangeInfoWindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Example\\ChangeInfoWindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -119,7 +138,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -127,23 +146,23 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Bookmark",
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "LoginWindow.xaml.cs",
-              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\LoginWindow.xaml.cs",
-              "RelativeDocumentMoniker": "Example\\LoginWindow.xaml.cs",
-              "ToolTip": "D:\\VSS\\courseselect\\Example\\LoginWindow.xaml.cs",
-              "RelativeToolTip": "Example\\LoginWindow.xaml.cs",
-              "ViewState": "AgIAAAwBAAAAAAAAAAAkwCQBAAANAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "\u9009\u8BFE\u9875\u9762.xaml.cs",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\courseselect\\\u9009\u8BFE\u9875\u9762.xaml.cs",
+              "RelativeDocumentMoniker": "Example\\courseselect\\\u9009\u8BFE\u9875\u9762.xaml.cs",
+              "ToolTip": "D:\\VSS\\courseselect\\Example\\courseselect\\\u9009\u8BFE\u9875\u9762.xaml.cs*",
+              "RelativeToolTip": "Example\\courseselect\\\u9009\u8BFE\u9875\u9762.xaml.cs*",
+              "ViewState": "AgIAABgBAAAAAAAAAAAAwOcAAABEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-14T07:02:10.423Z",
+              "WhenOpened": "2025-06-17T10:41:08.395Z",
               "EditorCaption": ""
             },
             {
@@ -160,33 +179,116 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "\u9009\u8BFE\u9875\u9762.xaml.cs",
-              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\courseselect\\\u9009\u8BFE\u9875\u9762.xaml.cs",
-              "RelativeDocumentMoniker": "Example\\courseselect\\\u9009\u8BFE\u9875\u9762.xaml.cs",
-              "ToolTip": "D:\\VSS\\courseselect\\Example\\courseselect\\\u9009\u8BFE\u9875\u9762.xaml.cs*",
-              "RelativeToolTip": "Example\\courseselect\\\u9009\u8BFE\u9875\u9762.xaml.cs*",
-              "ViewState": "AgIAANgAAAAAAAAAAAAIwOgAAABDAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-17T10:41:08.395Z",
+              "DocumentIndex": 25,
+              "Title": "packages.config",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\packages.config",
+              "RelativeDocumentMoniker": "packages.config",
+              "ToolTip": "D:\\VSS\\courseselect\\packages.config",
+              "RelativeToolTip": "packages.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-06-15T13:40:38.423Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "StudentMainWindow.xaml.cs",
               "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\StudentMainWindow.xaml.cs",
               "RelativeDocumentMoniker": "Example\\StudentMainWindow.xaml.cs",
               "ToolTip": "D:\\VSS\\courseselect\\Example\\StudentMainWindow.xaml.cs",
               "RelativeToolTip": "Example\\StudentMainWindow.xaml.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAAwDMAAAAwAAAAAAAAAA==",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAIwAIAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-17T03:13:00.719Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "App.xaml.cs",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\App.xaml.cs",
+              "RelativeDocumentMoniker": "App.xaml.cs",
+              "ToolTip": "D:\\VSS\\courseselect\\App.xaml.cs",
+              "RelativeToolTip": "App.xaml.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABUAAAB5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-15T12:43:52.617Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "MainWindow.xaml.cs",
+              "ToolTip": "D:\\VSS\\courseselect\\MainWindow.xaml.cs",
+              "RelativeToolTip": "MainWindow.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-19T09:17:15.932Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "AdminMainWindow.xaml",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Manager\\AdminMainWindow.xaml",
+              "RelativeDocumentMoniker": "Example\\Manager\\AdminMainWindow.xaml",
+              "ToolTip": "D:\\VSS\\courseselect\\Example\\Manager\\AdminMainWindow.xaml",
+              "RelativeToolTip": "Example\\Manager\\AdminMainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-15T13:19:33.214Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "r24nysau..sql",
+              "DocumentMoniker": "C:\\Users\\86157\\AppData\\Local\\Temp\\r24nysau..sql",
+              "ToolTip": "C:\\Users\\86157\\AppData\\Local\\Temp\\r24nysau..sql",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2025-06-19T09:07:07.735Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TeacherMainWindow.xaml.cs",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\TeacherMainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Example\\TeacherMainWindow.xaml.cs",
+              "ToolTip": "D:\\VSS\\courseselect\\Example\\TeacherMainWindow.xaml.cs",
+              "RelativeToolTip": "Example\\TeacherMainWindow.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwIAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-19T09:24:00.899Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "TeacherMainWindow.xaml",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\TeacherMainWindow.xaml",
+              "RelativeDocumentMoniker": "Example\\TeacherMainWindow.xaml",
+              "ToolTip": "D:\\VSS\\courseselect\\Example\\TeacherMainWindow.xaml",
+              "RelativeToolTip": "Example\\TeacherMainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-19T10:15:16.244Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "LoginWindow.xaml",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\LoginWindow.xaml",
+              "RelativeDocumentMoniker": "Example\\LoginWindow.xaml",
+              "ToolTip": "D:\\VSS\\courseselect\\Example\\LoginWindow.xaml",
+              "RelativeToolTip": "Example\\LoginWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-14T07:01:35.784Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "StudentMainWindow.xaml",
               "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\StudentMainWindow.xaml",
               "RelativeDocumentMoniker": "Example\\StudentMainWindow.xaml",
@@ -198,114 +300,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "\u6211\u7684\u4FE1\u606F.xaml.cs",
-              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\PersonalInformation\\\u6211\u7684\u4FE1\u606F.xaml.cs",
-              "RelativeDocumentMoniker": "Example\\PersonalInformation\\\u6211\u7684\u4FE1\u606F.xaml.cs",
-              "ToolTip": "D:\\VSS\\courseselect\\Example\\PersonalInformation\\\u6211\u7684\u4FE1\u606F.xaml.cs",
-              "RelativeToolTip": "Example\\PersonalInformation\\\u6211\u7684\u4FE1\u606F.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAABDAAAAAAAAAA==",
+              "DocumentIndex": 8,
+              "Title": "Forgetpw.xaml.cs",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Forgetpw.xaml.cs",
+              "RelativeDocumentMoniker": "Example\\Forgetpw.xaml.cs",
+              "ToolTip": "D:\\VSS\\courseselect\\Example\\Forgetpw.xaml.cs",
+              "RelativeToolTip": "Example\\Forgetpw.xaml.cs",
+              "ViewState": "AgIAAEkAAAAAAAAAAAAqwFEAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-16T15:42:38.144Z",
+              "WhenOpened": "2025-06-14T07:16:35.197Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "\u6211\u7684\u4FE1\u606F.xaml",
-              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\PersonalInformation\\\u6211\u7684\u4FE1\u606F.xaml",
-              "RelativeDocumentMoniker": "Example\\PersonalInformation\\\u6211\u7684\u4FE1\u606F.xaml",
-              "ToolTip": "D:\\VSS\\courseselect\\Example\\PersonalInformation\\\u6211\u7684\u4FE1\u606F.xaml",
-              "RelativeToolTip": "Example\\PersonalInformation\\\u6211\u7684\u4FE1\u606F.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-06-16T14:49:23.068Z",
+              "Title": "LoginWindow.xaml.cs",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\LoginWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Example\\LoginWindow.xaml.cs",
+              "ToolTip": "D:\\VSS\\courseselect\\Example\\LoginWindow.xaml.cs",
+              "RelativeToolTip": "Example\\LoginWindow.xaml.cs",
+              "ViewState": "AgIAAFcAAAAAAAAAAAAewNAAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-14T07:02:10.423Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "ChangePasswordWindow.xaml.cs",
-              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\ChangePasswordWindow.xaml.cs",
-              "RelativeDocumentMoniker": "Example\\ChangePasswordWindow.xaml.cs",
-              "ToolTip": "D:\\VSS\\courseselect\\Example\\ChangePasswordWindow.xaml.cs",
-              "RelativeToolTip": "Example\\ChangePasswordWindow.xaml.cs",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAmwDUAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-17T09:34:08.693Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "ChangePasswordWindow.xaml",
-              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\ChangePasswordWindow.xaml",
-              "RelativeDocumentMoniker": "Example\\ChangePasswordWindow.xaml",
-              "ToolTip": "D:\\VSS\\courseselect\\Example\\ChangePasswordWindow.xaml",
-              "RelativeToolTip": "Example\\ChangePasswordWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-06-17T09:30:55.917Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "D:\\VSS\\courseselect\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "MainWindow.xaml",
-              "ToolTip": "D:\\VSS\\courseselect\\MainWindow.xaml",
-              "RelativeToolTip": "MainWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-06-14T06:47:00.006Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "packages.config",
-              "DocumentMoniker": "D:\\VSS\\courseselect\\packages.config",
-              "RelativeDocumentMoniker": "packages.config",
-              "ToolTip": "D:\\VSS\\courseselect\\packages.config",
-              "RelativeToolTip": "packages.config",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2025-06-15T13:40:38.423Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "WpfXamlLoader.cs",
-              "DocumentMoniker": "C:\\Users\\86157\\AppData\\Local\\Temp\\.vsdbgsrc\\361f82b6b9a328e1602d17ccc30c3c9a6486f38708e103ffe2d5612ce5556794\\WpfXamlLoader.cs",
-              "ToolTip": "C:\\Users\\86157\\AppData\\Local\\Temp\\.vsdbgsrc\\361f82b6b9a328e1602d17ccc30c3c9a6486f38708e103ffe2d5612ce5556794\\WpfXamlLoader.cs [\u53EA\u8BFB]",
-              "ViewState": "AgIAAGkAAAAAAAAAAAAWwHcAAAADAAAAAQAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-15T16:57:54.267Z",
-              "EditorCaption": " [\u53EA\u8BFB]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "ResourcePart.cs",
-              "DocumentMoniker": "C:\\Users\\86157\\AppData\\Local\\Temp\\.vsdbgsrc\\c6ee7f6fec133611eb2a064e1a788d1d2474410b0c2beae8c7d187c8d89dcad0\\ResourcePart.cs",
-              "ToolTip": "C:\\Users\\86157\\AppData\\Local\\Temp\\.vsdbgsrc\\c6ee7f6fec133611eb2a064e1a788d1d2474410b0c2beae8c7d187c8d89dcad0\\ResourcePart.cs [\u53EA\u8BFB]",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAWwCsAAAAEAAAAAQAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-15T16:40:48.464Z",
-              "EditorCaption": " [\u53EA\u8BFB]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "ChangeInfoWindow.xaml.cs",
-              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\ChangeInfoWindow.xaml.cs",
-              "RelativeDocumentMoniker": "Example\\ChangeInfoWindow.xaml.cs",
-              "ToolTip": "D:\\VSS\\courseselect\\Example\\ChangeInfoWindow.xaml.cs",
-              "RelativeToolTip": "Example\\ChangeInfoWindow.xaml.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAADwvxsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-14T12:33:35.53Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
               "Title": "Forgetpw.xaml",
               "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Forgetpw.xaml",
               "RelativeDocumentMoniker": "Example\\Forgetpw.xaml",
@@ -317,89 +338,79 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Forgetpw.xaml.cs",
-              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Forgetpw.xaml.cs",
-              "RelativeDocumentMoniker": "Example\\Forgetpw.xaml.cs",
-              "ToolTip": "D:\\VSS\\courseselect\\Example\\Forgetpw.xaml.cs",
-              "RelativeToolTip": "Example\\Forgetpw.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAgwBEAAABMAAAAAAAAAA==",
+              "DocumentIndex": 10,
+              "Title": "ChangePasswordWindow.xaml.cs",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\ChangePasswordWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Example\\ChangePasswordWindow.xaml.cs",
+              "ToolTip": "D:\\VSS\\courseselect\\Example\\ChangePasswordWindow.xaml.cs",
+              "RelativeToolTip": "Example\\ChangePasswordWindow.xaml.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAIwCsAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-14T07:16:35.197Z",
+              "WhenOpened": "2025-06-17T09:34:08.693Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "LoginWindow.xaml",
-              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\LoginWindow.xaml",
-              "RelativeDocumentMoniker": "Example\\LoginWindow.xaml",
-              "ToolTip": "D:\\VSS\\courseselect\\Example\\LoginWindow.xaml",
-              "RelativeToolTip": "Example\\LoginWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-06-14T07:01:35.784Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 12,
-              "Title": "AdminMainWindow.xaml.cs",
-              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Manager\\AdminMainWindow.xaml.cs",
-              "RelativeDocumentMoniker": "Example\\Manager\\AdminMainWindow.xaml.cs",
-              "ToolTip": "D:\\VSS\\courseselect\\Example\\Manager\\AdminMainWindow.xaml.cs",
-              "RelativeToolTip": "Example\\Manager\\AdminMainWindow.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-15T13:19:36.766Z"
+              "Title": "AdminMainWindow.xaml",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\AdminMainWindow.xaml",
+              "RelativeDocumentMoniker": "Example\\AdminMainWindow.xaml",
+              "ToolTip": "D:\\VSS\\courseselect\\Example\\AdminMainWindow.xaml",
+              "RelativeToolTip": "Example\\AdminMainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-19T10:13:19.739Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 29,
               "Title": "TeacherMainWindow.xaml.cs",
               "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Teacher\\TeacherMainWindow.xaml.cs",
               "RelativeDocumentMoniker": "Example\\Teacher\\TeacherMainWindow.xaml.cs",
               "ToolTip": "D:\\VSS\\courseselect\\Example\\Teacher\\TeacherMainWindow.xaml.cs",
               "RelativeToolTip": "Example\\Teacher\\TeacherMainWindow.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-15T13:18:32.839Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "BaseMainWindow.xaml",
-              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\BaseMainWindow.xaml",
-              "RelativeDocumentMoniker": "Example\\BaseMainWindow.xaml",
-              "ToolTip": "D:\\VSS\\courseselect\\Example\\BaseMainWindow.xaml",
-              "RelativeToolTip": "Example\\BaseMainWindow.xaml",
+              "DocumentIndex": 32,
+              "Title": "ChangeInfoWindow.xaml",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\ChangeInfoWindow.xaml",
+              "RelativeDocumentMoniker": "Example\\ChangeInfoWindow.xaml",
+              "ToolTip": "D:\\VSS\\courseselect\\Example\\ChangeInfoWindow.xaml",
+              "RelativeToolTip": "Example\\ChangeInfoWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-06-15T13:16:26.117Z",
+              "WhenOpened": "2025-06-14T12:30:43.097Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "AdminMainWindow.xaml.cs",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\AdminMainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Example\\AdminMainWindow.xaml.cs",
+              "ToolTip": "D:\\VSS\\courseselect\\Example\\AdminMainWindow.xaml.cs",
+              "RelativeToolTip": "Example\\AdminMainWindow.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwIAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-19T09:24:31.973Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "TeacherMainWindow.xaml",
-              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Teacher\\TeacherMainWindow.xaml",
-              "RelativeDocumentMoniker": "Example\\Teacher\\TeacherMainWindow.xaml",
-              "ToolTip": "D:\\VSS\\courseselect\\Example\\Teacher\\TeacherMainWindow.xaml",
-              "RelativeToolTip": "Example\\Teacher\\TeacherMainWindow.xaml",
+              "DocumentIndex": 11,
+              "Title": "ChangePasswordWindow.xaml",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\ChangePasswordWindow.xaml",
+              "RelativeDocumentMoniker": "Example\\ChangePasswordWindow.xaml",
+              "ToolTip": "D:\\VSS\\courseselect\\Example\\ChangePasswordWindow.xaml",
+              "RelativeToolTip": "Example\\ChangePasswordWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-06-15T13:18:29.577Z"
+              "WhenOpened": "2025-06-17T09:30:55.917Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 17,
-              "Title": "AdminMainWindow.xaml",
-              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Manager\\AdminMainWindow.xaml",
-              "RelativeDocumentMoniker": "Example\\Manager\\AdminMainWindow.xaml",
-              "ToolTip": "D:\\VSS\\courseselect\\Example\\Manager\\AdminMainWindow.xaml",
-              "RelativeToolTip": "Example\\Manager\\AdminMainWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-06-15T13:19:33.214Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
               "Title": "App.config",
               "DocumentMoniker": "D:\\VSS\\courseselect\\App.config",
               "RelativeDocumentMoniker": "App.config",
@@ -407,7 +418,31 @@
               "RelativeToolTip": "App.config",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2025-06-15T13:41:53.801Z"
+              "WhenOpened": "2025-06-15T13:41:53.801Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "App.xaml",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\App.xaml",
+              "RelativeDocumentMoniker": "App.xaml",
+              "ToolTip": "D:\\VSS\\courseselect\\App.xaml",
+              "RelativeToolTip": "App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-15T13:20:16.353Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "courseselect",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\courseselect.csproj",
+              "RelativeDocumentMoniker": "courseselect.csproj",
+              "ToolTip": "D:\\VSS\\courseselect\\courseselect.csproj",
+              "RelativeToolTip": "courseselect.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-06-15T13:44:16.838Z"
             },
             {
               "$type": "Document",
@@ -424,49 +459,94 @@
             {
               "$type": "Document",
               "DocumentIndex": 19,
-              "Title": "App.xaml.cs",
-              "DocumentMoniker": "D:\\VSS\\courseselect\\App.xaml.cs",
-              "RelativeDocumentMoniker": "App.xaml.cs",
-              "ToolTip": "D:\\VSS\\courseselect\\App.xaml.cs",
-              "RelativeToolTip": "App.xaml.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAADwvycAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-15T12:43:52.617Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "App.xaml",
-              "DocumentMoniker": "D:\\VSS\\courseselect\\App.xaml",
-              "RelativeDocumentMoniker": "App.xaml",
-              "ToolTip": "D:\\VSS\\courseselect\\App.xaml",
-              "RelativeToolTip": "App.xaml",
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "MainWindow.xaml",
+              "ToolTip": "D:\\VSS\\courseselect\\MainWindow.xaml",
+              "RelativeToolTip": "MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-06-15T13:20:16.353Z",
+              "WhenOpened": "2025-06-14T06:47:00.006Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 22,
-              "Title": "ChangeInfoWindow.xaml",
-              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\ChangeInfoWindow.xaml",
-              "RelativeDocumentMoniker": "Example\\ChangeInfoWindow.xaml",
-              "ToolTip": "D:\\VSS\\courseselect\\Example\\ChangeInfoWindow.xaml",
-              "RelativeToolTip": "Example\\ChangeInfoWindow.xaml",
+              "Title": "\u6211\u7684\u4FE1\u606F.xaml",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\PersonalInformation\\\u6211\u7684\u4FE1\u606F.xaml",
+              "RelativeDocumentMoniker": "Example\\PersonalInformation\\\u6211\u7684\u4FE1\u606F.xaml",
+              "ToolTip": "D:\\VSS\\courseselect\\Example\\PersonalInformation\\\u6211\u7684\u4FE1\u606F.xaml",
+              "RelativeToolTip": "Example\\PersonalInformation\\\u6211\u7684\u4FE1\u606F.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-06-14T12:30:43.097Z",
+              "WhenOpened": "2025-06-16T14:49:23.068Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "\u6211\u7684\u4FE1\u606F.xaml.cs",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\PersonalInformation\\\u6211\u7684\u4FE1\u606F.xaml.cs",
+              "RelativeDocumentMoniker": "Example\\PersonalInformation\\\u6211\u7684\u4FE1\u606F.xaml.cs",
+              "ToolTip": "D:\\VSS\\courseselect\\Example\\PersonalInformation\\\u6211\u7684\u4FE1\u606F.xaml.cs",
+              "RelativeToolTip": "Example\\PersonalInformation\\\u6211\u7684\u4FE1\u606F.xaml.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAIwBcAAABgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-16T15:42:38.144Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 23,
-              "Title": "courseselect",
-              "DocumentMoniker": "D:\\VSS\\courseselect\\courseselect.csproj",
-              "RelativeDocumentMoniker": "courseselect.csproj",
-              "ToolTip": "D:\\VSS\\courseselect\\courseselect.csproj",
-              "RelativeToolTip": "courseselect.csproj",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-06-15T13:44:16.838Z"
+              "Title": "WpfXamlLoader.cs",
+              "DocumentMoniker": "C:\\Users\\86157\\AppData\\Local\\Temp\\.vsdbgsrc\\361f82b6b9a328e1602d17ccc30c3c9a6486f38708e103ffe2d5612ce5556794\\WpfXamlLoader.cs",
+              "ToolTip": "C:\\Users\\86157\\AppData\\Local\\Temp\\.vsdbgsrc\\361f82b6b9a328e1602d17ccc30c3c9a6486f38708e103ffe2d5612ce5556794\\WpfXamlLoader.cs",
+              "ViewState": "AgIAAGkAAAAAAAAAAAAWwHcAAAADAAAAAQAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-15T16:57:54.267Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "TeacherMainWindow.xaml",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Teacher\\TeacherMainWindow.xaml",
+              "RelativeDocumentMoniker": "Example\\Teacher\\TeacherMainWindow.xaml",
+              "ToolTip": "D:\\VSS\\courseselect\\Example\\Teacher\\TeacherMainWindow.xaml",
+              "RelativeToolTip": "Example\\Teacher\\TeacherMainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-15T13:18:29.577Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "ResourcePart.cs",
+              "DocumentMoniker": "C:\\Users\\86157\\AppData\\Local\\Temp\\.vsdbgsrc\\c6ee7f6fec133611eb2a064e1a788d1d2474410b0c2beae8c7d187c8d89dcad0\\ResourcePart.cs",
+              "ToolTip": "C:\\Users\\86157\\AppData\\Local\\Temp\\.vsdbgsrc\\c6ee7f6fec133611eb2a064e1a788d1d2474410b0c2beae8c7d187c8d89dcad0\\ResourcePart.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAWwCsAAAAEAAAAAQAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-15T16:40:48.464Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "ChangeInfoWindow.xaml.cs",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\ChangeInfoWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Example\\ChangeInfoWindow.xaml.cs",
+              "ToolTip": "D:\\VSS\\courseselect\\Example\\ChangeInfoWindow.xaml.cs",
+              "RelativeToolTip": "Example\\ChangeInfoWindow.xaml.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-14T12:33:35.53Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "AdminMainWindow.xaml.cs",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Manager\\AdminMainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Example\\Manager\\AdminMainWindow.xaml.cs",
+              "ToolTip": "D:\\VSS\\courseselect\\Example\\Manager\\AdminMainWindow.xaml.cs",
+              "RelativeToolTip": "Example\\Manager\\AdminMainWindow.xaml.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-15T13:19:36.766Z"
             }
           ]
         }

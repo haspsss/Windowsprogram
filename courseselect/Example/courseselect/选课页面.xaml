@@ -21,6 +21,7 @@
             <ComboBox x:Name="CCollegeComboBox" Width="120" SelectionChanged="FilterComboBox_SelectionChanged" />
             <ComboBox x:Name="CKindComboBox" Width="120" SelectionChanged="FilterComboBox_SelectionChanged"/>
             <ComboBox x:Name="TestComboBox" Width="120" SelectionChanged="FilterComboBox_SelectionChanged" />
+            <ComboBox x:Name="CWeekComboBox" Width="120" SelectionChanged="FilterComboBox_SelectionChanged" />
         </StackPanel>
          
         <DataGrid x:Name="CourseDataGrid" Grid.Row="1" AutoGenerateColumns="False" Margin="5">
@@ -35,6 +36,7 @@
           </DataTemplate>
       </DataGridTemplateColumn.CellTemplate>
   </DataGridTemplateColumn>
+                <DataGridTextColumn Header="剩余人数" Binding="{Binding RemainingSeats}" />
                 <DataGridTextColumn Header="课程编号" Binding="{Binding Cid}" />
                 <DataGridTextColumn Header="课程名称" Binding="{Binding CName}" />
                 <DataGridTextColumn Header="课程周几" Binding="{Binding CDay}" />

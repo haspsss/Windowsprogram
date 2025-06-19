@@ -1,4 +1,4 @@
-﻿using Npgsql;
+﻿using Microsoft.Data.SqlClient;
 using System;
 using System.Windows;
 using System.Windows.Media.Imaging;
@@ -7,10 +7,10 @@ namespace courseselect.Example
 {
     public abstract class MainWindow : Window
     {
-        protected NpgsqlConnection Connection { get; }
+        protected SqlConnection Connection { get; }
         protected string UserId { get; }
 
-        protected MainWindow(NpgsqlConnection connection, string userId)
+        protected MainWindow(SqlConnection connection, string userId)
         {
             Connection = connection;
             UserId = userId;

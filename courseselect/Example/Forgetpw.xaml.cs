@@ -1,18 +1,18 @@
-﻿using Npgsql;
+﻿
 using System.Threading.Tasks;
 using System.Windows;
-
+using System.Data.SqlClient;
 
 namespace courseselect.Example
 {
     public partial class Forgetpw : Window
     {
-        private readonly NpgsqlConnection _connection;
+        private readonly SqlConnection _connection;
         private readonly string _userId;
         private readonly string _question;
 
 
-        public Forgetpw(NpgsqlConnection connection, string userId, string question)
+        public Forgetpw(SqlConnection connection, string userId, string question)
         {
             InitializeComponent();
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
@@ -45,13 +45,13 @@ namespace courseselect.Example
             string query = @"
             SELECT 
                 CASE 
-                    WHEN EXISTS (SELECT 1 FROM ""SInformation"".student WHERE sid = @userid) THEN 'student'
-                    WHEN EXISTS (SELECT 1 FROM ""SInformation"".teacher WHERE ttid = @userid) THEN 'teacher'
-                    WHEN EXISTS (SELECT 1 FROM ""SInformation"".manager WHERE mid = @userid) THEN 'admin'
+                    WHEN EXISTS (SELECT 1 FROM   student WHERE sid = @userid) THEN 'student'
+                    WHEN EXISTS (SELECT 1 FROM   teacher WHERE ttid = @userid) THEN 'teacher'
+                    WHEN EXISTS (SELECT 1 FROM   manager WHERE mid = @userid) THEN 'admin'
                     ELSE NULL 
                 END AS role";
 
-            using (var cmd = new NpgsqlCommand(query, _connection))
+            using (var cmd = new SqlCommand(query, _connection))
             {
                 cmd.Parameters.AddWithValue("@userid", userid);
                 return await cmd.ExecuteScalarAsync() as string;
@@ -71,15 +71,15 @@ namespace courseselect.Example
 
             if (role == "student")
             {
-                query = "SELECT answer FROM \"SInformation\".student WHERE sid = @userid";
+                query = "SELECT answer FROM student WHERE sid = @userid";
             }
             else if (role == "teacher")
             {
-                query = "SELECT answer FROM \"SInformation\".teacher WHERE ttid = @userid";
+                query = "SELECT answer FROM teacher WHERE ttid = @userid";
             }
             else if (role == "admin")
             {
-                query = "SELECT answer FROM \"SInformation\".manager WHERE mid = @userid";
+                query = "SELECT answer FROM manager WHERE mid = @userid";
             }
             else
             {
@@ -87,7 +87,7 @@ namespace courseselect.Example
                 return null;
             }
 
-            using (var cmd = new NpgsqlCommand(query, _connection))
+            using (var cmd = new SqlCommand(query, _connection))
             {
                 cmd.Parameters.AddWithValue("@userid", userId);
                 return await cmd.ExecuteScalarAsync() as string;

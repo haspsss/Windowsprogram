@@ -1,7 +1,8 @@
 ﻿using courseselect.Example.courseselect;
 using courseselect.Example.PersonalInformation;
-using Npgsql;
+using System.Data.SqlClient;
 using System;
+
 using System.Windows;
 using System.Windows.Controls;
 
@@ -9,13 +10,13 @@ namespace courseselect.Example
 {
     public partial class StudentMainWindow : Window
     {
-        private readonly NpgsqlConnection _connection;
+        private readonly SqlConnection _connection; // 替换 NpgsqlConnection
         private readonly string _userId;
         private readonly string _userName;
         private MyInformation _myInformationPage; // Store the MyInformation page instance
         private 选课页面 _xuanKePage;
 
-        public StudentMainWindow(NpgsqlConnection connection, string userId,string userName)
+        public StudentMainWindow(SqlConnection connection, string userId, string userName)
         {
             InitializeComponent();
             _connection = connection;
@@ -47,7 +48,7 @@ namespace courseselect.Example
                     // Lazy loading of the 选课页面
                     if (_xuanKePage == null)
                     {
-                        _xuanKePage = new 选课页面(_connection, _userId,_userName); // Pass userId as well
+                        _xuanKePage = new 选课页面(_connection, _userId, _userName); // Pass userId as well
                     }
                     welcombox.IsReadOnly = true;
                     frame1.Navigate(_xuanKePage);
@@ -83,13 +84,10 @@ namespace courseselect.Example
                     break;
             }
         }
-        
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            // 实现你自己的文本改变逻辑
         }
     }
 }
-
-    

@@ -1,5 +1,6 @@
 ﻿using Npgsql;
 using System;
+using System.Data.SqlClient;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -7,10 +8,10 @@ namespace courseselect.Example.PersonalInformation
 {
     public partial class MyInformation : Page
     {
-        private NpgsqlConnection _connection;
+        private SqlConnection _connection;
         private string _userId;
 
-        public MyInformation(NpgsqlConnection connection, string userId)
+        public MyInformation(SqlConnection connection, string userId)
         {
             InitializeComponent();
             _connection = connection;
@@ -20,9 +21,9 @@ namespace courseselect.Example.PersonalInformation
 
         private void LoadData()
         {
-            string query = "SELECT sid, name, sex, birth, college, major, political, phone FROM \"SInformation\".student WHERE sid = @userId";
+            string query = "SELECT sid, name, sex, birth, college, major, political, phone FROM student WHERE sid = @userId";
 
-            using (var cmd = new NpgsqlCommand(query, _connection))
+            using (var cmd = new SqlCommand(query, _connection))
             {
                 cmd.Parameters.AddWithValue("@userId", _userId);
 

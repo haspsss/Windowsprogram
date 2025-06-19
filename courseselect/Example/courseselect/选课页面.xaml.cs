@@ -1,4 +1,4 @@
-﻿using Npgsql;
+﻿using System.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -6,22 +6,23 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
+using System.ComponentModel; // For INotifyPropertyChanged
 
 namespace courseselect.Example.courseselect
 {
     public partial class 选课页面 : Page
     {
-        private NpgsqlConnection _connection;
-        private List<CourseInfo> _allCourses;
+        private SqlConnection _connection;
+        private List<CourseInfo> _allCourses; // 使用 List<CourseInfo>
         private string userId;
-        private string userName; // 新增字段
+        private string userName;
 
-        public 选课页面(NpgsqlConnection connection, string userId, string userName)
+        public 选课页面(SqlConnection connection, string userId, string userName)
         {
             InitializeComponent();
             _connection = connection;
-            this.userId = userId; // 保存用户ID
-            this.userName = userName; // 保存用户姓名
+            this.userId = userId;
+            this.userName = userName;
             PopulateFilterDropdowns();
             LoadAndDisplayCourses();
         }
@@ -31,13 +32,10 @@ namespace courseselect.Example.courseselect
             CTimeComboBox.Items.Add("3-4节");
             CTimeComboBox.Items.Add("Afternoon");
             CTimeComboBox.Items.Add("Evening");
-
             CCollegeComboBox.Items.Add("College of Engineering");
             CCollegeComboBox.Items.Add("College of Science");
-
             CKindComboBox.Items.Add("Required");
             CKindComboBox.Items.Add("Elective");
-
             TestComboBox.Items.Add("Exam");
             TestComboBox.Items.Add("Project");
         }
@@ -46,105 +44,106 @@ namespace courseselect.Example.courseselect
         {
             try
             {
-                _allCourses?.Clear(); // 在加载新数据之前清空列表
-                string query = $@"
-            SELECT
-                c.cid,
-                c.cname,
-                cday,
-                caccomdate,
-                ccredit,
-                cplace,
-                ctesttime,
-                ckind,
-                cintro,
-                ccollege,
-                cdepartment,
-                cmajor,
-                cyear,
-                cweek,
-                ctime,
-                ctestplace,
-                ctest,
-                t.name
-            FROM ""SInformation"".teaching_course tc
-            JOIN ""SInformation"".course c ON tc.cid = c.cid
-            JOIN ""SInformation"".teacher t ON tc.ttid = t.ttid
-            WHERE 1=1";
+                _allCourses = new List<CourseInfo>();
+                string query = @"
+                    SELECT
+                        c.cid,
+                        c.cname,
+                        cday,
+                        caccomdate,
+                        ccredit,
+                        cplace,
+                        ctesttime,
+                        ckind,
+                        cintro,
+                        ccollege,
+                        cdepartment,
+                        cmajor,
+                        cyear,
+                        cweek,
+                        ctime,
+                        ctestplace,
+                        ctest,
+                        t.name,
+                        c.caccomdate - (SELECT COUNT(*) FROM scclass WHERE sc_cid = c.cid) AS CalculatedRemainingSeats -- 使用别名
+                    FROM teaching_course tc
+                    JOIN course c ON tc.cid = c.cid
+                    JOIN teacher t ON tc.ttid = t.ttid
+                    WHERE 1=1";
 
-                List<NpgsqlParameter> parameters = new List<NpgsqlParameter>();
+                List<SqlParameter> parameters = new List<SqlParameter>();
 
-                // 添加查询条件
                 if (!string.IsNullOrEmpty(searchText))
                 {
                     query += " AND c.cname LIKE @SearchText";
-                    parameters.Add(new NpgsqlParameter("@SearchText", "%" + searchText + "%"));
+                    parameters.Add(new SqlParameter("@SearchText", "%" + searchText + "%"));
                 }
-
+                // 其他筛选条件...
+                // 例如：
                 if (!string.IsNullOrEmpty(selectedCTime))
                 {
                     query += " AND c.ctime = @CTime";
-                    parameters.Add(new NpgsqlParameter("@CTime", selectedCTime));
+                    parameters.Add(new SqlParameter("@CTime", selectedCTime));
                 }
-
                 if (!string.IsNullOrEmpty(selectedCCollege))
                 {
                     query += " AND c.ccollege = @CCollege";
-                    parameters.Add(new NpgsqlParameter("@CCollege", selectedCCollege));
+                    parameters.Add(new SqlParameter("@CCollege", selectedCCollege));
                 }
-
                 if (!string.IsNullOrEmpty(selectedCKind))
                 {
                     query += " AND c.ckind = @CKind";
-                    parameters.Add(new NpgsqlParameter("@CKind", selectedCKind));
+                    parameters.Add(new SqlParameter("@CKind", selectedCKind));
                 }
-
                 if (!string.IsNullOrEmpty(selectedTest))
                 {
                     query += " AND c.ctest = @CTest";
-                    parameters.Add(new NpgsqlParameter("@CTest", selectedTest));
+                    parameters.Add(new SqlParameter("@CTest", selectedTest));
                 }
-
                 if (!string.IsNullOrEmpty(selectedCWeek))
                 {
                     query += " AND c.cweek = @CWeek";
-                    parameters.Add(new NpgsqlParameter("@CWeek", selectedCWeek));
+                    parameters.Add(new SqlParameter("@CWeek", selectedCWeek));
                 }
 
-                using (NpgsqlCommand command = new NpgsqlCommand(query, _connection))
+
+                using (SqlCommand command = new SqlCommand(query, _connection))
                 {
                     command.Parameters.AddRange(parameters.ToArray());
 
-                    using (NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command))
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
                     {
                         DataTable dataTable = new DataTable();
                         adapter.Fill(dataTable);
 
-                        // 只添加有效的课程信息
                         _allCourses = dataTable.AsEnumerable()
-                     .Where(row => !string.IsNullOrEmpty(row.Field<string>("cid"))).Select(row => new CourseInfo
-                     {
-                         Cid = row.Field<string>("cid"),
-                         CName = row.Field<string>("cname"),
-                         CTime = row.Field<string>("ctime"),
-                         CCollege = row.Field<string>("ccollege"),
-                         CKind = row.Field<string>("ckind"),
-                         CCredit = row.Field<int>("ccredit"),
-                         CTest = row.Field<string>("ctest"),
-                         TeacherName = row.Field<string>("name"),
-                         CAccomdate = row.Field<int>("caccomdate"),
-                         CWeek = row.Field<string>("cweek"),
-                         CDay = row.Field<string>("cday"),
-                         ButtonEnabled = true, // 默认可用
-                         IsDeselectButtonEnabled = false // 默认退选按钮不可用
-                     }).ToList();
+                            .Where(row => !string.IsNullOrEmpty(row.Field<string>("cid"))).Select(row => new CourseInfo
+                            {
+                                Cid = row.Field<string>("cid"),
+                                CName = row.Field<string>("cname"),
+                                CDay = row.Field<string>("cday"),
+                                CAccomdate = row.Field<int>("caccomdate"), // 总容量
+                                CCredit = row.Field<int>("ccredit"),
+                                CPlace = row.Field<string>("cplace"),
+                                CTestTime = row.Field<string>("ctesttime"),
+                                CKind = row.Field<string>("ckind"),
+                                CIntro = row.Field<string>("cintro"),
+                                CCollege = row.Field<string>("ccollege"),
+                                CDepartment = row.Field<string>("cdepartment"),
+                                CMajor = row.Field<string>("cmajor"),
+                                CYear = row.Field<string>("cyear"),
+                                CWeek = row.Field<string>("cweek"),
+                                CTime = row.Field<string>("ctime"),
+                                CTestPlace = row.Field<string>("ctestplace"),
+                                CTest = row.Field<string>("ctest"),
+                                TeacherName = row.Field<string>("name"),
+                                // 正确初始化 RemainingSeats 为实际剩余座位数
+                                RemainingSeats = row.Field<int>("CalculatedRemainingSeats"),
+                                // ButtonEnabled, IsDeselectButtonEnabled, IsSelected 将在 SetCourseButtonStates 中初始化
+                            }).ToList();
 
-                        // 更新所有课程的按钮状态
-                        foreach (var course in _allCourses)
-                        {
-                            course.ButtonEnabled = !IsCourseConflict(course); // 设置选课按钮状态
-                            course.IsDeselectButtonEnabled = IsCourseSelected(course); // 设置退选按钮状态
-                        }
+                        // 设置所有课程的按钮状态和选中状态
+                        SetCourseButtonStates();
 
                         CourseDataGrid.ItemsSource = _allCourses;
                     }
@@ -156,22 +155,54 @@ namespace courseselect.Example.courseselect
             }
         }
 
-        private bool IsCourseSelected(CourseInfo course)
+        /// <summary>
+        /// 初始化所有课程的 IsSelected 状态，并调用 UpdateAllCourseButtonStates 更新按钮状态。
+        /// </summary>
+        private void SetCourseButtonStates()
         {
-            string query = @"
-        SELECT COUNT(*)
-        FROM ""SInformation"".scclass
-        WHERE sc_sid = @UserId AND sc_cid = @CourseId";
+            // 确保连接已打开
+            if (_connection.State != ConnectionState.Open)
+            {
+                _connection.Open();
+            }
 
-            using (var command = new NpgsqlCommand(query, _connection))
+            // 首先，将所有课程的 IsSelected 状态重置为 false
+            foreach (var course in _allCourses)
+            {
+                course.IsSelected = false;
+            }
+
+            // 查询用户的选课记录
+            string query = @"
+                SELECT sc_cid
+                FROM scclass
+                WHERE sc_sid = @UserId";
+
+            using (var command = new SqlCommand(query, _connection))
             {
                 command.Parameters.AddWithValue("@UserId", userId);
-                command.Parameters.AddWithValue("@CourseId", course.Cid);
+                using (var reader = command.ExecuteReader())
+                {
+                    var selectedCourseCids = new HashSet<string>();
+                    while (reader.Read())
+                    {
+                        selectedCourseCids.Add(reader.GetString(0)); // 添加已选课程ID
+                    }
 
-                int count = Convert.ToInt32(command.ExecuteScalar());
-                return count > 0; // 如果计数大于0，表示已选择该课程
+                    // 根据数据库记录设置课程的 IsSelected 状态
+                    foreach (var course in _allCourses)
+                    {
+                        if (selectedCourseCids.Contains(course.Cid))
+                        {
+                            course.IsSelected = true;
+                        }
+                    }
+                }
             }
+            // 根据 IsSelected 状态和冲突情况更新所有课程的按钮状态
+            UpdateAllCourseButtonStates();
         }
+
         private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
             string searchText = SearchTextBox.Text;
@@ -180,62 +211,75 @@ namespace courseselect.Example.courseselect
 
         private void FilterComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            // 获取所有筛选条件的值
             string selectedCTime = CTimeComboBox.SelectedItem as string;
-            // ...获取其他筛选值...
+            string selectedCCollege = CCollegeComboBox.SelectedItem as string;
+            string selectedCKind = CKindComboBox.SelectedItem as string;
+            string selectedTest = TestComboBox.SelectedItem as string;
+            string selectedCWeek = CWeekComboBox.SelectedItem as string; // 假设您有 CWeekComboBox
 
-            LoadAndDisplayCourses(selectedCTime: selectedCTime /*, 其他筛选参数 */);
+            // 重新加载并显示课程
+            LoadAndDisplayCourses(
+                searchText: SearchTextBox.Text, // 保持搜索框内容
+                selectedCTime: selectedCTime,
+                selectedCCollege: selectedCCollege,
+                selectedCKind: selectedCKind,
+                selectedTest: selectedTest,
+                selectedCWeek: selectedCWeek
+            );
         }
+
         private void SelectCourse_Click(object sender, RoutedEventArgs e)
         {
             var button = sender as Button;
-            if (button == null)
-            {
-                MessageBox.Show("按钮无效");
-                return;
-            }
-            var course = button.DataContext as CourseInfo; // 获取当前课程信息
-            if (course == null)
-            {
-                MessageBox.Show("未能获取课程信息");
-                return;
-            }
+            if (button == null) return;
 
-            // 检查剩余人数
-            if (course.CAccomdate <= 0)
+            var courseToSelect = button.DataContext as CourseInfo;
+            if (courseToSelect == null) return;
+
+            if (courseToSelect.RemainingSeats <= 0)
             {
                 MessageBox.Show("课程已满，无法选课。");
                 return;
             }
 
+            // 在进行数据库操作前，先进行客户端冲突检查
+            if (IsCourseConflict(courseToSelect))
+            {
+                MessageBox.Show("该课程与您已选的其他课程时间冲突，无法选课。");
+                return;
+            }
+
             try
             {
-                string insertQuery = @"
-            INSERT INTO ""SInformation"".""scclass"" (sc_sid, sc_sname, sc_cid, sc_cname)
-            VALUES (@UserId, @UserName, @CourseId, @CourseName)";
+                // 确保连接已打开
+                if (_connection.State != ConnectionState.Open)
+                {
+                    _connection.Open();
+                }
 
-                using (NpgsqlCommand command = new NpgsqlCommand(insertQuery, _connection))
+                string insertQuery = @"
+                    INSERT INTO scclass (sc_sid, sc_sname, sc_cid, sc_cname)
+                    VALUES (@UserId, @UserName, @CourseId, @CourseName)";
+
+                using (SqlCommand command = new SqlCommand(insertQuery, _connection))
                 {
                     command.Parameters.AddWithValue("@UserId", userId);
                     command.Parameters.AddWithValue("@UserName", userName);
-                    command.Parameters.AddWithValue("@CourseId", course.Cid);
-                    command.Parameters.AddWithValue("@CourseName", course.CName);
+                    command.Parameters.AddWithValue("@CourseId", courseToSelect.Cid);
+                    command.Parameters.AddWithValue("@CourseName", courseToSelect.CName);
 
-                    command.ExecuteNonQuery(); // 执行插入
+                    command.ExecuteNonQuery();
+                    courseToSelect.RemainingSeats -= 1; // 更新可选人数
                     MessageBox.Show("选课成功！");
-                    // 更新按钮状态
-                    course.ButtonEnabled = false; // 禁用选课按钮
-                    course.IsDeselectButtonEnabled = true; // 启用退选按钮
-                                                           // 禁用所有冲突课程的按钮
-                    foreach (var c in _allCourses)
-                    {
-                        if (IsCourseConflict(c)&&c!=course)
-                        {
-                            c.ButtonEnabled = false; // 禁用冲突课程的选课按钮按钮
-                        }
-                    }
-                    
-                    
-                    CourseDataGrid.Items.Refresh(); // 刷新数据绑定
+
+                    // 标记课程为已选中
+                    courseToSelect.IsSelected = true;
+
+                    // 重新评估所有课程的按钮状态
+                    UpdateAllCourseButtonStates();
+
+                    // CourseDataGrid.Items.Refresh(); // 已在 UpdateAllCourseButtonStates 中调用
                 }
             }
             catch (Exception ex)
@@ -243,63 +287,70 @@ namespace courseselect.Example.courseselect
                 MessageBox.Show("选课时出错: " + ex.Message);
             }
         }
-        private bool IsCourseConflict(CourseInfo course)
+
+        /// <summary>
+        /// 判断给定课程是否与当前任何已选课程（IsSelected = true）冲突。
+        /// 此方法在客户端执行，不查询数据库。
+        /// </summary>
+        /// <param name="courseToCheck">要检查冲突的课程。</param>
+        /// <returns>如果存在冲突则返回 true，否则返回 false。</returns>
+        private bool IsCourseConflict(CourseInfo courseToCheck)
         {
-            string query = @"
-        SELECT COUNT(*)
-        FROM ""SInformation"".scclass sc
-        JOIN ""SInformation"".course c ON sc.sc_cid = c.cid
-        WHERE sc.sc_sid = @UserId
-          AND cweek = @Cweek
-          AND cday = @CDay
-          AND ctime = @CTime";
-
-            using (var command = new NpgsqlCommand(query, _connection))
+            // 遍历所有当前已选课程 (IsSelected 为 true 且不是 courseToCheck 本身)
+            foreach (var selectedCourse in _allCourses.Where(c => c.IsSelected && c.Cid != courseToCheck.Cid))
             {
-                command.Parameters.AddWithValue("@UserId", userId);
-                command.Parameters.AddWithValue("@Cweek", course.CWeek);
-                command.Parameters.AddWithValue("@CDay", course.CDay);
-                command.Parameters.AddWithValue("@CTime", course.CTime);
-
-                int conflictCount = Convert.ToInt32(command.ExecuteScalar());
-                return conflictCount > 0; // 如果有冲突，则返回 true
+                // 假设冲突判断基于 CWeek, CDay, CTime 完全相同
+                // 如果您的时间段（如 "3-4节", "Afternoon", "Evening"）可能存在交叉，
+                // 则需要更复杂的逻辑来判断时间段的重叠。
+                if (courseToCheck.CWeek == selectedCourse.CWeek &&
+                    courseToCheck.CDay == selectedCourse.CDay &&
+                    courseToCheck.CTime == selectedCourse.CTime)
+                {
+                    return true; // 发现冲突
+                }
             }
+            return false; // 没有发现冲突
         }
+
         private void DeselectCourse_Click(object sender, RoutedEventArgs e)
         {
             var button = sender as Button;
-            if (button == null)
-            {
-                MessageBox.Show("按钮无效");
-                return;
-            }
-            var course = button.DataContext as CourseInfo; // 获取当前课程信息
+            if (button == null) return;
+
+            var courseToDeselect = button.DataContext as CourseInfo;
+            if (courseToDeselect == null) return;
 
             try
             {
-                string deleteQuery = @"
-            DELETE FROM ""SInformation"".""scclass""
-            WHERE sc_sid = @UserId AND sc_cid = @CourseId";
-
-                using (NpgsqlCommand command = new NpgsqlCommand(deleteQuery, _connection))
+                // 确保连接已打开
+                if (_connection.State != ConnectionState.Open)
                 {
-                    command.Parameters.AddWithValue("@UserId", userId); // 替换为实际的用户ID
-                    command.Parameters.AddWithValue("@CourseId", course.Cid);
+                    _connection.Open();
+                }
 
-                    int affectedRows = command.ExecuteNonQuery(); // 执行删除
+                string deleteQuery = @"
+                    DELETE FROM scclass
+                    WHERE sc_sid = @UserId AND sc_cid = @CourseId";
+
+                using (SqlCommand command = new SqlCommand(deleteQuery, _connection))
+                {
+                    command.Parameters.AddWithValue("@UserId", userId);
+                    command.Parameters.AddWithValue("@CourseId", courseToDeselect.Cid);
+
+                    int affectedRows = command.ExecuteNonQuery();
                     if (affectedRows > 0)
                     {
+                        courseToDeselect.RemainingSeats += 1; // 更新可选人数
                         MessageBox.Show("退选成功！");
-                        // 更新按钮状态
-                        course.ButtonEnabled = true; // 启用选课按钮
-                        course.IsDeselectButtonEnabled = false; // 禁用退选按钮
-                                                                // 检查所有课程并更新冲突状态
-                        foreach (var c in _allCourses)
-                        {
-                            c.ButtonEnabled = !IsCourseConflict(c); // 更新选课按钮状态
-                        }
 
-                        CourseDataGrid.Items.Refresh(); // 刷新数据绑定
+                        // 标记课程为未选中
+                        courseToDeselect.IsSelected = false;
+
+                        // 重新评估所有课程的按钮状态
+                        // 这一步是关键，它会根据新的选课状态来更新所有课程的按钮可用性
+                        UpdateAllCourseButtonStates();
+
+                        // CourseDataGrid.Items.Refresh(); // 已在 UpdateAllCourseButtonStates 中调用
                     }
                     else
                     {
@@ -312,46 +363,144 @@ namespace courseselect.Example.courseselect
                 MessageBox.Show("退选时出错: " + ex.Message);
             }
         }
-        // 更新剩余人数
-        private void UpdateRemainingSeats(string courseId, int change)
-        {
-            string updateQuery = @"
-        UPDATE ""SInformation"".""course""
-        SET caccomdate = caccomdate - @Change
-        WHERE cid = @CourseId";
 
-            using (NpgsqlCommand command = new NpgsqlCommand(updateQuery, _connection))
+        /// <summary>
+        /// 遍历所有课程，并根据其 IsSelected 状态和冲突状态更新其选课/退课按钮的可用性。
+        /// </summary>
+        private void UpdateAllCourseButtonStates()
+        {
+            foreach (var course in _allCourses)
             {
-                command.Parameters.AddWithValue("@Change", change);
-                command.Parameters.AddWithValue("@CourseId", courseId);
-                command.ExecuteNonQuery();
+                if (course.IsSelected) // 如果课程已被选中
+                {
+                    course.ButtonEnabled = false; // 选课按钮禁用
+                    course.IsDeselectButtonEnabled = true; // 退课按钮启用
+                }
+                else // 如果课程未被选中
+                {
+                    // 检查该课程是否与任何当前已选课程冲突
+                    if (IsCourseConflict(course))
+                    {
+                        course.ButtonEnabled = false; // 选课按钮禁用 (因冲突)
+                        course.IsDeselectButtonEnabled = false; // 退课按钮禁用 (未选中)
+                    }
+                    else
+                    {
+                        // 无冲突且未选中，检查是否有剩余座位
+                        if (course.RemainingSeats > 0)
+                        {
+                            course.ButtonEnabled = true; // 选课按钮启用 (无冲突，可选择)
+                        }
+                        else
+                        {
+                            course.ButtonEnabled = false; // 课程已满，禁用选课按钮
+                        }
+                        course.IsDeselectButtonEnabled = false; // 退课按钮禁用 (未选中)
+                    }
+                }
             }
+            // 刷新 DataGrid 以反映所有更改
+            CourseDataGrid.Items.Refresh();
         }
     }
 
-    // CourseInfo 类 (应该放在单独的文件中或者在这个文件的内部)
-    public class CourseInfo
+    // CourseInfo 类
+    public class CourseInfo : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        // 现有属性
         public string Cid { get; set; }
         public string CName { get; set; }
-        public string CDay { get; set; } //  课程周几
-        public int CAccomdate { get; set; } // 课程容纳人数
-        public int CCredit { get; set; } // 课程学分
-        public string CPlace { get; set; } // 课程地点
-        public string CTestTime { get; set; } // 课程考试时间
-        public string CKind { get; set; } // 课程类别
-        public string CIntro { get; set; } // 课程介绍
-        public string CCollege { get; set; } // 课程所属学院
-        public string CDepartment { get; set; } // 课程所属系
-        public string CMajor { get; set; } // 课程所属专业
-        public string CYear { get; set; } // 课程学年
-        public string CWeek { get; set; } // 课程第几周到第几周
-        public string CTime { get; set; } // 课程第几节到第几节
-        public string CTestPlace { get; set; } // 课程考试地点
-        public string CTest { get; set; } // 考察方式
-        public string TeacherName { get; set; } // 教师姓名
-        public bool ButtonEnabled { get; set; } // 新增属性
-        public bool IsDeselectButtonEnabled { get; set; } // 退选按钮状态
-    }
+        public string CDay { get; set; }
+        public int CAccomdate { get; set; } // 课程总容量
+        public int CCredit { get; set; }
+        public string CPlace { get; set; }
+        public string CTestTime { get; set; }
+        public string CKind { get; set; }
+        public string CIntro { get; set; }
+        public string CCollege { get; set; }
+        public string CDepartment { get; set; }
+        public string CMajor { get; set; }
+        public string CYear { get; set; }
+        public string CWeek { get; set; } // 用于冲突判断
+        public string CTime { get; set; } // 用于冲突判断
+        public string CTestPlace { get; set; }
+        public string CTest { get; set; }
+        public string TeacherName { get; set; }
 
+        // 实现了 INotifyPropertyChanged 的 RemainingSeats 属性
+        private int _remainingSeats;
+        public int RemainingSeats
+        {
+            get => _remainingSeats;
+            set
+            {
+                if (_remainingSeats != value)
+                {
+                    _remainingSeats = value;
+                    OnPropertyChanged(nameof(RemainingSeats));
+                }
+            }
+        }
+
+        // 实现了 INotifyPropertyChanged 的 ButtonEnabled 属性
+        private bool _buttonEnabled;
+        public bool ButtonEnabled
+        {
+            get => _buttonEnabled;
+            set
+            {
+                if (_buttonEnabled != value)
+                {
+                    _buttonEnabled = value;
+                    OnPropertyChanged(nameof(ButtonEnabled));
+                }
+            }
+        }
+
+        // 实现了 INotifyPropertyChanged 的 IsDeselectButtonEnabled 属性
+        private bool _isDeselectButtonEnabled;
+        public bool IsDeselectButtonEnabled
+        {
+            get => _isDeselectButtonEnabled;
+            set
+            {
+                if (_isDeselectButtonEnabled != value)
+                {
+                    _isDeselectButtonEnabled = value;
+                    OnPropertyChanged(nameof(IsDeselectButtonEnabled));
+                }
+            }
+        }
+
+        // 新增的 IsSelected 属性，标记课程是否已被选择
+        private bool _isSelected;
+        public bool IsSelected
+        {
+            get => _isSelected;
+            set
+            {
+                if (_isSelected != value)
+                {
+                    _isSelected = value;
+                    OnPropertyChanged(nameof(IsSelected));
+                }
+            }
+        }
+
+        // 构造函数，设置默认值
+        public CourseInfo()
+        {
+            // 默认情况下，选课按钮可用，退课按钮不可用，未选中
+            ButtonEnabled = true;
+            IsDeselectButtonEnabled = false;
+            IsSelected = false;
+        }
+    }
 }

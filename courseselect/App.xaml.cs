@@ -1,23 +1,26 @@
 ﻿using courseselect.Example;
-using Npgsql;
+using System.Data.SqlClient;  // 使用 Microsoft.Data.SqlClient
 using System;
 using System.Data;
+
 using System.Windows;
 
 namespace courseselect
 {
     public partial class App : Application
     {
-        private static NpgsqlConnection _appConnection;
+        private static SqlConnection _appConnection;  // 更改为 SqlConnection
 
-        public static NpgsqlConnection AppConnection
+        public static SqlConnection AppConnection
         {
             get
             {
                 if (_appConnection == null || _appConnection.State != ConnectionState.Open)
                 {
-                    string connString = "Host=192.168.56.118;Port=26000;Database=worksys;Username=yxy;Password=Yxy050104";
-                    _appConnection = new NpgsqlConnection(connString);
+                    // 默认情况下，LocalDB 使用以下连接字符串
+                   
+                    string connString= @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\VSS\courseselect\Example\Database1.mdf";
+                    _appConnection = new SqlConnection(connString);
                     _appConnection.Open();
                 }
                 return _appConnection;

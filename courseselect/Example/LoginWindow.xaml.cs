@@ -1,11 +1,9 @@
-﻿using courseselect.Example.Manager;
-using courseselect.Example;
-using courseselect.Example.Teacher;
-using Npgsql;
+﻿using courseselect.Example;
+
+using System.Data.SqlClient; // 使用 Microsoft.Data.SqlClient
 using System;
 using System.Data;
-using System.Security.Cryptography;
-using System.Text;
+
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -14,9 +12,10 @@ namespace courseselect.Example
 {
     public partial class LoginWindow : Window
     {
-        private readonly NpgsqlConnection _connection;
+        private readonly SqlConnection _connection; // 替换 NpgsqlConnection 为 SqlConnection
         public string userName;
-        public LoginWindow(NpgsqlConnection connection)
+
+        public LoginWindow(SqlConnection connection)
         {
             InitializeComponent();
             _connection = connection;
@@ -28,7 +27,7 @@ namespace courseselect.Example
                     _connection.Open();
                     MessageBox.Show("Data loaded successfully!");
                 }
-                catch (NpgsqlException ex)
+                catch (SqlException ex) // 修改为 SqlException
                 {
                     HandleDbException(ex);
                     MessageBox.Show("Failed to load data!");
@@ -85,7 +84,6 @@ namespace courseselect.Example
             }
         }
 
-
         private async Task HandleForgotPasswordAsync()
         {
             string userid = UserIdBox.Text;
@@ -137,25 +135,24 @@ namespace courseselect.Example
             }
         }
 
-
         private async Task<string> GetSecurityQuestionAsync(string role, string userid)
         {
             string query = "";
 
             if (role == "student")
             {
-                query = "SELECT question FROM \"SInformation\".student WHERE sid = @userid";
+                query = "SELECT question FROM   student WHERE sid = @userid;";
             }
             else if (role == "teacher")
             {
-                query = "SELECT question FROM \"SInformation\".teacher WHERE ttid = @userid";
+                query = "SELECT question FROM   teacher WHERE ttid = @userid;";
             }
             else if (role == "admin")
             {
-                query = "SELECT question FROM \"SInformation\".manager WHERE mid = @userid";
+                query = "SELECT question FROM   manager WHERE mid = @userid;";
             }
 
-            using (var cmd = new NpgsqlCommand(query, _connection))
+            using (var cmd = new SqlCommand(query, _connection)) // 使用 SqlCommand
             {
                 cmd.Parameters.AddWithValue("@userid", userid);
                 return await cmd.ExecuteScalarAsync() as string;
@@ -168,18 +165,18 @@ namespace courseselect.Example
 
             if (role == "student")
             {
-                query = "SELECT password FROM \"SInformation\".student WHERE sid = @userid";
+                query = "SELECT password FROM   student WHERE sid = @userid;";
             }
             else if (role == "teacher")
             {
-                query = "SELECT password FROM \"SInformation\".teacher WHERE ttid = @userid";
+                query = "SELECT password FROM   teacher WHERE ttid = @userid;";
             }
             else if (role == "admin")
             {
-                query = "SELECT password FROM \"SInformation\".manager WHERE mid = @userid";
+                query = "SELECT password FROM   manager WHERE mid = @userid;";
             }
 
-            using (var cmd = new NpgsqlCommand(query, _connection))
+            using (var cmd = new SqlCommand(query, _connection)) // 使用 SqlCommand
             {
                 cmd.Parameters.AddWithValue("@userid", userid);
                 return await cmd.ExecuteScalarAsync() as string;
@@ -191,13 +188,13 @@ namespace courseselect.Example
             string query = @"
             SELECT 
                 CASE 
-                    WHEN EXISTS (SELECT 1 FROM ""SInformation"".student WHERE sid = @userid) THEN 'student'
-                    WHEN EXISTS (SELECT 1 FROM ""SInformation"".teacher WHERE ttid = @userid) THEN 'teacher'
-                    WHEN EXISTS (SELECT 1 FROM ""SInformation"".manager WHERE mid = @userid) THEN 'admin'
+                    WHEN EXISTS (SELECT 1 FROM   student WHERE sid = @userid) THEN 'student'
+                    WHEN EXISTS (SELECT 1 FROM   teacher WHERE ttid = @userid) THEN 'teacher'
+                    WHEN EXISTS (SELECT 1 FROM   manager WHERE mid = @userid) THEN 'admin'
                     ELSE NULL 
-                END AS role";
+                END AS role;";
 
-            using (var cmd = new NpgsqlCommand(query, _connection))
+            using (var cmd = new SqlCommand(query, _connection)) // 使用 SqlCommand
             {
                 cmd.Parameters.AddWithValue("@userid", userid);
                 return await cmd.ExecuteScalarAsync() as string;
@@ -209,13 +206,13 @@ namespace courseselect.Example
             string query = @"
             SELECT 
                 CASE 
-                    WHEN EXISTS (SELECT 1 FROM ""SInformation"".student WHERE sid = @userid AND password = @password) THEN 'student'
-                    WHEN EXISTS (SELECT 1 FROM ""SInformation"".teacher WHERE ttid = @userid AND password = @password) THEN 'teacher'
-                    WHEN EXISTS (SELECT 1 FROM ""SInformation"".manager WHERE mid = @userid AND password = @password) THEN 'admin'
+                    WHEN EXISTS (SELECT 1 FROM   student WHERE sid = @userid AND password = @password) THEN 'student'
+                    WHEN EXISTS (SELECT 1 FROM   teacher WHERE ttid = @userid AND password = @password) THEN 'teacher'
+                    WHEN EXISTS (SELECT 1 FROM   manager WHERE mid = @userid AND password = @password) THEN 'admin'
                     ELSE NULL 
-                END AS role";
+                END AS role;";
 
-            using (var cmd = new NpgsqlCommand(query, _connection))
+            using (var cmd = new SqlCommand(query, _connection)) // 使用 SqlCommand
             {
                 cmd.Parameters.AddWithValue("@userid", userid);
                 cmd.Parameters.AddWithValue("@password", password); // 使用明文密码
@@ -231,18 +228,18 @@ namespace courseselect.Example
 
             if (role == "student")
             {
-                query = "SELECT ifchangepw FROM \"SInformation\".student WHERE sid = @userid";
+                query = "SELECT ifchangepw FROM   student WHERE sid = @userid;";
             }
             else if (role == "teacher")
             {
-                query = "SELECT ifchangepw FROM \"SInformation\".teacher WHERE ttid = @userid";
+                query = "SELECT ifchangepw FROM   teacher WHERE ttid = @userid;";
             }
             else if (role == "admin")
             {
-                query = "SELECT ifchangepw FROM \"SInformation\".manager WHERE mid = @userid";
+                query = "SELECT ifchangepw FROM   manager WHERE mid = @userid;";
             }
 
-            using (var cmd = new NpgsqlCommand(query, _connection))
+            using (var cmd = new SqlCommand(query, _connection)) // 使用 SqlCommand
             {
                 cmd.Parameters.AddWithValue("@userid", userid);
                 object result = await cmd.ExecuteScalarAsync();
@@ -267,13 +264,11 @@ namespace courseselect.Example
             return true;
         }
 
-      
-
         private Window CreateRoleWindow(string role, string userId)
         {
-            string query = "SELECT name FROM \"SInformation\".student WHERE sid = @userid";
+            string query = "SELECT name FROM   student WHERE sid = @userid;";
             userName = query;
-            using (var command = new NpgsqlCommand(query, _connection))
+            using (var command = new SqlCommand(query, _connection)) // 使用 SqlCommand
             {
                 command.Parameters.AddWithValue("@userid", userId);
 
@@ -283,7 +278,7 @@ namespace courseselect.Example
                     _connection.Open();
                 }
 
-                using (var reader = command.ExecuteReader())
+                using (var reader = command.ExecuteReader()) // 使用 ExecuteReader
                 {
                     if (reader.Read()) // 读取结果
                     {
@@ -334,7 +329,7 @@ namespace courseselect.Example
             MessageBox.Show(message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
-        private void HandleDbException(NpgsqlException ex)
+        private void HandleDbException(SqlException ex) // 修改为 SqlException
         {
             string errorMsg = ex.Message.Contains("connection failed") ?
                 "Failed to connect to the database. Please check the network and server status." :

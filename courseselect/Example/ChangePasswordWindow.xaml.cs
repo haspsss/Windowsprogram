@@ -1,14 +1,14 @@
-﻿using Npgsql;
+﻿using System.Data.SqlClient;
 using System.Windows;
 
 namespace courseselect.Example // 注意命名空间
 {
     public partial class ChangePasswordWindow : Window
     {
-        private readonly NpgsqlConnection _connection;
+        private readonly SqlConnection _connection;
         private readonly string _userId;
 
-        public ChangePasswordWindow(NpgsqlConnection connection, string userId)
+        public ChangePasswordWindow(SqlConnection connection, string userId)
         {
             InitializeComponent();
             _connection = connection;
@@ -30,7 +30,7 @@ namespace courseselect.Example // 注意命名空间
             }
 
 
-            using (var cmd = new NpgsqlCommand("SELECT password FROM \"SInformation\".student WHERE sid = @userId", _connection)) // 注意双引号转义
+            using (var cmd = new SqlCommand("SELECT password FROM student WHERE sid = @userId", _connection)) // 注意双引号转义
             {
                 cmd.Parameters.AddWithValue("userId", _userId); // 添加参数
                 string dbPassword = cmd.ExecuteScalar()?.ToString();
@@ -41,7 +41,7 @@ namespace courseselect.Example // 注意命名空间
                     return;
                 }
 
-                using (var updateCmd = new NpgsqlCommand("UPDATE \"SInformation\".student SET password = @newPassword, ifchangepw = 'T', question = @question, answer = @answer WHERE sid = @userId", _connection)) // 注意双引号转义
+                using (var updateCmd = new SqlCommand("UPDATE student SET password = @newPassword, ifchangepw = 'T', question = @question, answer = @answer WHERE sid = @userId", _connection)) // 注意双引号转义
                 {
                     updateCmd.Parameters.AddWithValue("newPassword", newPassword);
                     updateCmd.Parameters.AddWithValue("question", question);
