@@ -1,0 +1,104 @@
+﻿<Page x:Class="courseselect.Example.Teacher.queryresult.成绩录入"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+      xmlns:local="clr-namespace:courseselect.Example.Teacher.queryresult"
+      Title="成绩录入">
+
+    <Page.Resources>
+        <local:NullToVisibilityConverter x:Key="NullToVisibilityConverter"/>
+    </Page.Resources>
+
+    <ScrollViewer>
+        <StackPanel Margin="10">
+            <ItemsControl ItemsSource="{Binding CourseList}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Expander Margin="0,0,0,10">
+                            <Expander.Header>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Cid}" FontWeight="Bold" Margin="0,0,10,0"/>
+                                    <TextBlock Text="{Binding CName}" Margin="0,0,10,0"/>
+                                    <TextBlock Text="{Binding CYear}" Margin="0,0,10,0"/>
+                                    <TextBlock Text="{Binding CCredit, StringFormat=学分：{0}}" Margin="0,0,10,0"/>
+                                    <TextBlock Text="{Binding CKind}" Margin="0,0,10,0"/>
+                                    <TextBlock Text="{Binding CCollege}" Margin="0,0,10,0"/>
+                                </StackPanel>
+                            </Expander.Header>
+
+                           
+                            <StackPanel>
+                              
+                                <!-- 成绩比例输入 -->
+                                <WrapPanel>
+                                    <TextBlock Text="平时成绩占比：" VerticalAlignment="Center" Margin="5"/>
+                                    <TextBox Width="60" Margin="5,0"
+             Text="{Binding UsualRatio, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, StringFormat=F2}"/>
+
+                                    <TextBlock Text="考试成绩占比：" VerticalAlignment="Center" Margin="5"/>
+                                    <TextBox Width="60" Margin="5,0"
+             Text="{Binding ExamRatio, Mode=OneWay}" IsReadOnly="True"/>
+                                </WrapPanel>
+
+
+                                <!-- 学生成绩表 -->
+                                <DataGrid ItemsSource="{Binding Students}" AutoGenerateColumns="False" CanUserAddRows="False" Margin="0,5">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="学号" Binding="{Binding StudentId}" IsReadOnly="True"/>
+                                        <DataGridTextColumn Header="姓名" Binding="{Binding StudentName}" IsReadOnly="True"/>
+                                        <DataGridTextColumn Header="平时成绩" Binding="{Binding UsualScore}"/>
+                                        <DataGridTextColumn Header="考试成绩" Binding="{Binding ExamScore}"/>
+                                        <DataGridTextColumn Header="最终成绩" Binding="{Binding FinalScore}" IsReadOnly="True"/>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+
+                                <!-- 平均/最高/最低 -->
+                                <StackPanel Orientation="Vertical" Margin="5">
+                                    <WrapPanel Margin="0,2">
+                                        <TextBlock Text="平时成绩平均：" Margin="2"/>
+                                        <TextBlock Text="{Binding AverageUsual}" FontWeight="Bold" Margin="5,0"/>
+                                        <TextBlock Text="最高：" Margin="15,0,2,0"/>
+                                        <TextBlock Text="{Binding MaxUsual}" FontWeight="Bold" Margin="5,0"/>
+                                        <TextBlock Text="最低：" Margin="15,0,2,0"/>
+                                        <TextBlock Text="{Binding MinUsual}" FontWeight="Bold" Margin="5,0"/>
+                                    </WrapPanel>
+
+                                    <WrapPanel Margin="0,2">
+                                        <TextBlock Text="考试成绩平均：" Margin="1"/>
+                                        <TextBlock Text="{Binding AverageExam}" FontWeight="Bold" Margin="5,0"/>
+                                        <TextBlock Text="最高：" Margin="15,0,2,0"/>
+                                        <TextBlock Text="{Binding MaxExam}" FontWeight="Bold" Margin="5,0"/>
+                                        <TextBlock Text="最低：" Margin="15,0,2,0"/>
+                                        <TextBlock Text="{Binding MinExam}" FontWeight="Bold" Margin="5,0"/>
+                                    </WrapPanel>
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal" Margin="5" >
+                                    <TextBlock Text="{Binding Path=Average, StringFormat=平均分：{0}}" FontWeight="Bold" />
+                                    <TextBlock Text="{Binding Path=Max, StringFormat=最高分：{0}}" FontWeight="Bold"  Margin="10,0"/>
+                                    <TextBlock Text="{Binding Path=Min, StringFormat=最低分：{0}}" FontWeight="Bold"  Margin="10,0"/>
+                                </StackPanel>
+                                
+
+                                <!-- 图表按钮 -->
+                                <Button Content="查看成绩分布图" Click="ToggleChart_Click" Tag="{Binding}" Margin="0,5"/>
+                                <Button Content="保存成绩" Click="SaveScores_Click" Tag="{Binding}" Margin="0,5"/>
+
+                                <!-- 成绩分布图 -->
+                                <lvc:CartesianChart Series="{Binding ScoreSeries}" Margin="0,10"
+                                                    Visibility="{Binding ScoreSeries, Converter={StaticResource NullToVisibilityConverter}}">
+                                    <lvc:CartesianChart.AxisX>
+                                        <lvc:Axis Title="分数段" Labels="{Binding ScoreLabels}" />
+                                    </lvc:CartesianChart.AxisX>
+                                    <lvc:CartesianChart.AxisY>
+                                        <lvc:Axis Title="人数" />
+                                    </lvc:CartesianChart.AxisY>
+                                </lvc:CartesianChart>
+                            </StackPanel>
+                        </Expander>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

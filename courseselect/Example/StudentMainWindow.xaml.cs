@@ -1,10 +1,13 @@
-﻿using courseselect.Example.courseselect;
-using courseselect.Example.PersonalInformation;
+﻿
 using System.Data.SqlClient;
 using System;
 
 using System.Windows;
 using System.Windows.Controls;
+using courseselect.Example.Student.PersonalInformation;
+using courseselect.Example.Student.courseselect;
+using courseselect.Example.Student.queryresult;
+using courseselect.Example.Student.考试安排;
 
 namespace courseselect.Example
 {
@@ -40,7 +43,7 @@ namespace courseselect.Example
                     {
                         _myInformationPage = new MyInformation(_connection, _userId);
                     }
-                    welcombox.IsReadOnly = true;
+                    welcombox.Visibility = Visibility.Hidden;
                     frame1.Navigate(_myInformationPage);
                     break;
 
@@ -53,7 +56,32 @@ namespace courseselect.Example
                     welcombox.IsReadOnly = true;
                     frame1.Navigate(_xuanKePage);
                     break;
-
+                case "选课信息":
+                    // Lazy loading of the 选课信息 page
+                    var courseInfoPage = new 选课信息(_connection, _userId);
+                    welcombox.Visibility = Visibility.Hidden;
+                    frame1.Navigate(courseInfoPage);
+                    break;
+                case "选课课表":
+                    var classSchedulePage = new 选课课表(_connection, _userId);
+                    welcombox.Visibility = Visibility.Hidden;
+                    frame1.Navigate(classSchedulePage);
+                    break;
+                case "成绩信息":
+                    var resultinformation = new 成绩信息(_connection, _userId);
+                    welcombox.Visibility = Visibility.Hidden;
+                    frame1.Navigate(resultinformation);
+                    break;
+                case "成绩单":
+                    var resulttable = new 成绩单(_connection, _userId);
+                    welcombox.Visibility = Visibility.Hidden;
+                    frame1.Navigate(resulttable);
+                    break;
+                case "考试信息":
+                    var testinformation = new 考试信息(_connection, _userId);
+                    welcombox.Visibility = Visibility.Hidden;
+                    frame1.Navigate(testinformation);
+                    break;
                 default:
                     string path = string.Format("/Example/{0}/{1}.xaml", parent.Tag, item.Header);
                     Uri source = new Uri(path, UriKind.Relative);
@@ -83,6 +111,15 @@ namespace courseselect.Example
                     }
                     break;
             }
+        }
+        private void LogoutButton_Click(object sender, RoutedEventArgs e)
+        {
+            // 关闭当前窗口（学生主界面）
+            this.Close();
+
+            // 显示登录窗口
+            var loginWindow = new LoginWindow(_connection);
+            loginWindow.Show();
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)

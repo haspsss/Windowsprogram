@@ -21,8 +21,8 @@
             </TreeViewItem>
             <TreeViewItem Header="选课系统" Tag="courseselect">
                 <TreeViewItem Header="选课页面"/>
-                <TreeViewItem Header="StackPanelPage"/>
-                <TreeViewItem Header="CanvasPage"/>
+                <TreeViewItem Header="选课信息"/>
+                <TreeViewItem Header="选课课表"/>
                 <TreeViewItem Header="BorderPage"/>
                 <TreeViewItem Header="DockpanelPage"/>
                 <TreeViewItem Header="BulletDecoratorPage"/>
@@ -30,22 +30,22 @@
                 <TreeViewItem Header="GridSplitterPage"/>
                 <TreeViewItem Header="GroupBoxPage"/>
             </TreeViewItem>
-            <TreeViewItem Header="常用基本" Tag="BasicControls">
-                <TreeViewItem Header="ButtonPage"/>
-                <TreeViewItem Header="TextBoxPasswordBox"/>
+            <TreeViewItem Header="成绩查询" Tag="queryresult">
+                <TreeViewItem Header="成绩信息"/>
+                <TreeViewItem Header="成绩单"/>
                 <TreeViewItem Header="RadioButtonPage"/>
                 <TreeViewItem Header="CheckBoxPage"/>
                 <TreeViewItem Header="ListBoxComboBox"/>
             </TreeViewItem>
-            <TreeViewItem Header="菜单工具条状态条" Tag="MenuControls">
-                <TreeViewItem Header="MenuContextMenu"/>
-                <TreeViewItem Header="ToolBarStatusBar"/>
+            <TreeViewItem Header="考试安排" Tag="examarrangement">
+                <TreeViewItem Header="考试信息"/>
             </TreeViewItem>
-            <TreeViewItem Header="图像和GIF动画" Tag="ImageGIF">
-                <TreeViewItem Header="ImageExamplePage"/>
-                <TreeViewItem Header="WindowsFormsHostPage"/>
-            </TreeViewItem>
+
+
         </TreeView>
+        <Button  VerticalAlignment="Bottom"  HorizontalAlignment="left"  Margin="5,5" FontSize="5" ToolTip="退出登录" BorderThickness="1" BorderBrush="Black" Click="LogoutButton_Click">
+            <Image Source="/Example/Image/图片1.jpg" Width="20" Height="20" />
+        </Button>
         <GridSplitter Grid.Row="0" Grid.Column="0" BorderBrush="Red"
                       BorderThickness="1" ResizeBehavior="CurrentAndNext"/>
         <Frame Name="frame1" Grid.Row="0" Grid.Column="1" Padding="10 20 10 20" HorizontalAlignment="Stretch"

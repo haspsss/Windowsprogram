@@ -58,6 +58,12 @@
     <Reference Include="Azure.Identity, Version=1.11.4.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
       <HintPath>packages\Azure.Identity.1.11.4\lib\netstandard2.0\Azure.Identity.dll</HintPath>
     </Reference>
+    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>packages\LiveCharts.Core.0.9.8\lib\net40\LiveCharts.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.8.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
@@ -108,9 +114,6 @@
     </Reference>
     <Reference Include="Microsoft.IdentityModel.Tokens, Version=7.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.IdentityModel.Tokens.7.5.0\lib\net472\Microsoft.IdentityModel.Tokens.dll</HintPath>
-    </Reference>
-    <Reference Include="Npgsql, Version=4.1.3.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
-      <HintPath>packages\Npgsql.4.1.3\lib\net461\Npgsql.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -201,7 +204,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Example\courseselect\选课页面.xaml">
+    <Page Include="Example\Student\courseselect\选课信息.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Example\Student\courseselect\选课课表.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Example\Student\courseselect\选课页面.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -213,7 +224,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Example\PersonalInformation\我的信息.xaml">
+    <Page Include="Example\Student\PersonalInformation\我的信息.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Example\Student\queryresult\成绩信息.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Example\Student\queryresult\成绩单.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -222,6 +241,34 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Example\TeacherMainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Example\Student\examarrangement\考试信息.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Example\Teacher\courseselect\选课信息.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Example\Teacher\courseselect\选课页面.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Example\Teacher\examarrangement\考试信息.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Example\Teacher\PersonalInformation\我的信息.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="Example\Teacher\queryresult\成绩录入.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Example\Teacher\tChangePasswordWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -244,7 +291,13 @@
     <Compile Include="Example\ChangePasswordWindow.xaml.cs">
       <DependentUpon>ChangePasswordWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Example\courseselect\选课页面.xaml.cs">
+    <Compile Include="Example\Student\courseselect\选课信息.xaml.cs">
+      <DependentUpon>选课信息.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Example\Student\courseselect\选课课表.xaml.cs">
+      <DependentUpon>选课课表.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Example\Student\courseselect\选课页面.xaml.cs">
       <DependentUpon>选课页面.xaml</DependentUpon>
     </Compile>
     <Compile Include="Example\Forgetpw.xaml.cs">
@@ -253,14 +306,42 @@
     <Compile Include="Example\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Example\PersonalInformation\我的信息.xaml.cs">
+    <Compile Include="Example\Student\PersonalInformation\我的信息.xaml.cs">
       <DependentUpon>我的信息.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Example\Student\queryresult\成绩信息.xaml.cs">
+      <DependentUpon>成绩信息.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Example\Student\queryresult\成绩单.xaml.cs">
+      <DependentUpon>成绩单.xaml</DependentUpon>
     </Compile>
     <Compile Include="Example\StudentMainWindow.xaml.cs">
       <DependentUpon>StudentMainWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Example\TeacherMainWindow.xaml.cs">
       <DependentUpon>TeacherMainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Example\Student\examarrangement\考试信息.xaml.cs">
+      <DependentUpon>考试信息.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Example\Teacher\courseselect\选课信息.xaml.cs">
+      <DependentUpon>选课信息.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Example\Teacher\courseselect\选课页面.xaml.cs">
+      <DependentUpon>选课页面.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Example\Teacher\examarrangement\考试信息.xaml.cs">
+      <DependentUpon>考试信息.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Example\Teacher\PersonalInformation\我的信息.xaml.cs">
+      <DependentUpon>我的信息.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Example\Teacher\queryresult\成绩录入.xaml.cs">
+      <DependentUpon>成绩录入.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Example\Teacher\tChangePasswordWindow.xaml.cs">
+      <DependentUpon>tChangePasswordWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -285,6 +366,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="cztkrfen.ket~" />
     <None Include="Database1DataSet.xsc">
       <DependentUpon>Database1DataSet.xsd</DependentUpon>
     </None>
@@ -296,6 +378,7 @@
     <None Include="Database1DataSet.xss">
       <DependentUpon>Database1DataSet.xsd</DependentUpon>
     </None>
+    <None Include="mcstbtx0.hf0~" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -313,6 +396,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Database1.mdf</DependentUpon>
     </Content>
+    <Resource Include="Example\Image\图片1.jpg" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">
@@ -326,6 +410,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\Microsoft.Data.SqlClient.SNI.6.0.2\build\net462\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('packages\Microsoft.Data.SqlClient.SNI.6.0.2\build\net462\Microsoft.Data.SqlClient.SNI.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

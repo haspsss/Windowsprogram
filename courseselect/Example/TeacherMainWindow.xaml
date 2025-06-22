@@ -6,7 +6,42 @@
         xmlns:local="clr-namespace:courseselect.Example"
         mc:Ignorable="d"
         Title="TeacherMainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+
+       
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+
+                </Grid.ColumnDefinitions>
+                <TreeView Grid.Row="0" Grid.Column="0" TreeViewItem.Selected="TreeView_Selected"
+                  ScrollViewer.VerticalScrollBarVisibility="Visible" Margin="0,0,0,0">
+                    <TreeViewItem Header="个人信息" Tag="PersonalInformation">
+                        <TreeViewItem Header="我的信息"/>
+                       
+                    </TreeViewItem>
+                    <TreeViewItem Header="选课系统" Tag="courseselect">
+                        <TreeViewItem Header="选课页面"/>
+                <TreeViewItem Header="选课信息"/>
+            </TreeViewItem>
+                    <TreeViewItem Header="成绩管理" Tag="queryresult">
+                <TreeViewItem Header="成绩录入"/>
+            </TreeViewItem>
+                    <TreeViewItem Header="考试安排" Tag="examarrangement">
+                        <TreeViewItem Header="考试信息"/>
+                    </TreeViewItem>
+
+
+                </TreeView>
+                <Button  VerticalAlignment="Bottom"  HorizontalAlignment="left"  Margin="5,5" FontSize="5" ToolTip="退出登录" BorderThickness="1" BorderBrush="Black" Click="LogoutButton_Click">
+                    <Image Source="/Example/Image/图片1.jpg" Width="20" Height="20" />
+                </Button>
+                <GridSplitter Grid.Row="0" Grid.Column="0" BorderBrush="Red"
+                      BorderThickness="1" ResizeBehavior="CurrentAndNext"/>
+                <Frame Name="frame1" Grid.Row="0" Grid.Column="1" Padding="10 20 10 20" HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch" NavigationUIVisibility="Hidden"/>
+                <TextBox Name="welcombox" Grid.Column="1" HorizontalAlignment="Left" Margin="172,200,0,0" TextWrapping="Wrap" Text="欢迎使用教务系统！" VerticalAlignment="Top" Width="361" TextChanged="TextBox_TextChanged" BorderBrush="Transparent" FontSize="30" FontStyle="Oblique"></TextBox>
+
+            </Grid>
+       
 </Window>

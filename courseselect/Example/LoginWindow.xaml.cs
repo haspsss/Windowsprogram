@@ -37,6 +37,8 @@ namespace courseselect.Example
 
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             InitializeUI();
+            Application.Current.MainWindow = this; // LoginWindow 构造函数中
+
         }
 
         private void InitializeUI()
@@ -75,6 +77,7 @@ namespace courseselect.Example
             if (string.IsNullOrEmpty(role))
             {
                 ShowErrorMessage("User does not exist or password is incorrect.");
+                Passwordbox.Clear(); // 清空密码框
             }
             else
             {
@@ -83,7 +86,6 @@ namespace courseselect.Example
                 Application.Current.MainWindow.Show();
             }
         }
-
         private async Task HandleForgotPasswordAsync()
         {
             string userid = UserIdBox.Text;
@@ -218,7 +220,8 @@ namespace courseselect.Example
                 cmd.Parameters.AddWithValue("@password", password); // 使用明文密码
 
                 object result = await cmd.ExecuteScalarAsync();
-                return result != null ? result.ToString() : null;
+                // return result != null ? result.ToString() : null;
+                return result?.ToString();
             }
         }
 
@@ -292,7 +295,7 @@ namespace courseselect.Example
             }
             else if (role == "teacher")
             {
-                return new TeacherMainWindow(_connection, userId);
+                return new TeacherMainWindow(_connection, userId,userName);
             }
             else if (role == "admin")
             {
