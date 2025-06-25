@@ -2,6 +2,17 @@
 
 FD:\VSS\CourseSelect\Example\AdminMainWindow.xaml;;
 FD:\VSS\CourseSelect\Example\ChangePasswordWindow.xaml;;
+FD:\VSS\CourseSelect\Example\Manager\courseselect\授课安排.xaml;;
+FD:\VSS\CourseSelect\Example\Manager\courseselect\课程管理.xaml;;
+FD:\VSS\CourseSelect\Example\Manager\courseselect\选课页面.xaml;;
+FD:\VSS\CourseSelect\Example\Manager\mChangePasswordWindow.xaml;;
+FD:\VSS\CourseSelect\Example\Manager\PersonalInformation\我的信息.xaml;;
+FD:\VSS\CourseSelect\Example\Manager\stuinfo\学生信息管理.xaml;;
+FD:\VSS\CourseSelect\Example\Manager\stuinfo\学生成绩管理.xaml;;
+FD:\VSS\CourseSelect\Example\Manager\stuinfo\选课信息管理.xaml;;
+FD:\VSS\CourseSelect\Example\Manager\teachinfo\授课成绩信息.xaml;;
+FD:\VSS\CourseSelect\Example\Manager\teachinfo\教师信息管理.xaml;;
+FD:\VSS\CourseSelect\Example\Manager\teachinfo\授课信息管理.xaml;;
 FD:\VSS\CourseSelect\Example\Student\courseselect\选课信息.xaml;;
 FD:\VSS\CourseSelect\Example\Forgetpw.xaml;;
 FD:\VSS\CourseSelect\Example\LoginWindow.xaml;;

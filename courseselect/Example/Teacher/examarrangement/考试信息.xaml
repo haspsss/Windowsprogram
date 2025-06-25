@@ -8,9 +8,30 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="考试信息">
+    <Page.Resources>
+        <Style TargetType="ScrollBar">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ScrollBar">
+                        <Grid Background="AliceBlue">
+                            <Track x:Name="PART_Track"
+                         IsDirectionReversed="true"
+                         Focusable="false">
 
-   
-            <Grid Margin="20">
+                                <Track.Thumb>
+                                    <Thumb Background="LightSteelBlue"  BorderBrush="Transparent"/>
+                                </Track.Thumb>
+
+                            </Track>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+        </Style>
+    </Page.Resources>
+
+    <Grid Margin="20">
                 <DataGrid ItemsSource="{Binding ExamCourses}" AutoGenerateColumns="False" CanUserAddRows="False">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="课程编号" Binding="{Binding CID}" />

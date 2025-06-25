@@ -1,6 +1,7 @@
 ﻿using LiveCharts;
 using LiveCharts.Wpf;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data.SqlClient;
@@ -9,6 +10,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.Windows.Media;
 
 namespace courseselect.Example.Teacher.queryresult
 {
@@ -31,7 +33,13 @@ namespace courseselect.Example.Teacher.queryresult
 
         private void LoadCourses()
         {
-            string courseSql = "SELECT DISTINCT c.cid, c.cname, c.cyear, c.ccredit, c.ckind, c.ccollege FROM teaching_course tc JOIN course c ON tc.cid = c.cid WHERE tc.ttid = @ttid";
+            string courseSql = @"SELECT DISTINCT c.cid, c.cname, c.cyear, c.ccredit, c.ckind, c.ccollege, 
+                            ISNULL(c.usual_ratio, 0.4) AS usual_ratio, 
+                            ISNULL(c.exam_ratio, 0.6) AS exam_ratio 
+                     FROM teaching_course tc 
+                     JOIN course c ON tc.cid = c.cid 
+                     WHERE tc.ttid = @ttid";
+            
 
             if (_connection.State != System.Data.ConnectionState.Open)
                 _connection.Open();
@@ -44,6 +52,7 @@ namespace courseselect.Example.Teacher.queryresult
                 CourseList.Clear();
                 while (reader.Read())
                 {
+                   
                     CourseScoreEntry course = new CourseScoreEntry
                     {
                         Cid = reader["cid"].ToString(),
@@ -52,10 +61,14 @@ namespace courseselect.Example.Teacher.queryresult
                         CCredit = Convert.ToInt32(reader["ccredit"]),
                         CKind = reader["ckind"].ToString(),
                         CCollege = reader["ccollege"].ToString(),
-                       
-                       
+                        UsualRatio = Convert.ToDouble(reader["usual_ratio"]),
+
+
+
+
+
                     };
-                    course.UsualRatio = 0.4;
+                   
                     CourseList.Add(course);
                 }
                 reader.Close();
@@ -69,7 +82,7 @@ namespace courseselect.Example.Teacher.queryresult
 
         private void LoadStudentScores(CourseScoreEntry course)
         {
-            string sql = "SELECT s.sid, s.name, sc.usual_score, sc.exam_score FROM scclass sc JOIN student s ON sc.sc_sid = s.sid WHERE sc.sc_cid = @cid";
+            string sql = "SELECT s.sid, s.name, sc.usual_score, sc.exam_score,score FROM scclass sc JOIN student s ON sc.sc_sid = s.sid WHERE sc.sc_cid = @cid";
 
             using (SqlCommand cmd = new SqlCommand(sql, _connection))
             {
@@ -84,6 +97,7 @@ namespace courseselect.Example.Teacher.queryresult
                         StudentName = reader["name"].ToString(),
                         UsualScore = reader["usual_score"] == DBNull.Value ? 0 : Convert.ToDouble(reader["usual_score"]),
                         ExamScore = reader["exam_score"] == DBNull.Value ? 0 : Convert.ToDouble(reader["exam_score"])
+                        
                     });
                 }
                 reader.Close();
@@ -101,6 +115,25 @@ namespace courseselect.Example.Teacher.queryresult
                 course.CalculateFinalScores(); // 自动更新图表
             }
         }
+        public static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject
+        {
+            if (depObj != null)
+            {
+                for (int i = 0; i < VisualTreeHelper.GetChildrenCount(depObj); i++)
+                {
+                    DependencyObject child = VisualTreeHelper.GetChild(depObj, i);
+                    if (child != null && child is T)
+                    {
+                        yield return (T)child;
+                    }
+
+                    foreach (T childOfChild in FindVisualChildren<T>(child))
+                    {
+                        yield return childOfChild;
+                    }
+                }
+            }
+        }
 
         private void SaveScores_Click(object sender, RoutedEventArgs e)
         {
@@ -108,30 +141,98 @@ namespace courseselect.Example.Teacher.queryresult
             var course = button?.Tag as CourseScoreEntry;
 
             if (course == null) return;
+            // 🔁 强制刷新当前 UI 中的绑定
+            var parent = VisualTreeHelper.GetParent(button);
+            while (parent != null && !(parent is Expander))
+                parent = VisualTreeHelper.GetParent(parent);
 
+            if (parent is Expander expander)
+            {
+                var textBoxes = FindVisualChildren<TextBox>(expander);
+                foreach (var tb in textBoxes)
+                {
+                    var binding = BindingOperations.GetBindingExpression(tb, TextBox.TextProperty);
+                    if (binding != null) binding.UpdateSource(); // 强制推送到数据源
+                }
+            }
             if (_connection.State != System.Data.ConnectionState.Open)
                 _connection.Open();
 
-            foreach (var s in course.Students)
+            // ⚠️ 更新 course 表中的比例字段
+            using (SqlCommand updateRatioCmd = new SqlCommand(@"
+        UPDATE course 
+        SET usual_ratio = @usualRatio, 
+            exam_ratio = @examRatio 
+        WHERE cid = @cid", _connection))
             {
-                SqlCommand cmd = new SqlCommand(@"
-                    UPDATE scclass 
-                    SET usual_score = @usual, exam_score = @exam
-                    WHERE sc_sid = @sid AND sc_cid = @cid", _connection);
+                updateRatioCmd.Parameters.AddWithValue("@usualRatio", course.UsualRatio);
+                updateRatioCmd.Parameters.AddWithValue("@examRatio", course.ExamRatio);
+                updateRatioCmd.Parameters.AddWithValue("@cid", course.Cid);
+                int rows = updateRatioCmd.ExecuteNonQuery(); // ← 加上这句！
 
-                cmd.Parameters.AddWithValue("@usual", s.UsualScore);
-                cmd.Parameters.AddWithValue("@exam", s.ExamScore);
-                cmd.Parameters.AddWithValue("@sid", s.StudentId);
-                cmd.Parameters.AddWithValue("@cid", course.Cid);
+                Console.WriteLine($"更新 course 表：{rows} 行");
 
-                cmd.ExecuteNonQuery();
+                if (rows == 0)
+                    MessageBox.Show("没有找到要更新的课程记录！");
+                updateRatioCmd.ExecuteNonQuery();
             }
 
-            MessageBox.Show($"课程 {course.CName} 的成绩已保存！");
+            // ⚠️ 更新每个学生的成绩（如有必要，scclass 中的成绩）
+            foreach (var s in course.Students)
+            {
+                using (SqlCommand cmd = new SqlCommand(@"
+          UPDATE scclass 
+SET usual_score = @usual, 
+    exam_score = @exam, 
+    score = @score 
+WHERE sc_sid = @sid AND sc_cid = @cid
+", _connection))
+                {
+                    cmd.Parameters.AddWithValue("@usual", s.UsualScore);
+                    cmd.Parameters.AddWithValue("@exam", s.ExamScore);
+                    cmd.Parameters.AddWithValue("@sid", s.StudentId);
+                    cmd.Parameters.AddWithValue("@cid", course.Cid);
+                    cmd.Parameters.AddWithValue("@score", s.FinalScore);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+
+            MessageBox.Show($"课程 {course.CName} 的成绩和比例已保存！");
+        }
+       
+
+        private void ScoreDataGrid_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
+        {
+            // 获取当前编辑的课程
+            if (DataContext is 成绩录入 page)
+            {
+                // 遍历 CourseList 找到对应的 DataGrid
+                foreach (var course in page.CourseList)
+                {
+                    if (course.Students.Contains(e.Row.Item as StudentScore))
+                    {
+                        course.CalculateFinalScores();  // 更新对应课程成绩
+                        break;
+                    }
+                }
+            }
+        }
+        private void RatioTextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            var textBox = sender as TextBox;
+            if (textBox != null)
+            {
+                var binding = BindingOperations.GetBindingExpression(textBox, TextBox.TextProperty);
+                if (binding != null)
+                {
+                    binding.UpdateSource();
+                }
+            }
         }
 
+
         public event PropertyChangedEventHandler PropertyChanged;
-        private void OnPropertyChanged(string name) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        
     }
 
     public class CourseScoreEntry : INotifyPropertyChanged
@@ -163,12 +264,12 @@ namespace courseselect.Example.Teacher.queryresult
                 }
             }
         }
-
+        
         private double _examRatio;
         public double ExamRatio
         {
             get => _examRatio;
-            private set // 外部不可直接设定，只由 UsualRatio 控制
+            set // 外部不可直接设定，只由 UsualRatio 控制
             {
                 _examRatio = value;
                 OnPropertyChanged(nameof(ExamRatio));

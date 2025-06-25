@@ -7,7 +7,28 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="成绩信息">
+    <Page.Resources>
+        <Style TargetType="ScrollBar">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ScrollBar">
+                        <Grid Background="AliceBlue">
+                            <Track x:Name="PART_Track"
+                            IsDirectionReversed="true"
+                            Focusable="false">
 
+                                <Track.Thumb>
+                                    <Thumb Background="LightSteelBlue"  BorderBrush="Transparent"/>
+                                </Track.Thumb>
+
+                            </Track>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+        </Style>
+    </Page.Resources>
     <Grid>
         <DataGrid ItemsSource="{Binding GradeList}" AutoGenerateColumns="False" CanUserAddRows="False" Margin="10">
             <DataGrid.Columns>

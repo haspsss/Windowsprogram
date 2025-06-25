@@ -8,9 +8,30 @@
     <Page.Resources>
         <BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter" />
         <local:InverseBooleanToVisibilityConverter x:Key="InverseBoolToVisibilityConverter" />
-    </Page.Resources>
+        
+            <Style TargetType="ScrollBar">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="ScrollBar">
+                            <Grid Background="AliceBlue">
+                                <Track x:Name="PART_Track"
+                         IsDirectionReversed="true"
+                         Focusable="false">
 
-    <Grid>
+                                    <Track.Thumb>
+                                        <Thumb Background="LightSteelBlue"  BorderBrush="Transparent"/>
+                                    </Track.Thumb>
+
+                                </Track>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+
+            </Style>
+        </Page.Resources>
+
+        <Grid>
         <ScrollViewer VerticalScrollBarVisibility="Auto">
             <StackPanel Margin="10">
                 <!-- 提示文字 -->

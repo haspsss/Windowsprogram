@@ -115,6 +115,12 @@
     <Reference Include="Microsoft.IdentityModel.Tokens, Version=7.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.IdentityModel.Tokens.7.5.0\lib\net472\Microsoft.IdentityModel.Tokens.dll</HintPath>
     </Reference>
+    <Reference Include="PdfSharp, Version=1.50.5147.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>packages\PDFsharp.1.50.5147\lib\net20\PdfSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Charting, Version=1.50.5147.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>packages\PDFsharp.1.50.5147\lib\net20\PdfSharp.Charting.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
@@ -204,6 +210,50 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Example\Manager\courseselect\授课安排.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Example\Manager\courseselect\课程管理.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Example\Manager\courseselect\选课页面.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Example\Manager\mChangePasswordWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Example\Manager\PersonalInformation\我的信息.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Example\Manager\stuinfo\学生信息管理.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Example\Manager\stuinfo\学生成绩管理.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Example\Manager\stuinfo\选课信息管理.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Example\Manager\teachinfo\授课成绩信息.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Example\Manager\teachinfo\教师信息管理.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Example\Manager\teachinfo\授课信息管理.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Example\Student\courseselect\选课信息.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -290,6 +340,39 @@
     </Compile>
     <Compile Include="Example\ChangePasswordWindow.xaml.cs">
       <DependentUpon>ChangePasswordWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Example\Manager\courseselect\授课安排.xaml.cs">
+      <DependentUpon>授课安排.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Example\Manager\courseselect\课程管理.xaml.cs">
+      <DependentUpon>课程管理.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Example\Manager\courseselect\选课页面.xaml.cs">
+      <DependentUpon>选课页面.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Example\Manager\mChangePasswordWindow.xaml.cs">
+      <DependentUpon>mChangePasswordWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Example\Manager\PersonalInformation\我的信息.xaml.cs">
+      <DependentUpon>我的信息.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Example\Manager\stuinfo\学生信息管理.xaml.cs">
+      <DependentUpon>学生信息管理.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Example\Manager\stuinfo\学生成绩管理.xaml.cs">
+      <DependentUpon>学生成绩管理.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Example\Manager\stuinfo\选课信息管理.xaml.cs">
+      <DependentUpon>选课信息管理.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Example\Manager\teachinfo\授课成绩信息.xaml.cs">
+      <DependentUpon>授课成绩信息.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Example\Manager\teachinfo\教师信息管理.xaml.cs">
+      <DependentUpon>教师信息管理.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Example\Manager\teachinfo\授课信息管理.xaml.cs">
+      <DependentUpon>授课信息管理.xaml</DependentUpon>
     </Compile>
     <Compile Include="Example\Student\courseselect\选课信息.xaml.cs">
       <DependentUpon>选课信息.xaml</DependentUpon>

@@ -3,57 +3,6 @@
   "WorkspaceRootPath": "D:\\VSS\\courseselect\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|d:\\vss\\courseselect\\example\\teacher\\examarrangement\\\u8003\u8BD5\u4FE1\u606F.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
-      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\teacher\\examarrangement\\\u8003\u8BD5\u4FE1\u606F.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\example\\teachermainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\teachermainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|d:\\vss\\courseselect\\example\\student\\examarrangement\\\u8003\u8BD5\u4FE1\u606F.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
-      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\student\\examarrangement\\\u8003\u8BD5\u4FE1\u606F.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|d:\\vss\\courseselect\\example\\teacher\\examarrangement\\\u8003\u8BD5\u4FE1\u606F.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\teacher\\examarrangement\\\u8003\u8BD5\u4FE1\u606F.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|d:\\vss\\courseselect\\example\\student\\examarrangement\\\u8003\u8BD5\u4FE1\u606F.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\student\\examarrangement\\\u8003\u8BD5\u4FE1\u606F.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|d:\\vss\\courseselect\\example\\teacher\\queryresult\\\u6210\u7EE9\u5F55\u5165.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\teacher\\queryresult\\\u6210\u7EE9\u5F55\u5165.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\example\\teacher\\courseselect\\\u9009\u8BFE\u4FE1\u606F.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\teacher\\courseselect\\\u9009\u8BFE\u4FE1\u606F.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|d:\\vss\\courseselect\\example\\teacher\\queryresult\\\u6210\u7EE9\u5F55\u5165.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
-      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\teacher\\queryresult\\\u6210\u7EE9\u5F55\u5165.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\86157\\AppData\\Local\\Temp\\.vsdbgsrc\\30813fb93912a045c4518eaac5eda86122eadf21d3125bf43e64f44b88d48d80\\FrameworkTemplate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|d:\\vss\\courseselect\\example\\student\\courseselect\\\u9009\u8BFE\u4FE1\u606F.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\student\\courseselect\\\u9009\u8BFE\u4FE1\u606F.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\example\\teachermainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\teachermainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|d:\\vss\\courseselect\\example\\teacher\\courseselect\\\u9009\u8BFE\u4FE1\u606F.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
-      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\teacher\\courseselect\\\u9009\u8BFE\u4FE1\u606F.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\example\\student\\courseselect\\\u9009\u8BFE\u4FE1\u606F.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
-      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\student\\courseselect\\\u9009\u8BFE\u4FE1\u606F.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\example\\teacher\\courseselect\\\u9009\u8BFE\u9875\u9762.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
       "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\teacher\\courseselect\\\u9009\u8BFE\u9875\u9762.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
     },
@@ -62,12 +11,170 @@
       "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\teacher\\courseselect\\\u9009\u8BFE\u9875\u9762.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\example\\student\\courseselect\\\u9009\u8BFE\u9875\u9762.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\example\\manager\\courseselect\\\u9009\u8BFE\u9875\u9762.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\manager\\courseselect\\\u9009\u8BFE\u9875\u9762.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\example\\manager\\courseselect\\\u9009\u8BFE\u9875\u9762.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\manager\\courseselect\\\u9009\u8BFE\u9875\u9762.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|d:\\vss\\courseselect\\example\\student\\courseselect\\\u9009\u8BFE\u9875\u9762.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
       "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\student\\courseselect\\\u9009\u8BFE\u9875\u9762.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\example\\student\\courseselect\\\u9009\u8BFE\u9875\u9762.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\student\\courseselect\\\u9009\u8BFE\u9875\u9762.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\example\\teacher\\courseselect\\\u9009\u8BFE\u4FE1\u606F.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\teacher\\courseselect\\\u9009\u8BFE\u4FE1\u606F.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|d:\\vss\\courseselect\\example\\manager\\stuinfo\\\u9009\u8BFE\u4FE1\u606F\u7BA1\u7406.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\manager\\stuinfo\\\u9009\u8BFE\u4FE1\u606F\u7BA1\u7406.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|d:\\vss\\courseselect\\example\\manager\\stuinfo\\\u9009\u8BFE\u4FE1\u606F\u7BA1\u7406.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\manager\\stuinfo\\\u9009\u8BFE\u4FE1\u606F\u7BA1\u7406.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|d:\\vss\\courseselect\\example\\manager\\stuinfo\\\u5B66\u751F\u6210\u7EE9\u7BA1\u7406.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\manager\\stuinfo\\\u5B66\u751F\u6210\u7EE9\u7BA1\u7406.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|d:\\vss\\courseselect\\example\\manager\\stuinfo\\\u5B66\u751F\u6210\u7EE9\u7BA1\u7406.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\manager\\stuinfo\\\u5B66\u751F\u6210\u7EE9\u7BA1\u7406.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\example\\manager\\teachinfo\\\u6388\u8BFE\u6210\u7EE9\u4FE1\u606F.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\manager\\teachinfo\\\u6388\u8BFE\u6210\u7EE9\u4FE1\u606F.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|d:\\vss\\courseselect\\example\\manager\\stuinfo\\\u5B66\u751F\u4FE1\u606F\u7BA1\u7406.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\manager\\stuinfo\\\u5B66\u751F\u4FE1\u606F\u7BA1\u7406.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\example\\manager\\courseselect\\\u8BFE\u7A0B\u7BA1\u7406.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\manager\\courseselect\\\u8BFE\u7A0B\u7BA1\u7406.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|d:\\vss\\courseselect\\example\\manager\\courseselect\\\u6388\u8BFE\u5B89\u6392.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\manager\\courseselect\\\u6388\u8BFE\u5B89\u6392.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\example\\manager\\mchangepasswordwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\manager\\mchangepasswordwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|d:\\vss\\courseselect\\example\\changepasswordwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\changepasswordwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\example\\teacher\\examarrangement\\\u8003\u8BD5\u4FE1\u606F.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\teacher\\examarrangement\\\u8003\u8BD5\u4FE1\u606F.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\example\\teacher\\queryresult\\\u6210\u7EE9\u5F55\u5165.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\teacher\\queryresult\\\u6210\u7EE9\u5F55\u5165.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\example\\student\\examarrangement\\\u8003\u8BD5\u4FE1\u606F.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\student\\examarrangement\\\u8003\u8BD5\u4FE1\u606F.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\example\\student\\queryresult\\\u6210\u7EE9\u4FE1\u606F.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\student\\queryresult\\\u6210\u7EE9\u4FE1\u606F.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|d:\\vss\\courseselect\\example\\student\\courseselect\\\u9009\u8BFE\u4FE1\u606F.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\student\\courseselect\\\u9009\u8BFE\u4FE1\u606F.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|d:\\vss\\courseselect\\example\\student\\courseselect\\\u9009\u8BFE\u8BFE\u8868.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\student\\courseselect\\\u9009\u8BFE\u8BFE\u8868.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\86157\\AppData\\Local\\Temp\\.vsdbgsrc\\d6f90d3e8d56a2db3b6fdcc44ea5be4b7f7c9630f4a79e01028e2d4ebed347c1\\ControlTemplate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\example\\student\\queryresult\\\u6210\u7EE9\u5355.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\student\\queryresult\\\u6210\u7EE9\u5355.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\example\\manager\\teachinfo\\\u6388\u8BFE\u4FE1\u606F\u7BA1\u7406.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\manager\\teachinfo\\\u6388\u8BFE\u4FE1\u606F\u7BA1\u7406.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|d:\\vss\\courseselect\\example\\manager\\teachinfo\\\u6559\u5E08\u4FE1\u606F\u7BA1\u7406.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\manager\\teachinfo\\\u6559\u5E08\u4FE1\u606F\u7BA1\u7406.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\example\\manager\\personalinformation\\\u6211\u7684\u4FE1\u606F.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\manager\\personalinformation\\\u6211\u7684\u4FE1\u606F.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|d:\\vss\\courseselect\\example\\manager\\teachinfo\\\u6388\u8BFE\u6210\u7EE9\u4FE1\u606F.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\manager\\teachinfo\\\u6388\u8BFE\u6210\u7EE9\u4FE1\u606F.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\example\\adminmainwindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\adminmainwindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\example\\adminmainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\adminmainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\example\\manager\\teachinfo\\\u6388\u8BFE\u4FE1\u606F\u7BA1\u7406.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\manager\\teachinfo\\\u6388\u8BFE\u4FE1\u606F\u7BA1\u7406.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\example\\manager\\courseselect\\\u8BFE\u7A0B\u7BA1\u7406.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\manager\\courseselect\\\u8BFE\u7A0B\u7BA1\u7406.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\example\\manager\\mchangepasswordwindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\manager\\mchangepasswordwindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\example\\teacher\\tchangepasswordwindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\teacher\\tchangepasswordwindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\example\\teacher\\tchangepasswordwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\teacher\\tchangepasswordwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\example\\manager\\personalinformation\\\u6211\u7684\u4FE1\u606F.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\manager\\personalinformation\\\u6211\u7684\u4FE1\u606F.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\example\\teacher\\personalinformation\\\u6211\u7684\u4FE1\u606F.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\teacher\\personalinformation\\\u6211\u7684\u4FE1\u606F.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\example\\teachermainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\teachermainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\example\\teachermainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\teachermainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\example\\teacher\\examarrangement\\\u8003\u8BD5\u4FE1\u606F.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\teacher\\examarrangement\\\u8003\u8BD5\u4FE1\u606F.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\example\\teacher\\queryresult\\\u6210\u7EE9\u5F55\u5165.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\teacher\\queryresult\\\u6210\u7EE9\u5F55\u5165.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\86157\\AppData\\Local\\Temp\\.vsdbgsrc\\30813fb93912a045c4518eaac5eda86122eadf21d3125bf43e64f44b88d48d80\\FrameworkTemplate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\example\\teacher\\courseselect\\\u9009\u8BFE\u4FE1\u606F.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\teacher\\courseselect\\\u9009\u8BFE\u4FE1\u606F.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\example\\studentmainwindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
@@ -76,14 +183,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\example\\studentmainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\studentmainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\example\\student\\queryresult\\\u6210\u7EE9\u4FE1\u606F.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\student\\queryresult\\\u6210\u7EE9\u4FE1\u606F.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\example\\student\\queryresult\\\u6210\u7EE9\u5355.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|solutionrelative:example\\student\\queryresult\\\u6210\u7EE9\u5355.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0E8E085F-522B-49E2-8E5B-8336F478CDD1}|courseselect.csproj|D:\\VSS\\courseselect\\example\\student\\personalinformation\\\u6211\u7684\u4FE1\u606F.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -142,76 +241,64 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "\u8003\u8BD5\u4FE1\u606F.xaml.cs",
-              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Teacher\\examarrangement\\\u8003\u8BD5\u4FE1\u606F.xaml.cs",
-              "RelativeDocumentMoniker": "Example\\Teacher\\examarrangement\\\u8003\u8BD5\u4FE1\u606F.xaml.cs",
-              "ToolTip": "D:\\VSS\\courseselect\\Example\\Teacher\\examarrangement\\\u8003\u8BD5\u4FE1\u606F.xaml.cs*",
-              "RelativeToolTip": "Example\\Teacher\\examarrangement\\\u8003\u8BD5\u4FE1\u606F.xaml.cs*",
-              "ViewState": "AgIAABkAAAAAAAAAAAAxwDkAAAAdAAAAAAAAAA==",
+              "Title": "\u9009\u8BFE\u9875\u9762.xaml.cs",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Teacher\\courseselect\\\u9009\u8BFE\u9875\u9762.xaml.cs",
+              "RelativeDocumentMoniker": "Example\\Teacher\\courseselect\\\u9009\u8BFE\u9875\u9762.xaml.cs",
+              "ToolTip": "D:\\VSS\\courseselect\\Example\\Teacher\\courseselect\\\u9009\u8BFE\u9875\u9762.xaml.cs",
+              "RelativeToolTip": "Example\\Teacher\\courseselect\\\u9009\u8BFE\u9875\u9762.xaml.cs",
+              "ViewState": "AgIAAIQAAAAAAAAAAAAiwIUAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T18:32:53.992Z",
+              "WhenOpened": "2025-06-22T09:32:39.862Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "TeacherMainWindow.xaml.cs",
-              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\TeacherMainWindow.xaml.cs",
-              "RelativeDocumentMoniker": "Example\\TeacherMainWindow.xaml.cs",
-              "ToolTip": "D:\\VSS\\courseselect\\Example\\TeacherMainWindow.xaml.cs",
-              "RelativeToolTip": "Example\\TeacherMainWindow.xaml.cs",
-              "ViewState": "AgIAADYAAAAAAAAAAAAIwFUAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T09:53:11.359Z",
+              "Title": "\u9009\u8BFE\u9875\u9762.xaml",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Teacher\\courseselect\\\u9009\u8BFE\u9875\u9762.xaml",
+              "RelativeDocumentMoniker": "Example\\Teacher\\courseselect\\\u9009\u8BFE\u9875\u9762.xaml",
+              "ToolTip": "D:\\VSS\\courseselect\\Example\\Teacher\\courseselect\\\u9009\u8BFE\u9875\u9762.xaml",
+              "RelativeToolTip": "Example\\Teacher\\courseselect\\\u9009\u8BFE\u9875\u9762.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-22T09:32:10.564Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "\u8003\u8BD5\u4FE1\u606F.xaml",
-              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Student\\examarrangement\\\u8003\u8BD5\u4FE1\u606F.xaml",
-              "RelativeDocumentMoniker": "Example\\Student\\examarrangement\\\u8003\u8BD5\u4FE1\u606F.xaml",
-              "ToolTip": "D:\\VSS\\courseselect\\Example\\Student\\examarrangement\\\u8003\u8BD5\u4FE1\u606F.xaml",
-              "RelativeToolTip": "Example\\Student\\examarrangement\\\u8003\u8BD5\u4FE1\u606F.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-06-22T18:32:06.761Z",
+              "DocumentIndex": 2,
+              "Title": "\u9009\u8BFE\u9875\u9762.xaml.cs",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Manager\\courseselect\\\u9009\u8BFE\u9875\u9762.xaml.cs",
+              "RelativeDocumentMoniker": "Example\\Manager\\courseselect\\\u9009\u8BFE\u9875\u9762.xaml.cs",
+              "ToolTip": "D:\\VSS\\courseselect\\Example\\Manager\\courseselect\\\u9009\u8BFE\u9875\u9762.xaml.cs",
+              "RelativeToolTip": "Example\\Manager\\courseselect\\\u9009\u8BFE\u9875\u9762.xaml.cs",
+              "ViewState": "AgIAAIQAAAAAAAAAAAAiwJ4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T10:44:03.06Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "\u8003\u8BD5\u4FE1\u606F.xaml",
-              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Teacher\\examarrangement\\\u8003\u8BD5\u4FE1\u606F.xaml",
-              "RelativeDocumentMoniker": "Example\\Teacher\\examarrangement\\\u8003\u8BD5\u4FE1\u606F.xaml",
-              "ToolTip": "D:\\VSS\\courseselect\\Example\\Teacher\\examarrangement\\\u8003\u8BD5\u4FE1\u606F.xaml",
-              "RelativeToolTip": "Example\\Teacher\\examarrangement\\\u8003\u8BD5\u4FE1\u606F.xaml",
+              "Title": "\u9009\u8BFE\u9875\u9762.xaml",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Manager\\courseselect\\\u9009\u8BFE\u9875\u9762.xaml",
+              "RelativeDocumentMoniker": "Example\\Manager\\courseselect\\\u9009\u8BFE\u9875\u9762.xaml",
+              "ToolTip": "D:\\VSS\\courseselect\\Example\\Manager\\courseselect\\\u9009\u8BFE\u9875\u9762.xaml",
+              "RelativeToolTip": "Example\\Manager\\courseselect\\\u9009\u8BFE\u9875\u9762.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-06-22T18:32:17.295Z",
+              "WhenOpened": "2025-06-23T10:43:59.531Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "\u6210\u7EE9\u5F55\u5165.xaml",
-              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Teacher\\queryresult\\\u6210\u7EE9\u5F55\u5165.xaml",
-              "RelativeDocumentMoniker": "Example\\Teacher\\queryresult\\\u6210\u7EE9\u5F55\u5165.xaml",
-              "ToolTip": "D:\\VSS\\courseselect\\Example\\Teacher\\queryresult\\\u6210\u7EE9\u5F55\u5165.xaml",
-              "RelativeToolTip": "Example\\Teacher\\queryresult\\\u6210\u7EE9\u5F55\u5165.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-06-22T16:06:01.39Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "\u6210\u7EE9\u5F55\u5165.xaml.cs",
-              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Teacher\\queryresult\\\u6210\u7EE9\u5F55\u5165.xaml.cs",
-              "RelativeDocumentMoniker": "Example\\Teacher\\queryresult\\\u6210\u7EE9\u5F55\u5165.xaml.cs",
-              "ToolTip": "D:\\VSS\\courseselect\\Example\\Teacher\\queryresult\\\u6210\u7EE9\u5F55\u5165.xaml.cs",
-              "RelativeToolTip": "Example\\Teacher\\queryresult\\\u6210\u7EE9\u5F55\u5165.xaml.cs",
-              "ViewState": "AgIAAAsBAAAAAAAAAAAAwB4BAAAAAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "\u9009\u8BFE\u9875\u9762.xaml.cs",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Student\\courseselect\\\u9009\u8BFE\u9875\u9762.xaml.cs",
+              "RelativeDocumentMoniker": "Example\\Student\\courseselect\\\u9009\u8BFE\u9875\u9762.xaml.cs",
+              "ToolTip": "D:\\VSS\\courseselect\\Example\\Student\\courseselect\\\u9009\u8BFE\u9875\u9762.xaml.cs",
+              "RelativeToolTip": "Example\\Student\\courseselect\\\u9009\u8BFE\u9875\u9762.xaml.cs",
+              "ViewState": "AgIAAKQAAAAAAAAAAAAiwL4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T16:06:36.153Z",
+              "WhenOpened": "2025-06-25T10:23:34.372Z",
               "EditorCaption": ""
             },
             {
@@ -228,123 +315,224 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "FrameworkTemplate.cs",
-              "DocumentMoniker": "C:\\Users\\86157\\AppData\\Local\\Temp\\.vsdbgsrc\\30813fb93912a045c4518eaac5eda86122eadf21d3125bf43e64f44b88d48d80\\FrameworkTemplate.cs",
-              "ToolTip": "C:\\Users\\86157\\AppData\\Local\\Temp\\.vsdbgsrc\\30813fb93912a045c4518eaac5eda86122eadf21d3125bf43e64f44b88d48d80\\FrameworkTemplate.cs [\u53EA\u8BFB]",
-              "ViewState": "AgIAANYCAAAAAAAAAAAQwOsCAAADAAAAAQAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T18:14:54.79Z",
-              "EditorCaption": " [\u53EA\u8BFB]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "TeacherMainWindow.xaml",
-              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\TeacherMainWindow.xaml",
-              "RelativeDocumentMoniker": "Example\\TeacherMainWindow.xaml",
-              "ToolTip": "D:\\VSS\\courseselect\\Example\\TeacherMainWindow.xaml",
-              "RelativeToolTip": "Example\\TeacherMainWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-06-22T09:11:50.057Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "\u9009\u8BFE\u4FE1\u606F.xaml.cs",
-              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Teacher\\courseselect\\\u9009\u8BFE\u4FE1\u606F.xaml.cs",
-              "RelativeDocumentMoniker": "Example\\Teacher\\courseselect\\\u9009\u8BFE\u4FE1\u606F.xaml.cs",
-              "ToolTip": "D:\\VSS\\courseselect\\Example\\Teacher\\courseselect\\\u9009\u8BFE\u4FE1\u606F.xaml.cs",
-              "RelativeToolTip": "Example\\Teacher\\courseselect\\\u9009\u8BFE\u4FE1\u606F.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T10:01:07.768Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "\u9009\u8BFE\u9875\u9762.xaml.cs",
-              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Teacher\\courseselect\\\u9009\u8BFE\u9875\u9762.xaml.cs",
-              "RelativeDocumentMoniker": "Example\\Teacher\\courseselect\\\u9009\u8BFE\u9875\u9762.xaml.cs",
-              "ToolTip": "D:\\VSS\\courseselect\\Example\\Teacher\\courseselect\\\u9009\u8BFE\u9875\u9762.xaml.cs",
-              "RelativeToolTip": "Example\\Teacher\\courseselect\\\u9009\u8BFE\u9875\u9762.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4BAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T09:32:39.862Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "\u9009\u8BFE\u9875\u9762.xaml",
-              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Teacher\\courseselect\\\u9009\u8BFE\u9875\u9762.xaml",
-              "RelativeDocumentMoniker": "Example\\Teacher\\courseselect\\\u9009\u8BFE\u9875\u9762.xaml",
-              "ToolTip": "D:\\VSS\\courseselect\\Example\\Teacher\\courseselect\\\u9009\u8BFE\u9875\u9762.xaml",
-              "RelativeToolTip": "Example\\Teacher\\courseselect\\\u9009\u8BFE\u9875\u9762.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-06-22T09:32:10.564Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 5,
               "Title": "\u9009\u8BFE\u9875\u9762.xaml",
               "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Student\\courseselect\\\u9009\u8BFE\u9875\u9762.xaml",
               "RelativeDocumentMoniker": "Example\\Student\\courseselect\\\u9009\u8BFE\u9875\u9762.xaml",
               "ToolTip": "D:\\VSS\\courseselect\\Example\\Student\\courseselect\\\u9009\u8BFE\u9875\u9762.xaml",
               "RelativeToolTip": "Example\\Student\\courseselect\\\u9009\u8BFE\u9875\u9762.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-06-22T09:32:47.996Z"
+              "WhenOpened": "2025-06-22T09:32:47.996Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "\u9009\u8BFE\u4FE1\u606F\u7BA1\u7406.xaml",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Manager\\stuinfo\\\u9009\u8BFE\u4FE1\u606F\u7BA1\u7406.xaml",
+              "RelativeDocumentMoniker": "Example\\Manager\\stuinfo\\\u9009\u8BFE\u4FE1\u606F\u7BA1\u7406.xaml",
+              "ToolTip": "D:\\VSS\\courseselect\\Example\\Manager\\stuinfo\\\u9009\u8BFE\u4FE1\u606F\u7BA1\u7406.xaml",
+              "RelativeToolTip": "Example\\Manager\\stuinfo\\\u9009\u8BFE\u4FE1\u606F\u7BA1\u7406.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-25T09:30:02.08Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "\u9009\u8BFE\u4FE1\u606F\u7BA1\u7406.xaml.cs",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Manager\\stuinfo\\\u9009\u8BFE\u4FE1\u606F\u7BA1\u7406.xaml.cs",
+              "RelativeDocumentMoniker": "Example\\Manager\\stuinfo\\\u9009\u8BFE\u4FE1\u606F\u7BA1\u7406.xaml.cs",
+              "ToolTip": "D:\\VSS\\courseselect\\Example\\Manager\\stuinfo\\\u9009\u8BFE\u4FE1\u606F\u7BA1\u7406.xaml.cs",
+              "RelativeToolTip": "Example\\Manager\\stuinfo\\\u9009\u8BFE\u4FE1\u606F\u7BA1\u7406.xaml.cs",
+              "ViewState": "AgIAAFcBAAAAAAAAAADwv8cAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-25T11:18:56.128Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "\u5B66\u751F\u6210\u7EE9\u7BA1\u7406.xaml.cs",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Manager\\stuinfo\\\u5B66\u751F\u6210\u7EE9\u7BA1\u7406.xaml.cs",
+              "RelativeDocumentMoniker": "Example\\Manager\\stuinfo\\\u5B66\u751F\u6210\u7EE9\u7BA1\u7406.xaml.cs",
+              "ToolTip": "D:\\VSS\\courseselect\\Example\\Manager\\stuinfo\\\u5B66\u751F\u6210\u7EE9\u7BA1\u7406.xaml.cs",
+              "RelativeToolTip": "Example\\Manager\\stuinfo\\\u5B66\u751F\u6210\u7EE9\u7BA1\u7406.xaml.cs",
+              "ViewState": "AgIAAJUAAAAAAAAAAAAgwK4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-25T11:09:15.804Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "\u6388\u8BFE\u6210\u7EE9\u4FE1\u606F.xaml",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Manager\\teachinfo\\\u6388\u8BFE\u6210\u7EE9\u4FE1\u606F.xaml",
+              "RelativeDocumentMoniker": "Example\\Manager\\teachinfo\\\u6388\u8BFE\u6210\u7EE9\u4FE1\u606F.xaml",
+              "ToolTip": "D:\\VSS\\courseselect\\Example\\Manager\\teachinfo\\\u6388\u8BFE\u6210\u7EE9\u4FE1\u606F.xaml",
+              "RelativeToolTip": "Example\\Manager\\teachinfo\\\u6388\u8BFE\u6210\u7EE9\u4FE1\u606F.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-25T04:49:10.208Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "\u6388\u8BFE\u5B89\u6392.xaml",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Manager\\courseselect\\\u6388\u8BFE\u5B89\u6392.xaml",
+              "RelativeDocumentMoniker": "Example\\Manager\\courseselect\\\u6388\u8BFE\u5B89\u6392.xaml",
+              "ToolTip": "D:\\VSS\\courseselect\\Example\\Manager\\courseselect\\\u6388\u8BFE\u5B89\u6392.xaml",
+              "RelativeToolTip": "Example\\Manager\\courseselect\\\u6388\u8BFE\u5B89\u6392.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-25T09:29:54.304Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "\u5B66\u751F\u6210\u7EE9\u7BA1\u7406.xaml",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Manager\\stuinfo\\\u5B66\u751F\u6210\u7EE9\u7BA1\u7406.xaml",
+              "RelativeDocumentMoniker": "Example\\Manager\\stuinfo\\\u5B66\u751F\u6210\u7EE9\u7BA1\u7406.xaml",
+              "ToolTip": "D:\\VSS\\courseselect\\Example\\Manager\\stuinfo\\\u5B66\u751F\u6210\u7EE9\u7BA1\u7406.xaml",
+              "RelativeToolTip": "Example\\Manager\\stuinfo\\\u5B66\u751F\u6210\u7EE9\u7BA1\u7406.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-25T09:30:20.731Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "\u5B66\u751F\u4FE1\u606F\u7BA1\u7406.xaml",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Manager\\stuinfo\\\u5B66\u751F\u4FE1\u606F\u7BA1\u7406.xaml",
+              "RelativeDocumentMoniker": "Example\\Manager\\stuinfo\\\u5B66\u751F\u4FE1\u606F\u7BA1\u7406.xaml",
+              "ToolTip": "D:\\VSS\\courseselect\\Example\\Manager\\stuinfo\\\u5B66\u751F\u4FE1\u606F\u7BA1\u7406.xaml",
+              "RelativeToolTip": "Example\\Manager\\stuinfo\\\u5B66\u751F\u4FE1\u606F\u7BA1\u7406.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-25T09:30:44.32Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "\u8BFE\u7A0B\u7BA1\u7406.xaml",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Manager\\courseselect\\\u8BFE\u7A0B\u7BA1\u7406.xaml",
+              "RelativeDocumentMoniker": "Example\\Manager\\courseselect\\\u8BFE\u7A0B\u7BA1\u7406.xaml",
+              "ToolTip": "D:\\VSS\\courseselect\\Example\\Manager\\courseselect\\\u8BFE\u7A0B\u7BA1\u7406.xaml",
+              "RelativeToolTip": "Example\\Manager\\courseselect\\\u8BFE\u7A0B\u7BA1\u7406.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-23T10:37:43.515Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "ChangePasswordWindow.xaml",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\ChangePasswordWindow.xaml",
+              "RelativeDocumentMoniker": "Example\\ChangePasswordWindow.xaml",
+              "ToolTip": "D:\\VSS\\courseselect\\Example\\ChangePasswordWindow.xaml",
+              "RelativeToolTip": "Example\\ChangePasswordWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-25T10:56:26.609Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 15,
-              "Title": "\u9009\u8BFE\u9875\u9762.xaml.cs",
-              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Student\\courseselect\\\u9009\u8BFE\u9875\u9762.xaml.cs",
-              "RelativeDocumentMoniker": "Example\\Student\\courseselect\\\u9009\u8BFE\u9875\u9762.xaml.cs",
-              "ToolTip": "D:\\VSS\\courseselect\\Example\\Student\\courseselect\\\u9009\u8BFE\u9875\u9762.xaml.cs",
-              "RelativeToolTip": "Example\\Student\\courseselect\\\u9009\u8BFE\u9875\u9762.xaml.cs",
-              "ViewState": "AgIAADMCAAAAAAAAAAAAADUCAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T09:32:54.687Z"
+              "Title": "mChangePasswordWindow.xaml",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Manager\\mChangePasswordWindow.xaml",
+              "RelativeDocumentMoniker": "Example\\Manager\\mChangePasswordWindow.xaml",
+              "ToolTip": "D:\\VSS\\courseselect\\Example\\Manager\\mChangePasswordWindow.xaml",
+              "RelativeToolTip": "Example\\Manager\\mChangePasswordWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-23T03:50:14.081Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 17,
-              "Title": "StudentMainWindow.xaml.cs",
-              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\StudentMainWindow.xaml.cs",
-              "RelativeDocumentMoniker": "Example\\StudentMainWindow.xaml.cs",
-              "ToolTip": "D:\\VSS\\courseselect\\Example\\StudentMainWindow.xaml.cs",
-              "RelativeToolTip": "Example\\StudentMainWindow.xaml.cs",
-              "ViewState": "AgIAADkAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T09:58:43.916Z"
+              "Title": "\u8003\u8BD5\u4FE1\u606F.xaml",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Teacher\\examarrangement\\\u8003\u8BD5\u4FE1\u606F.xaml",
+              "RelativeDocumentMoniker": "Example\\Teacher\\examarrangement\\\u8003\u8BD5\u4FE1\u606F.xaml",
+              "ToolTip": "D:\\VSS\\courseselect\\Example\\Teacher\\examarrangement\\\u8003\u8BD5\u4FE1\u606F.xaml",
+              "RelativeToolTip": "Example\\Teacher\\examarrangement\\\u8003\u8BD5\u4FE1\u606F.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-22T18:32:17.295Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "\u6211\u7684\u4FE1\u606F.xaml",
-              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Student\\PersonalInformation\\\u6211\u7684\u4FE1\u606F.xaml",
-              "RelativeDocumentMoniker": "Example\\Student\\PersonalInformation\\\u6211\u7684\u4FE1\u606F.xaml",
-              "ToolTip": "D:\\VSS\\courseselect\\Example\\Student\\PersonalInformation\\\u6211\u7684\u4FE1\u606F.xaml",
-              "RelativeToolTip": "Example\\Student\\PersonalInformation\\\u6211\u7684\u4FE1\u606F.xaml",
+              "DocumentIndex": 23,
+              "Title": "ControlTemplate.cs",
+              "DocumentMoniker": "C:\\Users\\86157\\AppData\\Local\\Temp\\.vsdbgsrc\\d6f90d3e8d56a2db3b6fdcc44ea5be4b7f7c9630f4a79e01028e2d4ebed347c1\\ControlTemplate.cs",
+              "ToolTip": "C:\\Users\\86157\\AppData\\Local\\Temp\\.vsdbgsrc\\d6f90d3e8d56a2db3b6fdcc44ea5be4b7f7c9630f4a79e01028e2d4ebed347c1\\ControlTemplate.cs [\u53EA\u8BFB]",
+              "ViewState": "AgIAAEYAAAAAAAAAAAAWwFMAAAADAAAAAQAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-25T10:40:49.004Z",
+              "EditorCaption": " [\u53EA\u8BFB]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "\u6210\u7EE9\u5355.xaml",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Student\\queryresult\\\u6210\u7EE9\u5355.xaml",
+              "RelativeDocumentMoniker": "Example\\Student\\queryresult\\\u6210\u7EE9\u5355.xaml",
+              "ToolTip": "D:\\VSS\\courseselect\\Example\\Student\\queryresult\\\u6210\u7EE9\u5355.xaml",
+              "RelativeToolTip": "Example\\Student\\queryresult\\\u6210\u7EE9\u5355.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-06-22T09:31:22.676Z"
+              "WhenOpened": "2025-06-22T09:31:39.083Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "\u6210\u7EE9\u5F55\u5165.xaml",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Teacher\\queryresult\\\u6210\u7EE9\u5F55\u5165.xaml",
+              "RelativeDocumentMoniker": "Example\\Teacher\\queryresult\\\u6210\u7EE9\u5F55\u5165.xaml",
+              "ToolTip": "D:\\VSS\\courseselect\\Example\\Teacher\\queryresult\\\u6210\u7EE9\u5F55\u5165.xaml",
+              "RelativeToolTip": "Example\\Teacher\\queryresult\\\u6210\u7EE9\u5F55\u5165.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-22T16:06:01.39Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 19,
+              "Title": "\u8003\u8BD5\u4FE1\u606F.xaml",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Student\\examarrangement\\\u8003\u8BD5\u4FE1\u606F.xaml",
+              "RelativeDocumentMoniker": "Example\\Student\\examarrangement\\\u8003\u8BD5\u4FE1\u606F.xaml",
+              "ToolTip": "D:\\VSS\\courseselect\\Example\\Student\\examarrangement\\\u8003\u8BD5\u4FE1\u606F.xaml",
+              "RelativeToolTip": "Example\\Student\\examarrangement\\\u8003\u8BD5\u4FE1\u606F.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-22T18:32:06.761Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
               "Title": "\u6210\u7EE9\u4FE1\u606F.xaml",
               "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Student\\queryresult\\\u6210\u7EE9\u4FE1\u606F.xaml",
               "RelativeDocumentMoniker": "Example\\Student\\queryresult\\\u6210\u7EE9\u4FE1\u606F.xaml",
               "ToolTip": "D:\\VSS\\courseselect\\Example\\Student\\queryresult\\\u6210\u7EE9\u4FE1\u606F.xaml",
               "RelativeToolTip": "Example\\Student\\queryresult\\\u6210\u7EE9\u4FE1\u606F.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-06-22T09:31:51.494Z"
+              "WhenOpened": "2025-06-22T09:31:51.494Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 21,
+              "Title": "\u9009\u8BFE\u4FE1\u606F.xaml",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Student\\courseselect\\\u9009\u8BFE\u4FE1\u606F.xaml",
+              "RelativeDocumentMoniker": "Example\\Student\\courseselect\\\u9009\u8BFE\u4FE1\u606F.xaml",
+              "ToolTip": "D:\\VSS\\courseselect\\Example\\Student\\courseselect\\\u9009\u8BFE\u4FE1\u606F.xaml",
+              "RelativeToolTip": "Example\\Student\\courseselect\\\u9009\u8BFE\u4FE1\u606F.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-25T09:31:23.432Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
               "Title": "\u6210\u7EE9\u4FE1\u606F.g.cs",
               "DocumentMoniker": "D:\\VSS\\courseselect\\obj\\Debug\\Example\\Student\\queryresult\\\u6210\u7EE9\u4FE1\u606F.g.cs",
               "RelativeDocumentMoniker": "obj\\Debug\\Example\\Student\\queryresult\\\u6210\u7EE9\u4FE1\u606F.g.cs",
@@ -356,31 +544,30 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "\u6211\u7684\u4FE1\u606F.g.cs",
-              "DocumentMoniker": "D:\\VSS\\courseselect\\obj\\Debug\\Example\\Student\\PersonalInformation\\\u6211\u7684\u4FE1\u606F.g.cs",
-              "RelativeDocumentMoniker": "obj\\Debug\\Example\\Student\\PersonalInformation\\\u6211\u7684\u4FE1\u606F.g.cs",
-              "ToolTip": "D:\\VSS\\courseselect\\obj\\Debug\\Example\\Student\\PersonalInformation\\\u6211\u7684\u4FE1\u606F.g.cs",
-              "RelativeToolTip": "obj\\Debug\\Example\\Student\\PersonalInformation\\\u6211\u7684\u4FE1\u606F.g.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAawB8AAAAvAAAAAAAAAA==",
+              "DocumentIndex": 42,
+              "Title": "FrameworkTemplate.cs",
+              "DocumentMoniker": "C:\\Users\\86157\\AppData\\Local\\Temp\\.vsdbgsrc\\30813fb93912a045c4518eaac5eda86122eadf21d3125bf43e64f44b88d48d80\\FrameworkTemplate.cs",
+              "ToolTip": "C:\\Users\\86157\\AppData\\Local\\Temp\\.vsdbgsrc\\30813fb93912a045c4518eaac5eda86122eadf21d3125bf43e64f44b88d48d80\\FrameworkTemplate.cs [\u53EA\u8BFB]",
+              "ViewState": "AgIAANYCAAAAAAAAAAAQwOsCAAADAAAAAQAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T09:22:51.341Z"
+              "WhenOpened": "2025-06-22T18:14:54.79Z",
+              "EditorCaption": " [\u53EA\u8BFB]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "\u6210\u7EE9\u5355.g.cs",
-              "DocumentMoniker": "D:\\VSS\\courseselect\\obj\\Debug\\Example\\Student\\queryresult\\\u6210\u7EE9\u5355.g.cs",
-              "RelativeDocumentMoniker": "obj\\Debug\\Example\\Student\\queryresult\\\u6210\u7EE9\u5355.g.cs",
-              "ToolTip": "D:\\VSS\\courseselect\\obj\\Debug\\Example\\Student\\queryresult\\\u6210\u7EE9\u5355.g.cs",
-              "RelativeToolTip": "obj\\Debug\\Example\\Student\\queryresult\\\u6210\u7EE9\u5355.g.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAawB8AAAAnAAAAAAAAAA==",
+              "DocumentIndex": 43,
+              "Title": "\u9009\u8BFE\u4FE1\u606F.xaml.cs",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Teacher\\courseselect\\\u9009\u8BFE\u4FE1\u606F.xaml.cs",
+              "RelativeDocumentMoniker": "Example\\Teacher\\courseselect\\\u9009\u8BFE\u4FE1\u606F.xaml.cs",
+              "ToolTip": "D:\\VSS\\courseselect\\Example\\Teacher\\courseselect\\\u9009\u8BFE\u4FE1\u606F.xaml.cs",
+              "RelativeToolTip": "Example\\Teacher\\courseselect\\\u9009\u8BFE\u4FE1\u606F.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T09:22:49.432Z"
+              "WhenOpened": "2025-06-22T10:01:07.768Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 47,
               "Title": "\u9009\u8BFE\u4FE1\u606F.g.cs",
               "DocumentMoniker": "D:\\VSS\\courseselect\\obj\\Debug\\Example\\Student\\courseselect\\\u9009\u8BFE\u4FE1\u606F.g.cs",
               "RelativeDocumentMoniker": "obj\\Debug\\Example\\Student\\courseselect\\\u9009\u8BFE\u4FE1\u606F.g.cs",
@@ -392,7 +579,67 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 22,
+              "Title": "\u9009\u8BFE\u8BFE\u8868.xaml",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Student\\courseselect\\\u9009\u8BFE\u8BFE\u8868.xaml",
+              "RelativeDocumentMoniker": "Example\\Student\\courseselect\\\u9009\u8BFE\u8BFE\u8868.xaml",
+              "ToolTip": "D:\\VSS\\courseselect\\Example\\Student\\courseselect\\\u9009\u8BFE\u8BFE\u8868.xaml",
+              "RelativeToolTip": "Example\\Student\\courseselect\\\u9009\u8BFE\u8BFE\u8868.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-25T09:31:14.636Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "\u6211\u7684\u4FE1\u606F.xaml.cs",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Manager\\PersonalInformation\\\u6211\u7684\u4FE1\u606F.xaml.cs",
+              "RelativeDocumentMoniker": "Example\\Manager\\PersonalInformation\\\u6211\u7684\u4FE1\u606F.xaml.cs",
+              "ToolTip": "D:\\VSS\\courseselect\\Example\\Manager\\PersonalInformation\\\u6211\u7684\u4FE1\u606F.xaml.cs*",
+              "RelativeToolTip": "Example\\Manager\\PersonalInformation\\\u6211\u7684\u4FE1\u606F.xaml.cs*",
+              "ViewState": "AgIAABsAAAAAAAAAAAAIwCUAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T03:48:28.612Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "mChangePasswordWindow.xaml.cs",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Manager\\mChangePasswordWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Example\\Manager\\mChangePasswordWindow.xaml.cs",
+              "ToolTip": "D:\\VSS\\courseselect\\Example\\Manager\\mChangePasswordWindow.xaml.cs",
+              "RelativeToolTip": "Example\\Manager\\mChangePasswordWindow.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T03:57:03.17Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "\u8003\u8BD5\u4FE1\u606F.xaml.cs",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Teacher\\examarrangement\\\u8003\u8BD5\u4FE1\u606F.xaml.cs",
+              "RelativeDocumentMoniker": "Example\\Teacher\\examarrangement\\\u8003\u8BD5\u4FE1\u606F.xaml.cs",
+              "ToolTip": "D:\\VSS\\courseselect\\Example\\Teacher\\examarrangement\\\u8003\u8BD5\u4FE1\u606F.xaml.cs",
+              "RelativeToolTip": "Example\\Teacher\\examarrangement\\\u8003\u8BD5\u4FE1\u606F.xaml.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAwwDkAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-22T18:32:53.992Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "TeacherMainWindow.xaml.cs",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\TeacherMainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Example\\TeacherMainWindow.xaml.cs",
+              "ToolTip": "D:\\VSS\\courseselect\\Example\\TeacherMainWindow.xaml.cs",
+              "RelativeToolTip": "Example\\TeacherMainWindow.xaml.cs",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAkwIYAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-22T09:53:11.359Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
               "Title": "StudentMainWindow.xaml",
               "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\StudentMainWindow.xaml",
               "RelativeDocumentMoniker": "Example\\StudentMainWindow.xaml",
@@ -403,18 +650,207 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "\u6210\u7EE9\u5355.xaml",
-              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Student\\queryresult\\\u6210\u7EE9\u5355.xaml",
-              "RelativeDocumentMoniker": "Example\\Student\\queryresult\\\u6210\u7EE9\u5355.xaml",
-              "ToolTip": "D:\\VSS\\courseselect\\Example\\Student\\queryresult\\\u6210\u7EE9\u5355.xaml",
-              "RelativeToolTip": "Example\\Student\\queryresult\\\u6210\u7EE9\u5355.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-06-22T09:31:39.083Z"
+              "DocumentIndex": 51,
+              "Title": "\u6211\u7684\u4FE1\u606F.g.cs",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\obj\\Debug\\Example\\Student\\PersonalInformation\\\u6211\u7684\u4FE1\u606F.g.cs",
+              "RelativeDocumentMoniker": "obj\\Debug\\Example\\Student\\PersonalInformation\\\u6211\u7684\u4FE1\u606F.g.cs",
+              "ToolTip": "D:\\VSS\\courseselect\\obj\\Debug\\Example\\Student\\PersonalInformation\\\u6211\u7684\u4FE1\u606F.g.cs",
+              "RelativeToolTip": "obj\\Debug\\Example\\Student\\PersonalInformation\\\u6211\u7684\u4FE1\u606F.g.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAawB8AAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-22T09:22:51.341Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 50,
+              "Title": "\u6210\u7EE9\u5355.g.cs",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\obj\\Debug\\Example\\Student\\queryresult\\\u6210\u7EE9\u5355.g.cs",
+              "RelativeDocumentMoniker": "obj\\Debug\\Example\\Student\\queryresult\\\u6210\u7EE9\u5355.g.cs",
+              "ToolTip": "D:\\VSS\\courseselect\\obj\\Debug\\Example\\Student\\queryresult\\\u6210\u7EE9\u5355.g.cs",
+              "RelativeToolTip": "obj\\Debug\\Example\\Student\\queryresult\\\u6210\u7EE9\u5355.g.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAawB8AAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-22T09:22:49.432Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "\u6559\u5E08\u4FE1\u606F\u7BA1\u7406.xaml",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Manager\\teachinfo\\\u6559\u5E08\u4FE1\u606F\u7BA1\u7406.xaml",
+              "RelativeDocumentMoniker": "Example\\Manager\\teachinfo\\\u6559\u5E08\u4FE1\u606F\u7BA1\u7406.xaml",
+              "ToolTip": "D:\\VSS\\courseselect\\Example\\Manager\\teachinfo\\\u6559\u5E08\u4FE1\u606F\u7BA1\u7406.xaml",
+              "RelativeToolTip": "Example\\Manager\\teachinfo\\\u6559\u5E08\u4FE1\u606F\u7BA1\u7406.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-25T09:30:56.602Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "\u6211\u7684\u4FE1\u606F.xaml",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Student\\PersonalInformation\\\u6211\u7684\u4FE1\u606F.xaml",
+              "RelativeDocumentMoniker": "Example\\Student\\PersonalInformation\\\u6211\u7684\u4FE1\u606F.xaml",
+              "ToolTip": "D:\\VSS\\courseselect\\Example\\Student\\PersonalInformation\\\u6211\u7684\u4FE1\u606F.xaml",
+              "RelativeToolTip": "Example\\Student\\PersonalInformation\\\u6211\u7684\u4FE1\u606F.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-22T09:31:22.676Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "StudentMainWindow.xaml.cs",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\StudentMainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Example\\StudentMainWindow.xaml.cs",
+              "ToolTip": "D:\\VSS\\courseselect\\Example\\StudentMainWindow.xaml.cs",
+              "RelativeToolTip": "Example\\StudentMainWindow.xaml.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-22T09:58:43.916Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "\u6388\u8BFE\u4FE1\u606F\u7BA1\u7406.xaml",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Manager\\teachinfo\\\u6388\u8BFE\u4FE1\u606F\u7BA1\u7406.xaml",
+              "RelativeDocumentMoniker": "Example\\Manager\\teachinfo\\\u6388\u8BFE\u4FE1\u606F\u7BA1\u7406.xaml",
+              "ToolTip": "D:\\VSS\\courseselect\\Example\\Manager\\teachinfo\\\u6388\u8BFE\u4FE1\u606F\u7BA1\u7406.xaml",
+              "RelativeToolTip": "Example\\Manager\\teachinfo\\\u6388\u8BFE\u4FE1\u606F\u7BA1\u7406.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-25T04:49:08.574Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "\u6211\u7684\u4FE1\u606F.xaml",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Teacher\\PersonalInformation\\\u6211\u7684\u4FE1\u606F.xaml",
+              "RelativeDocumentMoniker": "Example\\Teacher\\PersonalInformation\\\u6211\u7684\u4FE1\u606F.xaml",
+              "ToolTip": "D:\\VSS\\courseselect\\Example\\Teacher\\PersonalInformation\\\u6211\u7684\u4FE1\u606F.xaml",
+              "RelativeToolTip": "Example\\Teacher\\PersonalInformation\\\u6211\u7684\u4FE1\u606F.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-23T03:47:28.685Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "AdminMainWindow.xaml.cs",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\AdminMainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Example\\AdminMainWindow.xaml.cs",
+              "ToolTip": "D:\\VSS\\courseselect\\Example\\AdminMainWindow.xaml.cs",
+              "RelativeToolTip": "Example\\AdminMainWindow.xaml.cs",
+              "ViewState": "AgIAAGgAAAAAAAAAAAAmwIIAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T03:43:13.251Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "tChangePasswordWindow.xaml.cs",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Teacher\\tChangePasswordWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Example\\Teacher\\tChangePasswordWindow.xaml.cs",
+              "ToolTip": "D:\\VSS\\courseselect\\Example\\Teacher\\tChangePasswordWindow.xaml.cs",
+              "RelativeToolTip": "Example\\Teacher\\tChangePasswordWindow.xaml.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAkwDsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T03:57:08.192Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "\u6388\u8BFE\u4FE1\u606F\u7BA1\u7406.xaml.cs",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Manager\\teachinfo\\\u6388\u8BFE\u4FE1\u606F\u7BA1\u7406.xaml.cs",
+              "RelativeDocumentMoniker": "Example\\Manager\\teachinfo\\\u6388\u8BFE\u4FE1\u606F\u7BA1\u7406.xaml.cs",
+              "ToolTip": "D:\\VSS\\courseselect\\Example\\Manager\\teachinfo\\\u6388\u8BFE\u4FE1\u606F\u7BA1\u7406.xaml.cs",
+              "RelativeToolTip": "Example\\Manager\\teachinfo\\\u6388\u8BFE\u4FE1\u606F\u7BA1\u7406.xaml.cs",
+              "ViewState": "AgIAAJYBAAAAAAAAAAAYwLEAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-25T05:04:48.262Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "\u6388\u8BFE\u6210\u7EE9\u4FE1\u606F.xaml.cs",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Manager\\teachinfo\\\u6388\u8BFE\u6210\u7EE9\u4FE1\u606F.xaml.cs",
+              "RelativeDocumentMoniker": "Example\\Manager\\teachinfo\\\u6388\u8BFE\u6210\u7EE9\u4FE1\u606F.xaml.cs",
+              "ToolTip": "D:\\VSS\\courseselect\\Example\\Manager\\teachinfo\\\u6388\u8BFE\u6210\u7EE9\u4FE1\u606F.xaml.cs",
+              "RelativeToolTip": "Example\\Manager\\teachinfo\\\u6388\u8BFE\u6210\u7EE9\u4FE1\u606F.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFwAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-25T04:49:10.417Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "\u8BFE\u7A0B\u7BA1\u7406.xaml.cs",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Manager\\courseselect\\\u8BFE\u7A0B\u7BA1\u7406.xaml.cs",
+              "RelativeDocumentMoniker": "Example\\Manager\\courseselect\\\u8BFE\u7A0B\u7BA1\u7406.xaml.cs",
+              "ToolTip": "D:\\VSS\\courseselect\\Example\\Manager\\courseselect\\\u8BFE\u7A0B\u7BA1\u7406.xaml.cs",
+              "RelativeToolTip": "Example\\Manager\\courseselect\\\u8BFE\u7A0B\u7BA1\u7406.xaml.cs",
+              "ViewState": "AgIAAF4AAAAAAAAAAAAgwHwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T10:38:22.443Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "\u6211\u7684\u4FE1\u606F.xaml",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Manager\\PersonalInformation\\\u6211\u7684\u4FE1\u606F.xaml",
+              "RelativeDocumentMoniker": "Example\\Manager\\PersonalInformation\\\u6211\u7684\u4FE1\u606F.xaml",
+              "ToolTip": "D:\\VSS\\courseselect\\Example\\Manager\\PersonalInformation\\\u6211\u7684\u4FE1\u606F.xaml",
+              "RelativeToolTip": "Example\\Manager\\PersonalInformation\\\u6211\u7684\u4FE1\u606F.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-23T03:45:36.008Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "AdminMainWindow.xaml",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\AdminMainWindow.xaml",
+              "RelativeDocumentMoniker": "Example\\AdminMainWindow.xaml",
+              "ToolTip": "D:\\VSS\\courseselect\\Example\\AdminMainWindow.xaml",
+              "RelativeToolTip": "Example\\AdminMainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-23T03:42:52.334Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "tChangePasswordWindow.xaml",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Teacher\\tChangePasswordWindow.xaml",
+              "RelativeDocumentMoniker": "Example\\Teacher\\tChangePasswordWindow.xaml",
+              "ToolTip": "D:\\VSS\\courseselect\\Example\\Teacher\\tChangePasswordWindow.xaml",
+              "RelativeToolTip": "Example\\Teacher\\tChangePasswordWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-23T03:50:24.057Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "\u6210\u7EE9\u5F55\u5165.xaml.cs",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Teacher\\queryresult\\\u6210\u7EE9\u5F55\u5165.xaml.cs",
+              "RelativeDocumentMoniker": "Example\\Teacher\\queryresult\\\u6210\u7EE9\u5F55\u5165.xaml.cs",
+              "ToolTip": "D:\\VSS\\courseselect\\Example\\Teacher\\queryresult\\\u6210\u7EE9\u5F55\u5165.xaml.cs",
+              "RelativeToolTip": "Example\\Teacher\\queryresult\\\u6210\u7EE9\u5F55\u5165.xaml.cs",
+              "ViewState": "AgIAAAsBAAAAAAAAAAAAwB4BAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-22T16:06:36.153Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "TeacherMainWindow.xaml",
+              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\TeacherMainWindow.xaml",
+              "RelativeDocumentMoniker": "Example\\TeacherMainWindow.xaml",
+              "ToolTip": "D:\\VSS\\courseselect\\Example\\TeacherMainWindow.xaml",
+              "RelativeToolTip": "Example\\TeacherMainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-22T09:11:50.057Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
               "Title": "\u6211\u7684\u4FE1\u606F.xaml.cs",
               "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Student\\PersonalInformation\\\u6211\u7684\u4FE1\u606F.xaml.cs",
               "RelativeDocumentMoniker": "Example\\Student\\PersonalInformation\\\u6211\u7684\u4FE1\u606F.xaml.cs",
@@ -426,7 +862,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 52,
               "Title": "LoginWindow.xaml",
               "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\LoginWindow.xaml",
               "RelativeDocumentMoniker": "Example\\LoginWindow.xaml",
@@ -437,7 +873,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 53,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "D:\\VSS\\courseselect\\MainWindow.xaml",
               "RelativeDocumentMoniker": "MainWindow.xaml",
@@ -445,85 +881,6 @@
               "RelativeToolTip": "MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2025-06-22T09:11:38.825Z"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "Orientation": 0,
-      "VerticalTabListWidth": 256,
-      "FloatingWindowState": {
-        "Id": "f1df3c86-114f-4b9d-a59e-058309913213",
-        "Display": 0,
-        "X": 707,
-        "Y": 150,
-        "Width": 430,
-        "Height": 706,
-        "WindowState": 0
-      },
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 1,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "\u9009\u8BFE\u4FE1\u606F.xaml.cs",
-              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Student\\courseselect\\\u9009\u8BFE\u4FE1\u606F.xaml.cs",
-              "RelativeDocumentMoniker": "Example\\Student\\courseselect\\\u9009\u8BFE\u4FE1\u606F.xaml.cs",
-              "ToolTip": "D:\\VSS\\courseselect\\Example\\Student\\courseselect\\\u9009\u8BFE\u4FE1\u606F.xaml.cs",
-              "RelativeToolTip": "Example\\Student\\courseselect\\\u9009\u8BFE\u4FE1\u606F.xaml.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAAwCkAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T09:31:12.263Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "\u9009\u8BFE\u4FE1\u606F.xaml",
-              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Student\\courseselect\\\u9009\u8BFE\u4FE1\u606F.xaml",
-              "RelativeDocumentMoniker": "Example\\Student\\courseselect\\\u9009\u8BFE\u4FE1\u606F.xaml",
-              "ToolTip": "D:\\VSS\\courseselect\\Example\\Student\\courseselect\\\u9009\u8BFE\u4FE1\u606F.xaml",
-              "RelativeToolTip": "Example\\Student\\courseselect\\\u9009\u8BFE\u4FE1\u606F.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-06-22T09:30:44.349Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "Orientation": 0,
-      "VerticalTabListWidth": 256,
-      "FloatingWindowState": {
-        "Id": "6697db5f-2278-4c77-aa4a-561b2f3ca466",
-        "Display": 0,
-        "X": 519,
-        "Y": 104,
-        "Width": 600,
-        "Height": 753,
-        "WindowState": 0
-      },
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "\u8003\u8BD5\u4FE1\u606F.xaml.cs",
-              "DocumentMoniker": "D:\\VSS\\courseselect\\Example\\Student\\examarrangement\\\u8003\u8BD5\u4FE1\u606F.xaml.cs",
-              "RelativeDocumentMoniker": "Example\\Student\\examarrangement\\\u8003\u8BD5\u4FE1\u606F.xaml.cs",
-              "ToolTip": "D:\\VSS\\courseselect\\Example\\Student\\examarrangement\\\u8003\u8BD5\u4FE1\u606F.xaml.cs",
-              "RelativeToolTip": "Example\\Student\\examarrangement\\\u8003\u8BD5\u4FE1\u606F.xaml.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAqwDkAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T18:32:47.263Z",
-              "EditorCaption": ""
             }
           ]
         }

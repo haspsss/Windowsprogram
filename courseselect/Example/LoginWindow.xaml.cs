@@ -299,7 +299,7 @@ namespace courseselect.Example
             }
             else if (role == "admin")
             {
-                return new AdminMainWindow(_connection, userId);
+                return new AdminMainWindow(_connection, userId, userName);
             }
             else
             {

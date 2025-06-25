@@ -6,31 +6,65 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="1200"
       Title="选课页面">
+    <Page.Resources>
+        <Style TargetType="ScrollBar">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ScrollBar">
+                        <Grid Background="AliceBlue">
+                            <Track x:Name="PART_Track"
+                               IsDirectionReversed="true"
+                               Focusable="false">
+                               
+                                <Track.Thumb>
+                                    <Thumb Background="LightSteelBlue"   BorderBrush="Transparent"/>
+                                </Track.Thumb>
+                               
+                            </Track>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="LightGoldenrodYellow" />
+            <Setter Property="FontWeight" Value="bold"/>
+            <Setter Property="Height" Value="25"/>
+        </Style>
+    </Page.Resources>
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-         
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="5">
+        <StackPanel Grid.Row="0">
             <TextBlock x:Name="CreditsSummaryTextBlock" 
-               FontSize="16" 
-               Margin="10" 
-               FontWeight="Bold" 
-               HorizontalAlignment="Right" />
-            <TextBox x:Name="SearchTextBox" Width="200" />
-            <Button x:Name="SearchButton" Content="搜索" Click="SearchButton_Click" />
-
-            <ComboBox x:Name="CTimeComboBox" Width="120" SelectionChanged="FilterComboBox_SelectionChanged" />
-            <ComboBox x:Name="CCollegeComboBox" Width="120" SelectionChanged="FilterComboBox_SelectionChanged" />
-            <ComboBox x:Name="CKindComboBox" Width="120" SelectionChanged="FilterComboBox_SelectionChanged"/>
-            <ComboBox x:Name="TestComboBox" Width="120" SelectionChanged="FilterComboBox_SelectionChanged" />
-            <ComboBox x:Name="CWeekComboBox" Width="120" SelectionChanged="FilterComboBox_SelectionChanged" />
+FontSize="16" 
+Margin="10" 
+FontWeight="Bold" 
+HorizontalAlignment="Left" />
+            
         </StackPanel>
-         
-        <DataGrid x:Name="CourseDataGrid" Grid.Row="1" AutoGenerateColumns="False" Margin="5">
+
+        <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Auto"  Grid.Row="1">
+            <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="5">
+                <TextBox x:Name="SearchTextBox" Width="200" Height="30" />
+            <Button x:Name="SearchButton" Content="搜索" Click="SearchButton_Click"  Height="30"/>
+                <Button Content="清除筛选" Click="ClearFilterButton_Click" Height="30" />
+
+                <ComboBox x:Name="CTimeComboBox" Width="120" SelectionChanged="FilterComboBox_SelectionChanged"  Height="30"/>
+            <ComboBox x:Name="CCollegeComboBox" Width="120" SelectionChanged="FilterComboBox_SelectionChanged"  Height="30"/>
+            <ComboBox x:Name="CKindComboBox" Width="120" SelectionChanged="FilterComboBox_SelectionChanged" Height="30"/>
+            <ComboBox x:Name="TestComboBox" Width="120" SelectionChanged="FilterComboBox_SelectionChanged"  Height="30"/>
+            <ComboBox x:Name="CWeekComboBox" Width="120" SelectionChanged="FilterComboBox_SelectionChanged"  Height="30"/>
+        </StackPanel>
+        </ScrollViewer>
+
+            <DataGrid x:Name="CourseDataGrid" Grid.Row="2" AutoGenerateColumns="False" Margin="5" VerticalScrollBarVisibility="Auto" >
             <DataGrid.Columns>
                   <DataGridTemplateColumn Header="操作">
       <DataGridTemplateColumn.CellTemplate>

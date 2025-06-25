@@ -1,0 +1,138 @@
+﻿<Page x:Class="courseselect.Example.Manager.teachinfo.教师信息管理"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:courseselect.Example.Manager.teachinfo"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="教师信息管理">
+
+    <Page.Resources>
+            <local:StringToDateConverter x:Key="StringToDateConverter" />
+    
+            <Style TargetType="ScrollBar">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="ScrollBar">
+                            <Grid Background="AliceBlue">
+                                <Track x:Name="PART_Track"
+                               IsDirectionReversed="true"
+                               Focusable="false">
+                                    
+                               
+                                    <Track.Thumb>
+                                        <Thumb Background="LightSteelBlue"  BorderBrush="Transparent"/>
+                                    </Track.Thumb>
+                                    
+                                </Track>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="Background" Value="LightGoldenrodYellow" />
+                <Setter Property="FontWeight" Value="bold"/>
+                <Setter Property="Height" Value="25"/>
+            </Style>
+        </Page.Resources>
+
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Orientation="Vertical" Grid.Row="0">
+                <ScrollViewer HorizontalScrollBarVisibility="Auto"
+              VerticalScrollBarVisibility="Disabled">
+                    <StackPanel Orientation="Horizontal" Margin="2" >
+                        <TextBox x:Name="SearchBox" Width="150" />
+                        <Button Content="搜索" Click="SearchButton_Click" Height="30"/>
+                        <Button Content="清除筛选" Click="ClearFilterButton_Click" Height="30"/>
+                        <Label Content="学院"/>
+                        <ComboBox x:Name="CollegeComboBox" Width="80" Margin="5" SelectionChanged="FilterComboBox_Changed"/>
+                        <Label Content="系"/>
+                        <ComboBox x:Name="DepartmentComboBox" Width="87" Margin="5" SelectionChanged="FilterComboBox_Changed"  />
+                        <Label Content="性别"/>
+                        <ComboBox x:Name="SexComboBox" Width="77" Margin="5" SelectionChanged="FilterComboBox_Changed"  />
+                        <Label Content="政治面貌"/>
+                        <ComboBox x:Name="PoliticalComboBox" Width="75" Margin="5" SelectionChanged="FilterComboBox_Changed"  />
+                    </StackPanel >
+                </ScrollViewer>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="5" Grid.Row="1">
+                    <Button Content="添加" Click="AddButton_Click" Margin="2" Width="50"/>
+                    <Button Content="保存" Click="SaveButton_Click" Margin="2" Width="50"/>
+                    <Button Content="删除" Click="DeleteButton_Click" Margin="2" Width="50"/>
+                </StackPanel>
+            </StackPanel>
+
+            <DataGrid x:Name="teacherDataGrid"
+                  AutoGenerateColumns="False"
+                  ItemsSource="{Binding TeachList}"
+                  SelectionMode="Extended"
+                  CanUserAddRows="False"
+                  IsReadOnly="False"
+                  Margin="5"
+                  
+                       ScrollViewer.HorizontalScrollBarVisibility="Auto"
+          ScrollViewer.VerticalScrollBarVisibility="Auto"  Grid.Row=" 2">
+                <DataGrid.Columns>
+                    <DataGridCheckBoxColumn Binding="{Binding IsSelected}" Header="选择"/>
+                    <DataGridTextColumn Header="职工号" Binding="{Binding Ttid}" />
+                    <DataGridTextColumn Header="姓名" Binding="{Binding Name}" />
+
+                    <!-- 出生日期只读显示 yyyy-MM-dd -->
+                    <DataGridTemplateColumn Header="出生日期">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding BirthDisplay}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <DatePicker SelectedDate="{Binding Birth, Converter={StaticResource StringToDateConverter}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+
+
+                    <!-- 性别列：ComboBox 绑定 Sex 值，显示“男/女” -->
+                    <DataGridComboBoxColumn Header="性别"
+                            SelectedValueBinding="{Binding Sex, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                            SelectedValuePath="Key"
+                            DisplayMemberPath="Value">
+                        <DataGridComboBoxColumn.ElementStyle>
+                            <Style TargetType="ComboBox">
+                                <Setter Property="ItemsSource" Value="{Binding DataContext.SexOptions, RelativeSource={RelativeSource AncestorType=Page}}"/>
+                                <Setter Property="IsEnabled" Value="False"/>
+                            </Style>
+                        </DataGridComboBoxColumn.ElementStyle>
+                        <DataGridComboBoxColumn.EditingElementStyle>
+                            <Style TargetType="ComboBox">
+                                <Setter Property="ItemsSource" Value="{Binding DataContext.SexOptions, RelativeSource={RelativeSource AncestorType=Page}}"/>
+                            </Style>
+                        </DataGridComboBoxColumn.EditingElementStyle>
+                    </DataGridComboBoxColumn>
+
+                    <DataGridTextColumn Header="系" Binding="{Binding Department}" />
+                    <DataGridTextColumn Header="学院" Binding="{Binding College}" />
+                    <DataGridTextColumn Header="电话" Binding="{Binding Phone}" />
+                    <DataGridTextColumn Header="政治身份" Binding="{Binding Political}" />
+                    <DataGridTextColumn Header="密码" Binding="{Binding Password}" />
+                    <DataGridTextColumn Header="是否改密" Binding="{Binding IfChangePw}" />
+                    <DataGridTextColumn Header="密保问题" Binding="{Binding Question}" />
+                    <DataGridTextColumn Header="密保答案" Binding="{Binding Answer}" />
+                </DataGrid.Columns>
+
+            </DataGrid>
+
+
+        </Grid>
+
+</Page>
+

@@ -1,0 +1,176 @@
+﻿<Page x:Class="courseselect.Example.Manager.teachinfo.授课成绩信息"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:courseselect.Example.Manager.teachinfo"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="授课成绩信息">
+    <Page.Resources>
+        <local:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+   
+        <Style TargetType="ScrollBar">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ScrollBar">
+                        <Grid Background="AliceBlue">
+                            <Track x:Name="PART_Track"
+                               IsDirectionReversed="true"
+                               Focusable="false">
+                              
+                                <Track.Thumb>
+                                    <Thumb Background="LightSteelBlue"  BorderBrush="Transparent"/>
+                                </Track.Thumb>
+                               
+                            </Track>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="LightGoldenrodYellow" />
+            <Setter Property="FontWeight" Value="bold"/>
+            <Setter Property="Height" Value="25"/>
+        </Style>
+    </Page.Resources>
+
+    <DockPanel>
+        <!-- 教师搜索栏 -->
+        <StackPanel Orientation="Horizontal" Margin="10" DockPanel.Dock="Top">
+            <TextBox x:Name="TeacherSearchBox" Width="150" Margin="5"/>
+            <Button Content="搜索教师" Click="FilterTeacher_Click" Margin="5"/>
+            <Button Content="清空教师筛选" Click="ClearTeacherFilter_Click" Margin="5,0,0,0"/>
+            
+        </StackPanel>
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <ItemsControl x:Name="TeacherList">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <!-- 教师折叠框 -->
+                        <Expander Margin="5">
+                            <Expander.Header>
+                                <StackPanel Orientation="Horizontal" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                    <TextBlock Text="职工号: " FontWeight="Bold"/>
+                                    <TextBlock Text="{Binding Ttid}" Margin="3,0"/>
+                                    <TextBlock Text="姓名: " FontWeight="Bold" Margin="10,0,0,0"/>
+                                    <TextBlock Text="{Binding Name}" Margin="3,0"/>
+                                    <TextBlock Text="性别: " FontWeight="Bold" Margin="10,0,0,0"/>
+                                    <TextBlock Text="{Binding SexDisplay}" Margin="3,0"/>
+                                    <TextBlock Text="学院: " FontWeight="Bold" Margin="10,0,0,0"/>
+                                    <TextBlock Text="{Binding College}" Margin="3,0"/>
+                                    <TextBlock Text="系: " FontWeight="Bold" Margin="10,0,0,0"/>
+                                    <TextBlock Text="{Binding Department}" Margin="3,0"/>
+                                </StackPanel>
+                            </Expander.Header>
+
+                            <!-- 教师下课程区 -->
+                            <StackPanel Margin="10,5,5,5">
+                                <!-- 课程搜索栏 -->
+                                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                                    <TextBox x:Name="CourseSearchBox" Width="150" Margin="5,0" Height="25"/>
+                                    <Button Content="搜索课程" Click="FilterCourse_Click" Margin="5,0" Tag="{Binding}"/>
+                                    <Button Content="清空课程筛选" Click="ClearCourseFilter_Click" Margin="5,0" Tag="{Binding}"/>
+                                   
+                               
+
+                                </StackPanel>
+                                <TextBlock Text="该教师暂无任何授课"
+               Foreground="Gray"
+               FontStyle="Italic"
+               Visibility="{Binding HasNoCourses, Converter={StaticResource BoolToVisibilityConverter}}"
+               Margin="10,5"/>
+                                <ItemsControl ItemsSource="{Binding Courses}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <!-- 课程折叠框 -->
+                                            <Expander Margin="5">
+                                                <Expander.Header>
+                                                    <ScrollViewer HorizontalScrollBarVisibility="Auto" >
+                                                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center"   HorizontalAlignment="Center">
+                                                        <TextBlock Text="课程号: " FontWeight="Bold"/>
+                                                        <TextBlock Text="{Binding Cid}" Margin="3,0"/>
+                                                        <TextBlock Text="课程名: " FontWeight="Bold" Margin="10,0,0,0"/>
+                                                        <TextBlock Text="{Binding Cname}" Margin="3,0"/>
+                                                        <TextBlock Text="类别: " FontWeight="Bold" Margin="10,0,0,0"/>
+                                                        <TextBlock Text="{Binding Ckind}" Margin="3,0"/>
+                                                        <TextBlock Text="学院: " FontWeight="Bold" Margin="10,0,0,0"/>
+                                                        <TextBlock Text="{Binding Ccollege}" Margin="3,0"/>
+                                                        <TextBlock FontWeight="Bold" Text="成绩统计：" Margin="10,0,0,0"/>
+                                                        <TextBlock Text="{Binding UsualAvg, StringFormat=平时平均分：{0:F1}}" Margin="3,0"/>
+                                                        <TextBlock Text="{Binding UsualMax, StringFormat=平时最高分：{0:F1}}" Margin="3,0"/>
+                                                        <TextBlock Text="{Binding UsualMin, StringFormat=平时最低分：{0:F1}}" Margin="3,0"/>
+
+                                                        <TextBlock Text="{Binding ExamAvg, StringFormat=考试平均分：{0:F1}}"  Margin="3,0"/>
+                                                        <TextBlock Text="{Binding ExamMax, StringFormat=考试最高分：{0:F1}}" Margin="3,0" />
+                                                        <TextBlock Text="{Binding ExamMin, StringFormat=考试最低分：{0:F1}}"  Margin="3,0"/>
+
+                                                        <TextBlock Text="{Binding FinalAvg, StringFormat=最终平均分：{0:F1}}"  Margin="3,0"/>
+                                                        <TextBlock Text="{Binding FinalMax, StringFormat=最终最高分：{0:F1}}"  Margin="3,0"/>
+                                                        <TextBlock Text="{Binding FinalMin, StringFormat=最终最低分：{0:F1}}"  Margin="3,0"/>
+                                                        
+                                                    </StackPanel>
+                                                    </ScrollViewer>
+                                                </Expander.Header>
+
+                                                <!-- 学生区 -->
+                                                <StackPanel Margin="10,5,0,5">
+                                                    <!-- 学生搜索栏 -->
+                                                    <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                                                        <TextBox x:Name="StudentSearchBox" Width="150" Margin="5,0" Height="25"/>
+                                                        <Button Content="搜索学生" Click="FilterStudent_Click" Margin="5,0" Tag="{Binding}"/>
+                                                        <Button Content="清除学生筛选" Click="ClearStudentFilter_Click" Tag="{Binding}" Margin="5,0,0,0"/>
+                                                        <Button Content="保存该课程成绩" Click="SaveCourseScores_Click" Margin="10,0" Tag="{Binding}"/>
+                                                   
+                                                </StackPanel>
+                                                    <!-- 若无学生，显示提示 -->
+                                                    <TextBlock Text="该课程无任何学生选择"
+           Foreground="Gray"
+           FontStyle="Italic"
+           Visibility="{Binding HasNoStudents, Converter={StaticResource BoolToVisibilityConverter}}"
+           Margin="10,5"/>
+
+                                                    <!-- 学生成绩表头 -->
+                                                    <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                                                        <TextBlock Text="学生学号" Width="100" FontWeight="Bold"/>
+                                                        <TextBlock Text="姓名" Width="100" FontWeight="Bold"/>
+                                                        <TextBlock Text="平时成绩" Width="100" FontWeight="Bold"/>
+                                                        <TextBlock Text="考试成绩" Width="100" FontWeight="Bold"/>
+                                                      
+
+                                                        <TextBlock Text="最终成绩" Width="100" FontWeight="Bold"/>
+                                                    </StackPanel>
+
+                                                    <!-- 成绩明细 -->
+                                                    <ItemsControl ItemsSource="{Binding Students}">
+                                                        <ItemsControl.ItemTemplate>
+                                                            <DataTemplate>
+                                                                <StackPanel Orientation="Horizontal" Margin="0,2">
+                                                                    <TextBlock Text="{Binding Sid}" Width="100"/>
+                                                                    <TextBlock Text="{Binding Name}" Width="100"/>
+                                                                    <TextBox Text="{Binding UsualScore, UpdateSourceTrigger=PropertyChanged}" Width="100" Margin="2"/>
+                                                                    <TextBox Text="{Binding ExamScore, UpdateSourceTrigger=PropertyChanged}" Width="100" Margin="2"/>
+                                                                    <TextBox Text="{Binding FinalScore, UpdateSourceTrigger=PropertyChanged, TargetNullValue=0, FallbackValue=0}" Width="100" Margin="2"  IsReadOnly="True"/>
+
+
+
+                                                                </StackPanel>
+                                                            </DataTemplate>
+                                                        </ItemsControl.ItemTemplate>
+                                                    </ItemsControl>
+                                                </StackPanel>
+                                            </Expander>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </StackPanel>
+                        </Expander>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+    </DockPanel>
+</Page>

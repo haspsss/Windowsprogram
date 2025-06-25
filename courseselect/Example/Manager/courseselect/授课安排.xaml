@@ -1,0 +1,118 @@
+﻿<Page x:Class="courseselect.Example.Manager.courseselect.授课安排"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:courseselect.Example.Manager.courseselect"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="授课安排">
+    <Page.Resources>
+        <Style TargetType="ScrollBar">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ScrollBar">
+                        <Grid Background="AliceBlue">
+                            <Track x:Name="PART_Track"
+                               IsDirectionReversed="true"
+                               Focusable="false">
+                              
+                                <Track.Thumb>
+                                    <Thumb Background="LightSteelBlue"   BorderBrush="Transparent"/>
+                                </Track.Thumb>
+                               
+                            </Track>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="LightGoldenrodYellow" />
+            <Setter Property="FontWeight" Value="bold"/>
+            <Setter Property="Height" Value="25"/>
+        </Style>
+    </Page.Resources>
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- 搜索框 -->
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+            <TextBox x:Name="SearchTextBox" Width="200" Margin="0,0,10,0" />
+            <Button Content="搜索" Click="SearchButton_Click" />
+            <Button Content="清空筛选" Width="80" Margin="0,0,10,0" Click="ClearFilterButton_Click"/>
+        </StackPanel>
+
+        <!-- 授课信息表 -->
+        <DataGrid x:Name="TeachingDataGrid"
+                  Grid.Row="1"
+                  AutoGenerateColumns="False"
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="True"
+                  ItemsSource="{Binding TeachingList}" 
+                  Margin="0,0,0,10" 
+                    SelectionMode="Extended" 
+          SelectionUnit="FullRow">
+
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="选择" Width="60">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox IsChecked="{Binding IsSelected, Mode=TwoWay}"
+                      IsEnabled="{Binding IsDeletable}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <!-- 课程下拉框 -->
+                <DataGridTemplateColumn Header="课程" Width="200" >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding CourseDisplay}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                    <DataGridTemplateColumn.CellEditingTemplate>
+                        <DataTemplate>
+                            <ComboBox ItemsSource="{Binding DataContext.CourseOptions, RelativeSource={RelativeSource AncestorType=Page}}"
+                                      DisplayMemberPath="Display"
+                                      SelectedValuePath="Cid"
+                                      SelectedValue="{Binding Cid, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                      SelectionChanged="CourseComboBox_SelectionChanged"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellEditingTemplate>
+                </DataGridTemplateColumn>
+
+                <!-- 教师下拉框 -->
+                <DataGridTemplateColumn Header="教师" Width="200">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding TeacherDisplay}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                    <DataGridTemplateColumn.CellEditingTemplate>
+                        <DataTemplate>
+                            <ComboBox ItemsSource="{Binding DataContext.TeacherOptions, RelativeSource={RelativeSource AncestorType=Page}}"
+                                      DisplayMemberPath="Display"
+                                      SelectedValuePath="Ttid"
+                                      SelectedValue="{Binding Ttid, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                      SelectionChanged="TeacherComboBox_SelectionChanged"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellEditingTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- 操作按钮 -->
+        <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Left">
+            <Button Content="新增" Click="AddButton_Click" Margin="5"  Width="100"/>
+            <Button Content="保存" Width="100" Margin="0,0,10,0" Click="SaveButton_Click"/>
+            <Button Content="删除选中行" Width="100" Click="DeleteButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Page>

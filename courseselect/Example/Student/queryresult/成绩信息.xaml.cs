@@ -20,7 +20,7 @@ namespace courseselect.Example.Student.queryresult
         public string CCollege { get; set; }
         public string CKind { get; set; }
         public int CCredit { get; set; }
-        public int? Score { get; set; }
+        public double? Score { get; set; }
         public string TName { get; set; }
         public string TTID { get; set; }
     }
@@ -75,7 +75,8 @@ namespace courseselect.Example.Student.queryresult
                             CCollege = reader["ccollege"].ToString(),
                             CKind = reader["ckind"].ToString(),
                             CCredit = (int)reader["ccredit"],
-                            Score = reader["score"] != DBNull.Value ? (int?)reader["score"] : null,
+                            Score = reader["score"] != DBNull.Value ? (double?)reader["score"] : null,
+
 
                             TName = reader["tname"].ToString(),
                             TTID = reader["ttid"].ToString()

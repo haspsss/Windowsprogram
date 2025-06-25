@@ -7,9 +7,35 @@
 
     <Page.Resources>
         <local:NullToVisibilityConverter x:Key="NullToVisibilityConverter"/>
-    </Page.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="LightGoldenrodYellow" />
+            <Setter Property="FontWeight" Value="bold"/>
+            <Setter Property="Height" Value="25"/>
+        </Style>
 
-    <ScrollViewer>
+            <Style TargetType="ScrollBar">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="ScrollBar">
+                            <Grid Background="AliceBlue">
+                                <Track x:Name="PART_Track"
+                         IsDirectionReversed="true"
+                         Focusable="false">
+
+                                    <Track.Thumb>
+                                        <Thumb Background="LightSteelBlue"  BorderBrush="Transparent"/>
+                                    </Track.Thumb>
+
+                                </Track>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+
+            </Style>
+        </Page.Resources>
+
+        <ScrollViewer>
         <StackPanel Margin="10">
             <ItemsControl ItemsSource="{Binding CourseList}">
                 <ItemsControl.ItemTemplate>
@@ -32,8 +58,8 @@
                                 <!-- 成绩比例输入 -->
                                 <WrapPanel>
                                     <TextBlock Text="平时成绩占比：" VerticalAlignment="Center" Margin="5"/>
-                                    <TextBox Width="60" Margin="5,0"
-             Text="{Binding UsualRatio, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, StringFormat=F2}"/>
+                                    <TextBox Width="60" Margin="5,0" Text="{Binding UsualRatio, Mode=TwoWay,  StringFormat=F2, UpdateSourceTrigger=PropertyChanged}"
+         />
 
                                     <TextBlock Text="考试成绩占比：" VerticalAlignment="Center" Margin="5"/>
                                     <TextBox Width="60" Margin="5,0"
@@ -42,7 +68,7 @@
 
 
                                 <!-- 学生成绩表 -->
-                                <DataGrid ItemsSource="{Binding Students}" AutoGenerateColumns="False" CanUserAddRows="False" Margin="0,5">
+                                <DataGrid ItemsSource="{Binding Students}" AutoGenerateColumns="False" CanUserAddRows="False" Margin="0,5" >
                                     <DataGrid.Columns>
                                         <DataGridTextColumn Header="学号" Binding="{Binding StudentId}" IsReadOnly="True"/>
                                         <DataGridTextColumn Header="姓名" Binding="{Binding StudentName}" IsReadOnly="True"/>
@@ -81,9 +107,10 @@
                                 
 
                                 <!-- 图表按钮 -->
-                                <Button Content="查看成绩分布图" Click="ToggleChart_Click" Tag="{Binding}" Margin="0,5"/>
-                                <Button Content="保存成绩" Click="SaveScores_Click" Tag="{Binding}" Margin="0,5"/>
-
+                                <StackPanel Orientation="Horizontal" >
+                                <Button Content="查看成绩分布图" Click="ToggleChart_Click"  Width="100"  Tag="{Binding}" Margin="10,5"/>
+                                <Button Content="保存成绩" Click="SaveScores_Click" Tag="{Binding}"  Width="60"  Margin="10,5"/>
+                                </StackPanel>
                                 <!-- 成绩分布图 -->
                                 <lvc:CartesianChart Series="{Binding ScoreSeries}" Margin="0,10"
                                                     Visibility="{Binding ScoreSeries, Converter={StaticResource NullToVisibilityConverter}}">

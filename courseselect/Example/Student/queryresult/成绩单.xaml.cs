@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data.SqlClient;
+using System.IdentityModel;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -14,7 +15,7 @@ namespace courseselect.Example.Student.queryresult
         public string CID { get; set; }
         public string CName { get; set; }
         public int CCredit { get; set; }
-        public int? Score { get; set; }
+        public double? Score { get; set; }
         public bool IsSummary { get; set; } = false; // 区分是否为“合计行”
         public double GPA { get; set; } // 绩点（合计行用）
     }
@@ -51,7 +52,8 @@ namespace courseselect.Example.Student.queryresult
                 {
                     while (reader.Read())
                     {
-                        int? score = reader["score"] != DBNull.Value ? (int?)reader["score"] : null;
+                        double? score = reader["score"] != DBNull.Value ? (double?)reader["score"] : null;
+
 
                         var item = new GradeItem
                         {
@@ -128,7 +130,7 @@ namespace courseselect.Example.Student.queryresult
         }
 
 
-        private double CalcGPA(int score)
+        private double CalcGPA(double score)
         {
             return score < 60 ? 0.0 : (score - 50) / 10.0;
         }

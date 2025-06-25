@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\VSS\CourseSelect\App.xaml
-21-918797258
+32-714439846
 21963772368
-26810688589
-58-2009848633
-Default.xaml;Example\AdminMainWindow.xaml;Example\ChangePasswordWindow.xaml;Example\Student\courseselect\选课信息.xaml;Example\Student\courseselect\选课课表.xaml;Example\Student\courseselect\选课页面.xaml;Example\Forgetpw.xaml;Example\LoginWindow.xaml;Example\Student\PersonalInformation\我的信息.xaml;Example\Student\queryresult\成绩信息.xaml;Example\Student\queryresult\成绩单.xaml;Example\StudentMainWindow.xaml;Example\TeacherMainWindow.xaml;Example\Student\examarrangement\考试信息.xaml;Example\Teacher\courseselect\选课信息.xaml;Example\Teacher\courseselect\选课页面.xaml;Example\Teacher\examarrangement\考试信息.xaml;Example\Teacher\PersonalInformation\我的信息.xaml;Example\Teacher\queryresult\成绩录入.xaml;Example\Teacher\tChangePasswordWindow.xaml;MainWindow.xaml;
+37-1394269771
+60-1647220965
+Default.xaml;Example\AdminMainWindow.xaml;Example\ChangePasswordWindow.xaml;Example\Manager\courseselect\授课安排.xaml;Example\Manager\courseselect\课程管理.xaml;Example\Manager\courseselect\选课页面.xaml;Example\Manager\mChangePasswordWindow.xaml;Example\Manager\PersonalInformation\我的信息.xaml;Example\Manager\stuinfo\学生信息管理.xaml;Example\Manager\stuinfo\学生成绩管理.xaml;Example\Manager\stuinfo\选课信息管理.xaml;Example\Manager\teachinfo\授课成绩信息.xaml;Example\Manager\teachinfo\教师信息管理.xaml;Example\Manager\teachinfo\授课信息管理.xaml;Example\Student\courseselect\选课信息.xaml;Example\Student\courseselect\选课课表.xaml;Example\Student\courseselect\选课页面.xaml;Example\Forgetpw.xaml;Example\LoginWindow.xaml;Example\Student\PersonalInformation\我的信息.xaml;Example\Student\queryresult\成绩信息.xaml;Example\Student\queryresult\成绩单.xaml;Example\StudentMainWindow.xaml;Example\TeacherMainWindow.xaml;Example\Student\examarrangement\考试信息.xaml;Example\Teacher\courseselect\选课信息.xaml;Example\Teacher\courseselect\选课页面.xaml;Example\Teacher\examarrangement\考试信息.xaml;Example\Teacher\PersonalInformation\我的信息.xaml;Example\Teacher\queryresult\成绩录入.xaml;Example\Teacher\tChangePasswordWindow.xaml;MainWindow.xaml;
 
 True
 

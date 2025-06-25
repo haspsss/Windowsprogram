@@ -7,7 +7,19 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="我的信息">
-
+    <Page.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="LightGoldenrodYellow" />
+            <Setter Property="FontWeight" Value="bold"/>
+            <Setter Property="Height" Value="25"/>
+        </Style>
+        <Style TargetType="TextBox" >
+            <Setter Property="BorderThickness" Value="0"/>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+    </Page.Resources>
     <Grid>
         <Grid>
             <Label Content="职工号：" HorizontalAlignment="Left" Margin="55,50,0,0" VerticalAlignment="Top"/>

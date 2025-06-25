@@ -29,7 +29,17 @@ namespace courseselect.Example.Student.courseselect
             PopulateFilterDropdowns();
             LoadAndDisplayCourses();
         }
+        private void ClearFilterButton_Click(object sender, RoutedEventArgs e)
+        {
+            SearchTextBox.Text = string.Empty;
+            CTimeComboBox.SelectedIndex = -1;
+            CCollegeComboBox.SelectedIndex = -1;
+            CKindComboBox.SelectedIndex = -1;
+            TestComboBox.SelectedIndex = -1;
+            CWeekComboBox.SelectedIndex = -1;
 
+            LoadAndDisplayCourses();
+        }
         private void LoadUserCredits()
         {
             try
@@ -68,15 +78,45 @@ namespace courseselect.Example.Student.courseselect
 
         private void PopulateFilterDropdowns()
         {
-            CTimeComboBox.Items.Add("3-4节");
-            CTimeComboBox.Items.Add("Afternoon");
-            CTimeComboBox.Items.Add("Evening");
-            CCollegeComboBox.Items.Add("College of Engineering");
-            CCollegeComboBox.Items.Add("College of Science");
-            CKindComboBox.Items.Add("Required");
-            CKindComboBox.Items.Add("Elective");
-            TestComboBox.Items.Add("Exam");
-            TestComboBox.Items.Add("Project");
+            try
+            {
+                if (_connection.State != ConnectionState.Open)
+                    _connection.Open();
+
+                string[] fields = { "ctime", "ccollege", "ckind", "ctest", "cweek" };
+                ComboBox[] combos = { CTimeComboBox, CCollegeComboBox, CKindComboBox, TestComboBox, CWeekComboBox };
+
+                for (int i = 0; i < fields.Length; i++)
+                {
+                    string field = fields[i];
+                    ComboBox comboBox = combos[i];
+
+                    string query = $"SELECT DISTINCT {field} FROM course WHERE {field} IS NOT NULL AND {field} != ''";
+                    using (SqlCommand cmd = new SqlCommand(query, _connection))
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            comboBox.Items.Clear();
+                            comboBox.Items.Add("全部"); // 添加“全部”选项
+
+                            while (reader.Read())
+                            {
+                                string value = reader[field].ToString();
+                                if (!string.IsNullOrWhiteSpace(value))
+                                {
+                                    comboBox.Items.Add(value);
+                                }
+                            }
+                        }
+                    }
+
+                    comboBox.SelectedIndex = 0; // 默认选中“全部”
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("加载下拉框数据失败: " + ex.Message);
+            }
         }
 
         private void LoadAndDisplayCourses(string searchText = null, string selectedCTime = null, string selectedCCollege = null, string selectedCKind = null, string selectedTest = null, string selectedCWeek = null)
@@ -112,36 +152,43 @@ namespace courseselect.Example.Student.courseselect
 
                 List<SqlParameter> parameters = new List<SqlParameter>();
 
-                if (!string.IsNullOrEmpty(searchText))
+
+                if (!string.IsNullOrWhiteSpace(searchText))
                 {
                     query += " AND c.cname LIKE @SearchText";
                     parameters.Add(new SqlParameter("@SearchText", "%" + searchText + "%"));
                 }
-                if (!string.IsNullOrEmpty(selectedCTime))
+
+                if (!string.IsNullOrWhiteSpace(selectedCTime) && selectedCTime != "全部")
                 {
                     query += " AND c.ctime = @CTime";
                     parameters.Add(new SqlParameter("@CTime", selectedCTime));
                 }
-                if (!string.IsNullOrEmpty(selectedCCollege))
+
+                if (!string.IsNullOrWhiteSpace(selectedCCollege) && selectedCCollege != "全部")
                 {
                     query += " AND c.ccollege = @CCollege";
                     parameters.Add(new SqlParameter("@CCollege", selectedCCollege));
                 }
-                if (!string.IsNullOrEmpty(selectedCKind))
+
+                if (!string.IsNullOrWhiteSpace(selectedCKind) && selectedCKind != "全部")
                 {
                     query += " AND c.ckind = @CKind";
                     parameters.Add(new SqlParameter("@CKind", selectedCKind));
                 }
-                if (!string.IsNullOrEmpty(selectedTest))
+
+                if (!string.IsNullOrWhiteSpace(selectedTest) && selectedTest != "全部")
                 {
                     query += " AND c.ctest = @CTest";
                     parameters.Add(new SqlParameter("@CTest", selectedTest));
                 }
-                if (!string.IsNullOrEmpty(selectedCWeek))
+
+                if (!string.IsNullOrWhiteSpace(selectedCWeek) && selectedCWeek != "全部")
                 {
                     query += " AND c.cweek = @CWeek";
                     parameters.Add(new SqlParameter("@CWeek", selectedCWeek));
                 }
+
 
                 using (SqlCommand command = new SqlCommand(query, _connection))
                 {
@@ -413,6 +460,8 @@ namespace courseselect.Example.Student.courseselect
         /// <summary>
         /// 遍历所有课程，并根据其 IsSelected 状态和冲突状态更新其选课/退课按钮的可用性。
         /// </summary>
+        
+
         private void UpdateAllCourseButtonStates()
         {
             selectedCredits = CalculateSelectedCredits();

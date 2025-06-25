@@ -1,8 +1,9 @@
 ﻿using courseselect.Example;
-using System.Data.SqlClient;  // 使用 Microsoft.Data.SqlClient
+using courseselect.Example.Manager.courseselect;
 using System;
+using System.Collections.ObjectModel;
 using System.Data;
-
+using System.Data.SqlClient;  // 使用 Microsoft.Data.SqlClient
 using System.Windows;
 
 namespace courseselect
@@ -10,7 +11,7 @@ namespace courseselect
     public partial class App : Application
     {
         private static SqlConnection _appConnection;  // 更改为 SqlConnection
-
+        public ObservableCollection<TeacherInfo> TeacherList { get; set; } = new ObservableCollection<TeacherInfo>();
         public static SqlConnection AppConnection
         {
             get

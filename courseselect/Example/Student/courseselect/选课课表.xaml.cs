@@ -1,9 +1,18 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data.SqlClient;
+using System.Drawing;
+using System.IO;
+
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media.Imaging;
+
+using PdfSharp.Pdf;
+using PdfSharp.Drawing;
+
 
 namespace courseselect.Example.Student.courseselect
 {
@@ -107,6 +116,95 @@ namespace courseselect.Example.Student.courseselect
             }
 
             FlatSchedule = flatList;
+        }
+
+
+        private void ExportToImageAndPdf()
+        {
+            try
+            {
+                var grid = MainGrid;
+                if (grid == null)
+                {
+                    MessageBox.Show("无法获取课表控件");
+                    return;
+                }
+
+                // 强制布局，确保获取完整尺寸
+                grid.Measure(new System.Windows.Size(double.PositiveInfinity, double.PositiveInfinity));
+                grid.Arrange(new Rect(grid.DesiredSize));
+                grid.UpdateLayout();
+
+                int width = (int)grid.DesiredSize.Width;
+                int height = (int)grid.DesiredSize.Height;
+
+                // 使用 DrawingVisual 绘制完整内容
+                var renderBitmap = new RenderTargetBitmap(
+                    width, height, 96, 96, System.Windows.Media.PixelFormats.Pbgra32);
+
+                var dv = new System.Windows.Media.DrawingVisual();
+                using (var ctx = dv.RenderOpen())
+                {
+                    var vb = new System.Windows.Media.VisualBrush(grid);
+                    ctx.DrawRectangle(vb, null, new Rect(new System.Windows.Point(), new System.Windows.Size(width, height)));
+                }
+                renderBitmap.Render(dv);
+
+                // 编码为 PNG
+                var pngEncoder = new PngBitmapEncoder();
+                pngEncoder.Frames.Add(BitmapFrame.Create(renderBitmap));
+
+                var saveDialog = new SaveFileDialog
+                {
+                    Filter = "PDF 文件|*.pdf",
+                    FileName = "课表导出.pdf"
+                };
+
+                if (saveDialog.ShowDialog() == true)
+                {
+                    using (var imageStream = new MemoryStream())
+                    {
+                        pngEncoder.Save(imageStream);
+                        imageStream.Position = 0;
+                        SaveImageToPdf(imageStream, saveDialog.FileName);
+                        MessageBox.Show("导出成功！");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("导出失败: " + ex.Message);
+            }
+        }
+
+
+
+        private void SaveImageToPdf(Stream imageStream, string pdfPath)
+        {
+            using (var doc = new PdfSharp.Pdf.PdfDocument())
+            {
+                var page = doc.AddPage();
+
+                using (var gfx = XGraphics.FromPdfPage(page))
+                {
+                    var image = XImage.FromStream(imageStream);
+
+                    double ratio = Math.Min(page.Width / image.PixelWidth, page.Height / image.PixelHeight);
+                    double width = image.PixelWidth * ratio;
+                    double height = image.PixelHeight * ratio;
+
+                    gfx.DrawImage(image, 0, 0, width, height);
+                }
+
+                doc.Save(pdfPath);
+            }
+        }
+
+
+
+        private void ExportButton_Click(object sender, RoutedEventArgs e)
+        {
+            ExportToImageAndPdf();
         }
 
         private int GetDayIndex(string day)

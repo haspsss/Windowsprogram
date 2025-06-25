@@ -1,0 +1,147 @@
+﻿<Page x:Class="courseselect.Example.Manager.stuinfo.选课信息管理"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:courseselect.Example.Manager.stuinfo"
+      mc:Ignorable="d"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="选课信息管理">
+    <Page.Resources>
+        <Style TargetType="ScrollBar">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ScrollBar">
+                        <Grid Background="AliceBlue">
+                            <Track x:Name="PART_Track"
+                               IsDirectionReversed="true"
+                               Focusable="false">
+                               
+                                   
+                                <Track.Thumb>
+                                    <Thumb Background="LightSteelBlue"  BorderBrush="Transparent"/>
+                                </Track.Thumb>
+                              
+                            </Track>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="LightGoldenrodYellow" />
+            <Setter Property="FontWeight" Value="bold"/>
+            <Setter Property="Height" Value="25"/>
+        </Style>
+    </Page.Resources>
+
+    <Grid Margin="5">
+        <!-- 行定义 -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Auto">
+        <!-- 搜索和筛选栏 -->
+        <StackPanel Orientation="Horizontal" Margin="5" Grid.Row="0" VerticalAlignment="Center">
+            <!-- 学号/姓名搜索框 -->
+            <TextBox x:Name="SearchBox" Width="150"  Height="30" />
+                <!-- 筛选按钮 -->
+                <Button Content="搜索" Click="FilterChanged" Height="30"/>
+
+                <!-- 清空筛选按钮 -->
+                <Button Content="清空筛选" Click="ClearFilter_Click" Height="30"/>
+                <!-- 学院筛选 -->
+            <Label Content="学院:"/>
+            <ComboBox x:Name="CollegeComboBox" Width="120" Margin="5" SelectionChanged="FilterChanged"/>
+            <Label Content="专业:"/>
+            <!-- 专业筛选 -->
+            <ComboBox x:Name="MajorComboBox" Width="120" Margin="5" SelectionChanged="FilterChanged"/>
+            <Label Content="性别:" />
+            <!-- 性别筛选 -->
+            <ComboBox x:Name="SexComboBox" Width="40" Margin="5" SelectionChanged="FilterChanged"/>
+
+            
+        </StackPanel>
+        </ScrollViewer>
+
+        <StackPanel Orientation="Horizontal" Margin="5" Grid.Row="1">
+
+        <!-- 新增选课按钮 -->
+            <Button Content="新增选课" Click="AddSelection_Click" Margin="5"/>
+
+            <!-- 删除选课按钮 -->
+            <Button Content="删除选课" Click="DeleteSelection_Click" Margin="5"/>
+
+            <!-- 保存选课按钮 -->
+            <Button Content="保存" Click="SaveSelection_Click" Margin="5"/>
+        </StackPanel>
+
+        <!-- 选课记录数据表格 -->
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="2">
+            <DataGrid x:Name="CourseSelectionGrid"
+          AutoGenerateColumns="False"
+          CanUserAddRows="False"
+          ItemsSource="{Binding SelectionList}"
+          IsReadOnly="False">
+                <!-- 必须设置为 False 否则无法编辑 -->
+                <DataGrid.Columns>
+                    <!-- 学号 -->
+                    <DataGridTemplateColumn Header="学号">
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <ComboBox ItemsSource="{Binding DataContext.StudentList, RelativeSource={RelativeSource AncestorType=Page}}"
+                              DisplayMemberPath="Display"
+                              SelectedValuePath="Sid"
+                              SelectedValue="{Binding Sid, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                              SelectionChanged="StudentComboBox_SelectionChanged"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Sid}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <!-- 姓名 -->
+                    <DataGridTextColumn Header="姓名" Binding="{Binding Name}" IsReadOnly="True" />
+
+                    <!-- 性别 -->
+                    <DataGridTextColumn Header="性别" Binding="{Binding SexDisplay}" IsReadOnly="True" />
+
+                    <!-- 学院 -->
+                    <DataGridTextColumn Header="学院" Binding="{Binding College}" IsReadOnly="True" />
+
+                    <!-- 专业 -->
+                    <DataGridTextColumn Header="专业" Binding="{Binding Major}" IsReadOnly="True" />
+
+                    <!-- 课程号 -->
+                    <DataGridTemplateColumn Header="课程号">
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <ComboBox ItemsSource="{Binding DataContext.CourseList, RelativeSource={RelativeSource AncestorType=Page}}"
+                              DisplayMemberPath="Display"
+                              SelectedValuePath="Cid"
+                              SelectedValue="{Binding Cid, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                              SelectionChanged="CourseComboBox_SelectionChanged"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Cid}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <!-- 课程名 -->
+                    <DataGridTextColumn Header="课程名" Binding="{Binding Cname}" IsReadOnly="True"/>
+
+                    
+                </DataGrid.Columns>
+            </DataGrid>
+        </ScrollViewer>
+    </Grid>
+</Page>
