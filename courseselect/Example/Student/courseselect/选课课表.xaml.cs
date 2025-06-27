@@ -13,6 +13,9 @@ using System.Windows.Media.Imaging;
 using PdfSharp.Pdf;
 using PdfSharp.Drawing;
 
+using System.Data;
+
+
 
 namespace courseselect.Example.Student.courseselect
 {

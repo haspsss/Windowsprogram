@@ -16,26 +16,18 @@
                   ScrollViewer.VerticalScrollBarVisibility="Visible" Margin="0,0,0,0">
             <TreeViewItem Header="个人信息" Tag="PersonalInformation">
                 <TreeViewItem Header="我的信息"/>
-                <TreeViewItem Header="HorizontalAlignmentPage"/>
-                <TreeViewItem Header="VerticalAlignmentPage"/>
+              
             </TreeViewItem>
             <TreeViewItem Header="选课系统" Tag="courseselect">
                 <TreeViewItem Header="选课页面"/>
                 <TreeViewItem Header="选课信息"/>
                 <TreeViewItem Header="选课课表"/>
-                <TreeViewItem Header="BorderPage"/>
-                <TreeViewItem Header="DockpanelPage"/>
-                <TreeViewItem Header="BulletDecoratorPage"/>
-                <TreeViewItem Header="ExpanderPage"/>
-                <TreeViewItem Header="GridSplitterPage"/>
-                <TreeViewItem Header="GroupBoxPage"/>
+             
             </TreeViewItem>
             <TreeViewItem Header="成绩查询" Tag="queryresult">
                 <TreeViewItem Header="成绩信息"/>
                 <TreeViewItem Header="成绩单"/>
-                <TreeViewItem Header="RadioButtonPage"/>
-                <TreeViewItem Header="CheckBoxPage"/>
-                <TreeViewItem Header="ListBoxComboBox"/>
+               
             </TreeViewItem>
             <TreeViewItem Header="考试安排" Tag="examarrangement">
                 <TreeViewItem Header="考试信息"/>

@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.IdentityModel.Protocols.WSTrust;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -17,6 +18,24 @@ namespace courseselect.Example.Manager.stuinfo
         public string Sex { get; set; }
         public string College { get; set; }
         public string Major { get; set; }
+        public  int  Credit{ get; set; }
+        private int _remainingCredit;
+
+
+        public int RemainingCredit
+        {
+            get => _remainingCredit;
+            set
+            {
+                if (_remainingCredit != value)
+                {
+                    _remainingCredit = value;
+                   // OnPropertyChanged(nameof(RemainingCredit));
+
+                }
+
+            }
+        }
         public string Display => $"{Sid} - {Name}";  // 显示学号和姓名
     }
 
@@ -24,6 +43,8 @@ namespace courseselect.Example.Manager.stuinfo
     {
         public string Cid { get; set; }
         public string Cname { get; set; }
+        public int Ccredit { get; set; }
+
         public string Display => $"{Cid} - {Cname}";  // 显示课程号和课程名
     }
 
@@ -36,10 +57,23 @@ public class CourseSelectionEntry : INotifyPropertyChanged
         private string _sex;
         private string _college;
         private string _major;
+        private int _credit;
         private string _cid;
         private string _cname;
-        private string _score;
+        private int _ccredit;
         private bool _isNew;
+        private bool _isSelected;
+        private int _remainingCredit;
+
+        public bool IsSelected
+        {
+            get => _isSelected;
+            set
+            {
+                _isSelected = value;
+                OnPropertyChanged("IsSelected");
+            }
+        }
 
         public string Sid
         {
@@ -63,7 +97,11 @@ public class CourseSelectionEntry : INotifyPropertyChanged
                 OnPropertyChanged("SexDisplay"); // 性别改变后 SexDisplay 也变了
             }
         }
-
+        public int RemainingCredit
+        {
+            get => _remainingCredit;
+            set { _remainingCredit = value; OnPropertyChanged(nameof(RemainingCredit)); }
+        }
         public string College
         {
             get => _college;
@@ -74,6 +112,11 @@ public class CourseSelectionEntry : INotifyPropertyChanged
         {
             get => _major;
             set { _major = value; OnPropertyChanged("Major"); }
+        }
+        public int Credit
+        {
+            get => _credit;
+            set { _credit = value; OnPropertyChanged("Credit"); }
         }
 
         public string Cid
@@ -88,10 +131,10 @@ public class CourseSelectionEntry : INotifyPropertyChanged
             set { _cname = value; OnPropertyChanged("Cname"); }
         }
 
-        public string Score
+        public int Ccredit
         {
-            get => _score;
-            set { _score = value; OnPropertyChanged("Score"); }
+            get => _ccredit;
+            set { _ccredit = value; OnPropertyChanged("Ccredit"); }
         }
 
         public bool IsNew
@@ -134,15 +177,23 @@ public class CourseSelectionEntry : INotifyPropertyChanged
         }
         private void FilterChanged(object sender, RoutedEventArgs e)
         {
-            string keyword = SearchBox.Text.Trim();
+            string keyword = SearchBox.Text.Trim().ToLower(); // 统一转小写用于模糊匹配
             string selectedCollege = CollegeComboBox.SelectedItem?.ToString() ?? "全部";
             string selectedMajor = MajorComboBox.SelectedItem?.ToString() ?? "全部";
             string selectedSex = SexComboBox.SelectedItem?.ToString() ?? "全部";
 
             var filtered = SelectionList.Where(item =>
+                // 模糊搜索匹配（包含：学号、姓名、性别、学院、专业、课程号、课程名）
                 (string.IsNullOrEmpty(keyword) ||
-                 item.Sid.Contains(keyword) ||
-                 item.Name.Contains(keyword)) &&
+                 (item.Sid != null && item.Sid.ToLower().Contains(keyword)) ||
+                 (item.Name != null && item.Name.ToLower().Contains(keyword)) ||
+                 (item.SexDisplay != null && item.SexDisplay.ToLower().Contains(keyword)) ||
+                 (item.College != null && item.College.ToLower().Contains(keyword)) ||
+                 (item.Major != null && item.Major.ToLower().Contains(keyword)) ||
+                 (item.Cid != null && item.Cid.ToLower().Contains(keyword)) ||
+                 (item.Cname != null && item.Cname.ToLower().Contains(keyword))) &&
+
+                // 精确筛选：学院、专业、性别（下拉框筛选）
                 (selectedCollege == "全部" || item.College == selectedCollege) &&
                 (selectedMajor == "全部" || item.Major == selectedMajor) &&
                 (selectedSex == "全部" || item.SexDisplay == selectedSex)
@@ -162,7 +213,7 @@ public class CourseSelectionEntry : INotifyPropertyChanged
     CollegeFilterList.Add("全部");
     MajorFilterList.Add("全部");
 
-    string sql1 = "SELECT sid, name, sex, college, major FROM student";
+    string sql1 = "SELECT sid, name, sex, college, major,credit FROM student";
     using (SqlCommand cmd = new SqlCommand(sql1, _connection))
     {
         if (_connection.State != ConnectionState.Open)
@@ -176,14 +227,16 @@ public class CourseSelectionEntry : INotifyPropertyChanged
                 string sex = reader["sex"].ToString();
                 string college = reader["college"].ToString();
                 string major = reader["major"].ToString();
+                        int credit = reader["credit"] == DBNull.Value ? 0 : Convert.ToInt32(reader["credit"]);
 
-                StudentList.Add(new StudentInfo
+                        StudentList.Add(new StudentInfo
                 {
                     Sid = sid,
                     Name = name,
                     Sex = sex,
                     College = college,
-                    Major = major
+                    Major = major,
+                    Credit = credit
                 });
 
                 if (!CollegeFilterList.Contains(college))
@@ -197,7 +250,7 @@ public class CourseSelectionEntry : INotifyPropertyChanged
     // 加载课程
     CourseList.Clear();
     string sql2 = @"
-        SELECT DISTINCT c.cid, c.cname 
+        SELECT DISTINCT c.cid, c.cname,c.ccredit 
         FROM course c
         JOIN teaching_course tc ON tc.cid = c.cid";
     using (SqlCommand cmd = new SqlCommand(sql2, _connection))
@@ -206,12 +259,14 @@ public class CourseSelectionEntry : INotifyPropertyChanged
             _connection.Open();
         using (var reader = cmd.ExecuteReader())
         {
-            while (reader.Read())
+                    
+                    while (reader.Read())
             {
                 CourseList.Add(new CourseInfo
                 {
-                    Cid = reader["cid"].ToString(),
-                    Cname = reader["cname"].ToString()
+                   Cid = reader["cid"].ToString(),
+                  Cname = reader["cname"].ToString(),
+                  Ccredit = reader["ccredit"] == DBNull.Value ? 0 : Convert.ToInt32(reader["ccredit"])
                 });
             }
         }
@@ -230,13 +285,29 @@ public class CourseSelectionEntry : INotifyPropertyChanged
         // 加载选课记录
         private void LoadSelectionData()
         {
+            // 记录每个学生的已选学分（sid -> 已选学分）
+            Dictionary<string, int> usedCredits = new Dictionary<string, int>();
+            Dictionary<string, int> totalCredits = new Dictionary<string, int>();
+
             SelectionList.Clear();
             string sql = @"
-                SELECT s.sid, s.name, s.sex, s.college, s.major,
-                       sc.sc_cid AS cid, sc.sc_cname AS cname, sc.score
-                FROM scclass sc
-                JOIN student s ON sc.sc_sid = s.sid";
+               SELECT 
+    s.sid, 
+    s.name, 
+    s.sex, 
+    s.college, 
+    s.major, 
+    s.credit AS credit,
+    sc.sc_cid AS cid, 
+    sc.sc_cname AS cname, 
+    c.ccredit
+FROM scclass sc
+JOIN student s ON sc.sc_sid = s.sid
+JOIN course c ON sc.sc_cid = c.cid
+";
 
+            
+           
             using (SqlCommand cmd = new SqlCommand(sql, _connection))
             {
                 if (_connection.State != ConnectionState.Open)
@@ -246,20 +317,49 @@ public class CourseSelectionEntry : INotifyPropertyChanged
                 {
                     while (reader.Read())
                     {
-                        SelectionList.Add(new CourseSelectionEntry
+                        string sid = reader["sid"].ToString();
+                        int Ccredit = reader["ccredit"] == DBNull.Value ? 0 : Convert.ToInt32(reader["ccredit"]);
+                        int Credit = reader["credit"] == DBNull.Value ? 0 : Convert.ToInt32(reader["credit"]);
+                        if (!totalCredits.ContainsKey(sid))
+                            totalCredits[sid] = Credit;
+
+                        if (!usedCredits.ContainsKey(sid))
+                            usedCredits[sid] = 0;
+
+                        usedCredits[sid] +=Ccredit;
+
+                        if (reader["cid"] != DBNull.Value)
                         {
-                            Sid = reader["sid"].ToString(),
-                            Name = reader["name"].ToString(),
-                            Sex = reader["sex"].ToString(),
-                            College = reader["college"].ToString(),
-                            Major = reader["major"].ToString(),
-                            Cid = reader["cid"].ToString(),
-                            Cname = reader["cname"].ToString(),
-                            Score = reader["score"]?.ToString()
-                        });
+                            SelectionList.Add(new CourseSelectionEntry
+                            {
+                                Sid = reader["sid"].ToString(),
+                                Name = reader["name"].ToString(),
+                                Sex = reader["sex"].ToString(),
+                                College = reader["college"].ToString(),
+                                Major = reader["major"].ToString(),
+                                Cid = reader["cid"].ToString(),
+                                Cname = reader["cname"].ToString(),
+                                Ccredit = reader["ccredit"] == DBNull.Value ? 0 : Convert.ToInt32(reader["ccredit"]),
+                                Credit = reader["credit"] == DBNull.Value ? 0 : Convert.ToInt32(reader["credit"]),
+                                RemainingCredit = 0,  // 稍后再统一更新
+                                IsNew = false
+                            });
+                        }
                     }
                 }
+                foreach (var entry in SelectionList)
+                {
+                    string sid = entry.Sid;
+                    int total = totalCredits.ContainsKey(sid) ? totalCredits[sid] : 0;
+                    int used = usedCredits.ContainsKey(sid) ? usedCredits[sid] : 0;
+                    entry.RemainingCredit = total - used;
+                }
+
+                CourseSelectionGrid.ItemsSource = null;
+                CourseSelectionGrid.ItemsSource = SelectionList;
             }
+
+
         }
 
         // 选择学生后自动填充其信息
@@ -275,6 +375,7 @@ public class CourseSelectionEntry : INotifyPropertyChanged
                     entry.Sex = selectedStudent.Sex;
                     entry.College = selectedStudent.College;
                     entry.Major = selectedStudent.Major;
+                    entry.Credit = selectedStudent.Credit;
                     // 不需要 Refresh！
                 }
             }
@@ -289,10 +390,24 @@ public class CourseSelectionEntry : INotifyPropertyChanged
                 if (entry != null)
                 {
                     entry.Cname = selectedCourse.Cname;
+                    entry.Ccredit = selectedCourse.Ccredit;
                     // 不需要 Refresh！
                 }
             }
         }
+        private int GetCourseCredit(string cid)
+        {
+            string sql = "SELECT ccredit FROM course WHERE cid = @cid";
+            using (SqlCommand cmd = new SqlCommand(sql, _connection))
+            {
+                cmd.Parameters.AddWithValue("@cid", cid);
+                if (_connection.State != ConnectionState.Open)
+                    _connection.Open();
+                object result = cmd.ExecuteScalar();
+                return result == DBNull.Value ? 0 : Convert.ToInt32(result);
+            }
+        }
+
 
         private void SaveSelection_Click(object sender, RoutedEventArgs e)
         {
@@ -301,9 +416,12 @@ public class CourseSelectionEntry : INotifyPropertyChanged
             bool hasError = false;
             var failedEntries = new List<CourseSelectionEntry>();
 
+            var insufficientCreditMessages = new List<string>();
+            var duplicateSelectionMessages = new List<string>();
+
             foreach (var entry in newEntries)
             {
-                // 校验是否信息完整
+                // 校验是否信息完整（int 类型如 Credit 不判断为空）
                 if (string.IsNullOrWhiteSpace(entry.Sid) ||
                     string.IsNullOrWhiteSpace(entry.Cid) ||
                     string.IsNullOrWhiteSpace(entry.Name) ||
@@ -312,12 +430,12 @@ public class CourseSelectionEntry : INotifyPropertyChanged
                     string.IsNullOrWhiteSpace(entry.Major) ||
                     string.IsNullOrWhiteSpace(entry.Sex))
                 {
-                    hasError = true;
                     failedEntries.Add(entry);
+                    hasError = true;
                     continue;
                 }
 
-                // 检查是否重复
+                // 检查是否重复选课
                 string checkSql = "SELECT COUNT(*) FROM scclass WHERE sc_sid = @sid AND sc_cid = @cid";
                 using (SqlCommand checkCmd = new SqlCommand(checkSql, _connection))
                 {
@@ -330,64 +448,91 @@ public class CourseSelectionEntry : INotifyPropertyChanged
                     int count = (int)checkCmd.ExecuteScalar();
                     if (count > 0)
                     {
-                        hasError = true;
+                        duplicateSelectionMessages.Add($"学生 {entry.Sid} 已选择课程 {entry.Cid}");
                         failedEntries.Add(entry);
+                        hasError = true;
                         continue;
                     }
+                }
+
+                // 获取课程学分
+                int courseCredit = GetCourseCredit(entry.Cid);
+
+                // 计算已选学分（排除当前 IsNew）
+                int usedCredit = SelectionList
+                    .Where(sel => sel.Sid == entry.Sid && !sel.IsNew)
+                    .Sum(sel => sel.Ccredit);
+
+                int remainingCredit = entry.Credit - usedCredit;
+
+                if (remainingCredit < courseCredit)
+                {
+                    insufficientCreditMessages.Add($"学生 {entry.Sid} 剩余学分不足（剩余 {remainingCredit}，需 {courseCredit}）");
+                    failedEntries.Add(entry);
+                    hasError = true;
+                    continue;
                 }
 
                 // 插入数据库
                 try
                 {
-                    string insertSql = "INSERT INTO scclass (sc_sid, sc_cid, sc_cname, score) VALUES (@sid, @cid, @cname, @score)";
+                    string insertSql = "INSERT INTO scclass (sc_sid, sc_cid, sc_cname) VALUES (@sid, @cid, @cname)";
                     using (SqlCommand cmd = new SqlCommand(insertSql, _connection))
                     {
                         cmd.Parameters.AddWithValue("@sid", entry.Sid);
                         cmd.Parameters.AddWithValue("@cid", entry.Cid);
                         cmd.Parameters.AddWithValue("@cname", entry.Cname ?? "");
-                        
-                        if (string.IsNullOrWhiteSpace(entry.Score))
-                            cmd.Parameters.AddWithValue("@score", DBNull.Value);
-                        else
-                            cmd.Parameters.AddWithValue("@score", entry.Score);
+
                         if (_connection.State != ConnectionState.Open)
                             _connection.Open();
 
                         cmd.ExecuteNonQuery();
+                        entry.Ccredit = courseCredit;
+                        entry.RemainingCredit = remainingCredit - courseCredit;
                         entry.IsNew = false;
                         hasSuccess = true;
                     }
                 }
                 catch (SqlException ex)
                 {
-                    hasError = true;
                     failedEntries.Add(entry);
+                    hasError = true;
                     MessageBox.Show("保存失败（数据库触发器错误）：\n" + ex.Message, "保存失败", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
                 }
             }
 
-            if (hasError && !hasSuccess)
+            // 汇总所有提示
+            if (duplicateSelectionMessages.Count > 0)
             {
-                MessageBox.Show("保存失败：存在空白或重复记录，请修改后重试。", "保存失败", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show(string.Join("\n", duplicateSelectionMessages), "重复选课", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
-            else if (hasError && hasSuccess)
+
+            else if (insufficientCreditMessages.Count > 0)
             {
-                MessageBox.Show("部分记录保存成功，其余存在空白或重复，已保留，请修改后再次保存。", "部分保存", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show(string.Join("\n", insufficientCreditMessages), "学分不足", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
+
+            else if (hasError && !hasSuccess)
+            {
+                MessageBox.Show("保存失败：存在错误记录，请修改后重试。", "保存失败", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+           
             else if (hasSuccess)
             {
                 MessageBox.Show("所有记录保存成功！", "保存成功", MessageBoxButton.OK, MessageBoxImage.Information);
             }
 
-            // 刷新数据，但保留未成功的行
+            // 刷新列表
             if (hasSuccess)
             {
-                LoadSelectionData(); // 只在有成功时刷新数据库数据
-                foreach (var entry in failedEntries)
+                LoadSelectionData(); // 重新加载数据
+                foreach (var failed in failedEntries)
                 {
-                    if (!SelectionList.Contains(entry))
-                        SelectionList.Add(entry); // 保留失败的行
+                    if (!SelectionList.Contains(failed))
+                        SelectionList.Add(failed);
                 }
+
                 CourseSelectionGrid.ItemsSource = null;
                 CourseSelectionGrid.ItemsSource = SelectionList;
             }
@@ -396,48 +541,76 @@ public class CourseSelectionEntry : INotifyPropertyChanged
 
         private void DeleteSelection_Click(object sender, RoutedEventArgs e)
         {
-            if (CourseSelectionGrid.SelectedItem is CourseSelectionEntry selected)
-            {
-                // 判断是否是空白或未保存的新行（没有 Sid 或 Cid）
-                bool isIncomplete = string.IsNullOrWhiteSpace(selected.Sid) || string.IsNullOrWhiteSpace(selected.Cid);
+            var toDelete = SelectionList.Where(x => x.IsSelected).ToList();
 
-                if (isIncomplete || selected.IsNew)
+            if (toDelete.Count == 0)
+            {
+                MessageBox.Show("请先勾选要删除的选课记录。", "提示", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
+
+            var result = MessageBox.Show($"确定删除 {toDelete.Count} 条选课记录？", "确认删除", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            if (result != MessageBoxResult.Yes)
+                return;
+
+            // 收集所有受影响学生的 ID
+            HashSet<string> affectedSids = new HashSet<string>();
+
+            foreach (var entry in toDelete)
+            {
+                bool isIncomplete = string.IsNullOrWhiteSpace(entry.Sid) || string.IsNullOrWhiteSpace(entry.Cid);
+
+                if (entry.IsNew || isIncomplete)
                 {
-                    // 直接移除，不操作数据库
-                    SelectionList.Remove(selected);
-                    CourseSelectionGrid.ItemsSource = null;
-                    CourseSelectionGrid.ItemsSource = SelectionList;
+                    SelectionList.Remove(entry);
+                    affectedSids.Add(entry.Sid);
                 }
                 else
                 {
-                    var result = MessageBox.Show($"确定删除学号 {selected.Sid} 的选课记录？", "确认删除", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-                    if (result == MessageBoxResult.Yes)
+                    try
                     {
-                        try
+                        string deleteSql = "DELETE FROM scclass WHERE sc_sid = @sid AND sc_cid = @cid";
+                        using (SqlCommand cmd = new SqlCommand(deleteSql, _connection))
                         {
-                            string deleteSql = "DELETE FROM scclass WHERE sc_sid = @sid AND sc_cid = @cid";
-                            using (SqlCommand cmd = new SqlCommand(deleteSql, _connection))
-                            {
-                                cmd.Parameters.AddWithValue("@sid", selected.Sid);
-                                cmd.Parameters.AddWithValue("@cid", selected.Cid);
+                            cmd.Parameters.AddWithValue("@sid", entry.Sid);
+                            cmd.Parameters.AddWithValue("@cid", entry.Cid);
 
-                                if (_connection.State != ConnectionState.Open)
-                                    _connection.Open();
+                            if (_connection.State != ConnectionState.Open)
+                                _connection.Open();
 
-                                cmd.ExecuteNonQuery();
-                            }
-
-                            SelectionList.Remove(selected);
-                            CourseSelectionGrid.ItemsSource = null;
-                            CourseSelectionGrid.ItemsSource = SelectionList;
+                            cmd.ExecuteNonQuery();
                         }
-                        catch (SqlException ex)
-                        {
-                            MessageBox.Show("删除失败：" + ex.Message, "错误", MessageBoxButton.OK, MessageBoxImage.Error);
-                        }
+
+                        SelectionList.Remove(entry);
+                        affectedSids.Add(entry.Sid);
+                    }
+                    catch (SqlException ex)
+                    {
+                        MessageBox.Show($"删除学号 {entry.Sid} 的记录失败：\n" + ex.Message, "错误", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 }
             }
+
+            // ✅ 删除后更新每个受影响学生的剩余学分 RemainingCredit
+            foreach (var sid in affectedSids)
+            {
+                var records = SelectionList.Where(x => x.Sid == sid).ToList();
+                if (records.Count > 0)
+                {
+                    int totalCredit = records[0].Credit;
+                    int usedCredit = records.Sum(x => x.Ccredit);
+                    int remaining = totalCredit - usedCredit;
+
+                    foreach (var rec in records)
+                    {
+                        rec.RemainingCredit = remaining;
+                    }
+                }
+            }
+
+            // ✅ 刷新绑定
+            CourseSelectionGrid.ItemsSource = null;
+            CourseSelectionGrid.ItemsSource = SelectionList;
         }
 
 
@@ -458,7 +631,7 @@ public class CourseSelectionEntry : INotifyPropertyChanged
                 Major = "",
                 Cid = "",
                 Cname = "",
-                Score = "",
+            
                 IsNew = true
             };
 
@@ -474,7 +647,7 @@ public class CourseSelectionEntry : INotifyPropertyChanged
             CollegeComboBox.SelectedIndex = 0;
             MajorComboBox.SelectedIndex = 0;
             SexComboBox.SelectedIndex = 0;
-           
+            CourseSelectionGrid.ItemsSource = SelectionList;
         }
 
 

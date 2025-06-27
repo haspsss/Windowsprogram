@@ -1,4 +1,6 @@
 ﻿using System.Data.SqlClient;
+using System.Security.Cryptography;
+using System.Text;
 using System.Windows;
 
 namespace courseselect.Example.Manager // 注意命名空间
@@ -13,46 +15,87 @@ namespace courseselect.Example.Manager // 注意命名空间
             InitializeComponent();
             _connection = connection;
             _userId = userId;
+           
         }
+       
 
         private void ConfirmChange_Click(object sender, RoutedEventArgs e)
         {
             string oldPassword = txtOldPassword.Text;
             string newPassword = txtNewPassword.Text;
-            string question = txtQuestion.Text;
-            string answer = txtAnswer.Text;
+            
 
-            // 验证输入（可以根据需要添加更多验证）
-            if (string.IsNullOrEmpty(oldPassword) || string.IsNullOrEmpty(newPassword) || string.IsNullOrEmpty(question) || string.IsNullOrEmpty(answer))
+            if (string.IsNullOrEmpty(oldPassword) || string.IsNullOrEmpty(newPassword) )
             {
-                MessageBox.Show("所有字段都必须填写！");
+                MessageBox.Show("所有字段都必须填写！", "错误提示", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
+            string dbPassword = null;
 
-            using (var cmd = new SqlCommand("SELECT password FROM manager WHERE mid = @userId", _connection)) // 注意双引号转义
+            // 读取数据库中原密码
+            using (var cmd = new SqlCommand("SELECT password FROM manager WHERE mid = @userId", _connection))
             {
-                cmd.Parameters.AddWithValue("userId", _userId); // 添加参数
-                string dbPassword = cmd.ExecuteScalar()?.ToString();
+                cmd.Parameters.AddWithValue("@userId", _userId);
+                dbPassword = cmd.ExecuteScalar()?.ToString();
+            }
 
-                if (dbPassword != oldPassword)
-                {
-                    MessageBox.Show("原始密码错误！");
-                    return;
-                }
+            if (dbPassword == null)
+            {
+                MessageBox.Show("用户不存在！", "错误提示", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
 
-                using (var updateCmd = new SqlCommand("UPDATE manager SET password = @newPassword, ifchangepw = 'T', question = @question, answer = @answer WHERE mid = @userId", _connection)) // 注意双引号转义
-                {
-                    updateCmd.Parameters.AddWithValue("newPassword", newPassword);
-                    updateCmd.Parameters.AddWithValue("question", question);
-                    updateCmd.Parameters.AddWithValue("answer", answer);
-                    updateCmd.Parameters.AddWithValue("userId", _userId);
-                    updateCmd.ExecuteNonQuery();
-                }
+            // 判断旧密码是否匹配（支持明文或已加密的对比）
+            bool isMatch = false;
+            if (dbPassword.Length < 60)
+            {
+                // 明文
+                isMatch = (dbPassword == oldPassword);
+            }
+            else
+            {
+                // 加密
+                string hashedInput = ComputeSha256Hash(oldPassword);
+                isMatch = (dbPassword == hashedInput);
+            }
 
-                DialogResult = true;
-                MessageBox.Show("密码修改成功！");
-                this.Close();
+            if (!isMatch)
+            {
+                MessageBox.Show("原始密码错误！", "错误提示", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            // 将新密码加密后存入数据库
+            string encryptedNewPassword = ComputeSha256Hash(newPassword);
+
+            using (var updateCmd = new SqlCommand(
+                "UPDATE manager SET password = @newPassword, ifchangepw = 'T' WHERE mid = @userId",
+                _connection))
+            {
+                updateCmd.Parameters.AddWithValue("@newPassword", encryptedNewPassword);
+               
+                updateCmd.Parameters.AddWithValue("@userId", _userId);
+                updateCmd.ExecuteNonQuery();
+            }
+
+            MessageBox.Show("密码修改成功！", "修改成功", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+            DialogResult = true;
+            this.Close();
+        }
+
+        // 加密函数：SHA-256
+        private string ComputeSha256Hash(string rawData)
+        {
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] bytes = Encoding.UTF8.GetBytes(rawData);
+                byte[] hash = sha256.ComputeHash(bytes);
+
+                StringBuilder builder = new StringBuilder();
+                foreach (var b in hash)
+                    builder.Append(b.ToString("x2")); // 转为16进制
+                return builder.ToString();
             }
         }
     }

@@ -51,7 +51,7 @@ namespace courseselect.Example.Teacher.examarrangement
         private void LoadExamCourses(SqlConnection conn, string _ttid)
         {
             string sql = @"
-                SELECT c.cid, c.cname, c.ctesttime, c.ctesttimeend, tc.tname
+                SELECT  DISTINCT c.cid, c.cname, c.ctesttime, c.ctesttimeend, tc.tname
                 FROM scclass sc
                 JOIN course c ON sc.sc_cid = c.cid
                 JOIN teaching_course tc ON tc.cid = c.cid

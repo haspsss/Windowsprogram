@@ -90,22 +90,30 @@
        IsReadOnly="False">
                 <!-- 必须设置为 False 否则无法编辑 -->
                 <DataGrid.Columns>
-                    <!-- 学号 -->
-                    <DataGridTemplateColumn Header="学号">
-                        <DataGridTemplateColumn.CellEditingTemplate>
+                    <DataGridTemplateColumn Header="选择" Width="50">
+                        <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <ComboBox ItemsSource="{Binding DataContext.TeacherList, RelativeSource={RelativeSource AncestorType=Page}}"
-                           DisplayMemberPath="Display"
-                           SelectedValuePath="Ttid"
-                           SelectedValue="{Binding Ttid, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                           SelectionChanged="TeacherComboBox_SelectionChanged"/>
+                                <CheckBox IsChecked="{Binding IsSelected, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center"/>
                             </DataTemplate>
-                        </DataGridTemplateColumn.CellEditingTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="教工号" Width="auto">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock Text="{Binding Ttid}" />
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <ComboBox ItemsSource="{Binding DataContext.TeacherList, RelativeSource={RelativeSource AncestorType=Page}}"
+                      SelectedValuePath="Ttid"
+                      DisplayMemberPath="Display"
+                      SelectedValue="{Binding Ttid, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      IsEnabled="{Binding IsNew}"
+                                    SelectionChanged="TeacherComboBox_SelectionChanged"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
                     </DataGridTemplateColumn>
 
                     <!-- 姓名 -->
@@ -120,22 +128,22 @@
                     <!-- 专业 -->
                     <DataGridTextColumn Header="系" Binding="{Binding Department}" IsReadOnly="True" />
 
-                    <!-- 课程号 -->
-                    <DataGridTemplateColumn Header="课程号">
-                        <DataGridTemplateColumn.CellEditingTemplate>
-                            <DataTemplate>
-                                <ComboBox ItemsSource="{Binding DataContext.CourseList, RelativeSource={RelativeSource AncestorType=Page}}"
-                           DisplayMemberPath="Display"
-                           SelectedValuePath="Cid"
-                           SelectedValue="{Binding Cid, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                           SelectionChanged="CourseComboBox_SelectionChanged"/>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellEditingTemplate>
+                    <DataGridTemplateColumn Header="课程号" Width="*">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock Text="{Binding Cid}" />
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <ComboBox ItemsSource="{Binding DataContext.CourseList, RelativeSource={RelativeSource AncestorType=Page}}"
+                      SelectedValuePath="Cid"
+                      DisplayMemberPath="Display"
+                      SelectedValue="{Binding Cid, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      IsEnabled="{Binding IsNew}"
+                                    SelectionChanged="CourseComboBox_SelectionChanged"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
                     </DataGridTemplateColumn>
 
                     <!-- 课程名 -->

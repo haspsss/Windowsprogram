@@ -6,6 +6,13 @@
         xmlns:local="clr-namespace:courseselect.Example"
         mc:Ignorable="d"
         Title="登录" Height="200" Width="300" >
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="LightGoldenrodYellow" />
+            <Setter Property="FontWeight" Value="bold"/>
+            <Setter Property="Height" Value="25"/>
+        </Style>
+    </Window.Resources>
     <Grid>
         <Button Content="登录" HorizontalAlignment="Left" Margin="109,122,0,0" VerticalAlignment="Top" Width="58" Click="Button_Click"/>
 
@@ -13,7 +20,7 @@
         <TextBox x:Name="UserIdBox" HorizontalAlignment="Left" Margin="120,22,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Height="20"/>
         <Label Content="密码：" HorizontalAlignment="Left" Margin="57,56,0,0" VerticalAlignment="Top"/>
         <CheckBox Name="showpw" Content="显示密码" HorizontalAlignment="Left" Margin="180,88,0,0" VerticalAlignment="Top" Checked="CheckBox_Checked" Unchecked="showpw_Unchecked"/>
-        <Button Content="忘记密码" Background="Transparent" BorderBrush="Transparent" Foreground="DarkBlue" HorizontalAlignment="Left" Margin="57,85,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+       
         <PasswordBox x:Name="Passwordbox" HorizontalAlignment="Left" Margin="118,58,0,0"  VerticalAlignment="Top" Width="120"  Height="20" />
         <TextBox Name="PassTextbox" HorizontalAlignment="Left" Margin="118,58,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Height="20" Visibility="Collapsed"/>
 

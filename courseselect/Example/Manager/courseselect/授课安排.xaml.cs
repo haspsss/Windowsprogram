@@ -6,11 +6,14 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 
 namespace courseselect.Example.Manager.courseselect
 {
     public partial class 授课安排 : Page
     {
+        private ICollectionView _teachingView;
+
         public ObservableCollection<TeachingEntry> TeachingList { get; set; } = new ObservableCollection<TeachingEntry>();
         public List<CourseOption> CourseOptions { get; set; } = new List<CourseOption>();
         public List<TeacherOption> TeacherOptions { get; set; } = new List<TeacherOption>();
@@ -26,6 +29,25 @@ namespace courseselect.Example.Manager.courseselect
             LoadCourseOptions();
             LoadTeacherOptions();
             LoadTeachingAssignments();
+            _teachingView = CollectionViewSource.GetDefaultView(TeachingList);
+            _teachingView.Filter = TeachingFilter;
+            TeachingDataGrid.ItemsSource = _teachingView;
+
+
+        }
+        private bool TeachingFilter(object obj)
+        {
+            TeachingEntry entry = obj as TeachingEntry;
+            if (entry == null)
+                return false;
+
+            string keyword = SearchTextBox.Text.Trim().ToLower();
+            if (string.IsNullOrEmpty(keyword)) return true;
+
+            return (entry.Cid?.ToLower().Contains(keyword) ?? false)
+                || (entry.Cname?.ToLower().Contains(keyword) ?? false)
+                || (entry.Ttid?.ToLower().Contains(keyword) ?? false)
+                || (entry.Tname?.ToLower().Contains(keyword) ?? false);
         }
 
         private void LoadCourseOptions()
@@ -170,7 +192,7 @@ namespace courseselect.Example.Manager.courseselect
                         {
                             if (ex.Message.Contains("教师时间安排冲突"))
                             {
-                                MessageBox.Show($"保存失败：教师时间冲突（课程 {record.Cid} 教师 {record.Ttid}）", "失败", MessageBoxButton.OK, MessageBoxImage.Warning);
+                                MessageBox.Show($"保存失败：教师时间冲突（课程 {record.Cid} 教师 {record.Ttid}）", "失败", MessageBoxButton.OK, MessageBoxImage.Error);
                             }
                             else
                             {
@@ -209,19 +231,17 @@ namespace courseselect.Example.Manager.courseselect
         private void ClearFilterButton_Click(object sender, RoutedEventArgs e)
         {
             SearchTextBox.Text = "";
-            TeachingDataGrid.ItemsSource = TeachingList;
+            _teachingView.Refresh();
         }
+
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-            var currentList = TeachingDataGrid.ItemsSource as IEnumerable<TeachingEntry>;
-            if (currentList == null) return;
-
-            var toDelete = currentList.Where(t => t.IsSelected).ToList();
+            var toDelete = TeachingList.Where(t => t.IsSelected).ToList();
 
             if (toDelete.Count == 0)
             {
-                MessageBox.Show("请勾选要删除的授课记录。");
+                MessageBox.Show("请勾选要删除的授课记录。", "提示", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 return;
             }
 
@@ -242,7 +262,7 @@ namespace courseselect.Example.Manager.courseselect
                         cmd.ExecuteNonQuery();
                     }
 
-                    TeachingList.Remove(item); // 仍然从 TeachingList 移除（因为这是主集合）
+                    TeachingList.Remove(item);
                 }
                 catch (SqlException ex)
                 {
@@ -250,31 +270,90 @@ namespace courseselect.Example.Manager.courseselect
                 }
             }
 
-            LoadTeachingAssignments(); // 建议删除后也刷新一次
+            LoadTeachingAssignments();
+            _teachingView.Refresh(); // 确保视图同步
         }
+
+
 
 
         private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
-            string keyword = SearchTextBox.Text.Trim().ToLower();
-            var filtered = TeachingList.Where(t =>
-                (t.Cid?.ToLower().Contains(keyword) ?? false) ||
-                (t.Cname?.ToLower().Contains(keyword) ?? false) ||
-                (t.Ttid?.ToLower().Contains(keyword) ?? false) ||
-                (t.Tname?.ToLower().Contains(keyword) ?? false)).ToList();
-
-            TeachingDataGrid.ItemsSource = filtered;
+            _teachingView.Refresh(); // 自动应用 filter
         }
+        private void SelectionCheckBox_Changed(object sender, RoutedEventArgs e)
+        {
+            _teachingView.Refresh(); // 确保 DataGrid 视图与数据同步
+        }
+
+
     }
 
     public class TeachingEntry : INotifyPropertyChanged
     {
+        public bool IsEditable => IsNew;
+
         public bool IsNew { get; set; } = false;
 
-        public string Cid { get; set; }
-        public string Cname { get; set; }
-        public string Ttid { get; set; }
-        public string Tname { get; set; }
+        private string _cid;
+        public string Cid
+        {
+            get => _cid;
+            set
+            {
+                if (_cid != value)
+                {
+                    _cid = value;
+                    OnPropertyChanged(nameof(Cid));
+                    OnPropertyChanged(nameof(CourseDisplay));
+                }
+            }
+        }
+
+        private string _cname;
+        public string Cname
+        {
+            get => _cname;
+            set
+            {
+                if (_cname != value)
+                {
+                    _cname = value;
+                    OnPropertyChanged(nameof(Cname));
+                    OnPropertyChanged(nameof(CourseDisplay));
+                }
+            }
+        }
+
+        private string _ttid;
+        public string Ttid
+        {
+            get => _ttid;
+            set
+            {
+                if (_ttid != value)
+                {
+                    _ttid = value;
+                    OnPropertyChanged(nameof(Ttid));
+                    OnPropertyChanged(nameof(TeacherDisplay));
+                }
+            }
+        }
+
+        private string _tname;
+        public string Tname
+        {
+            get => _tname;
+            set
+            {
+                if (_tname != value)
+                {
+                    _tname = value;
+                    OnPropertyChanged(nameof(Tname));
+                    OnPropertyChanged(nameof(TeacherDisplay));
+                }
+            }
+        }
 
         private bool _isSelected;
         public bool IsSelected
@@ -282,8 +361,11 @@ namespace courseselect.Example.Manager.courseselect
             get => _isSelected;
             set
             {
-                _isSelected = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsSelected)));
+                if (_isSelected != value)
+                {
+                    _isSelected = value;
+                    OnPropertyChanged(nameof(IsSelected));
+                }
             }
         }
 
@@ -293,7 +375,12 @@ namespace courseselect.Example.Manager.courseselect
         public string TeacherDisplay => $"{Ttid} - {Tname}";
 
         public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged(string name)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
     }
+
 
     public class CourseOption
     {

@@ -7,9 +7,21 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="成绩单">
-
-    <Grid Margin="10">
-        <DataGrid ItemsSource="{Binding GradeList}" AutoGenerateColumns="False" CanUserAddRows="False" HeadersVisibility="Column" RowHeight="30">
+    <Page.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="LightGoldenrodYellow" />
+            <Setter Property="FontWeight" Value="bold"/>
+            <Setter Property="Height" Value="25"/>
+        </Style>
+        </Page.Resources>
+        <Grid x:Name="MainGrid" Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Button Content="导出为PDF" HorizontalAlignment="Left" Margin="1,0,0,10" Width="100"
+ Click="ExportButton_Click" Grid.ColumnSpan="3" Grid.Row="0"/>
+        <DataGrid ItemsSource="{Binding GradeList}" AutoGenerateColumns="False" CanUserAddRows="False" HeadersVisibility="Column" RowHeight="30" Grid.Row="1">
             <DataGrid.RowStyle>
                 <Style TargetType="DataGridRow">
                     <Style.Triggers>
@@ -29,5 +41,6 @@
                 <DataGridTextColumn Header="绩点" Binding="{Binding GPA, StringFormat=F2}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
+        
     </Grid>
 </Page>

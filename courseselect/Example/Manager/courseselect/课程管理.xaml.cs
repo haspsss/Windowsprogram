@@ -225,21 +225,27 @@ namespace courseselect.Example.Manager.courseselect
             foreach (var course in CourseList)
             {
                 if (string.IsNullOrWhiteSpace(course.Cid) ||
-                    string.IsNullOrWhiteSpace(course.CName) ||
-                    string.IsNullOrWhiteSpace(course.CCollege) ||
-                    string.IsNullOrWhiteSpace(course.CDepartment) ||
-                    string.IsNullOrWhiteSpace(course.CKind) ||
-                    string.IsNullOrWhiteSpace(course.CPlace) ||
-                    string.IsNullOrWhiteSpace(course.CYear) ||
-                    string.IsNullOrWhiteSpace(course.CWeek) ||
-                    string.IsNullOrWhiteSpace(course.CDay) ||
-                    course.CNum <= 0 || course.CLast <= 0 ||
-                    string.IsNullOrWhiteSpace(course.TTid) ||
-                    string.IsNullOrWhiteSpace(course.TName))
+      string.IsNullOrWhiteSpace(course.CName) ||
+      string.IsNullOrWhiteSpace(course.CCollege) ||
+      string.IsNullOrWhiteSpace(course.CDepartment) ||
+      string.IsNullOrWhiteSpace(course.CKind) ||
+      string.IsNullOrWhiteSpace(course.CPlace) ||
+      string.IsNullOrWhiteSpace(course.CYear) ||
+      string.IsNullOrWhiteSpace(course.CWeek) ||
+      string.IsNullOrWhiteSpace(course.CDay) ||
+      course.CNum <= 0 || course.CLast <= 0 ||
+      
+      string.IsNullOrWhiteSpace(course.CMajor) ||
+      course.CAccomDate <= 0 ||
+      (course.CTest != "论文" &&
+          (!course.CTestTime.HasValue ||
+           !course.CTestTimeEnd.HasValue ||
+           string.IsNullOrWhiteSpace(course.CTestPlace))))
                 {
-                    MessageBox.Show("所有字段不能为空，请检查输入！");
+                    MessageBox.Show("所有字段不能为空，请检查输入！（非论文课程需填写考试时间与地点）","提示",MessageBoxButton.OK,MessageBoxImage.Exclamation);
                     return;
                 }
+
 
                 if (course.CTest != "论文")
                 {
@@ -247,18 +253,18 @@ namespace courseselect.Example.Manager.courseselect
                         !course.CTestTimeEnd.HasValue ||
                         string.IsNullOrWhiteSpace(course.CTestPlace))
                     {
-                        MessageBox.Show("非论文课程必须填写考试时间和考试地点！");
+                        MessageBox.Show("非论文课程必须填写考试时间和考试地点！", "提示", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                         return;
                     }
                 }
                 if (course.CAccomDate <= 0)
                 {
-                    MessageBox.Show("课程容纳人数必须为正整数！");
+                    MessageBox.Show("课程容纳人数必须为正整数！", "提示", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                     return;
                 }
                 if (string.IsNullOrWhiteSpace(course.CMajor))
                 {
-                    MessageBox.Show("所属专业不能为空！");
+                    MessageBox.Show("所属专业不能为空！", "提示", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                     return;
                 }
 
@@ -338,21 +344,10 @@ WHEN NOT MATCHED THEN
 
                 }
 
-                // 保存 teaching_course 表
-                using (SqlCommand cmd2 = new SqlCommand(@"
-MERGE INTO teaching_course AS target
-USING (SELECT @cid AS cid, @ttid AS ttid) AS source
-ON target.cid = source.cid AND target.ttid = source.ttid
-WHEN NOT MATCHED THEN 
-INSERT (cid, ttid) VALUES (@cid, @ttid);", _connection))
-                {
-                    cmd2.Parameters.AddWithValue("@cid", course.Cid);
-                    cmd2.Parameters.AddWithValue("@ttid", course.TTid);
-                    cmd2.ExecuteNonQuery();
-                }
+               
             }
 
-            MessageBox.Show("所有课程信息已成功保存！");
+            MessageBox.Show("所有课程信息已成功保存！","提示",MessageBoxButton.OK,MessageBoxImage.Asterisk);
         }
         private void DeleteCourse_Click(object sender, RoutedEventArgs e)
         {
@@ -367,12 +362,12 @@ INSERT (cid, ttid) VALUES (@cid, @ttid);", _connection))
 
             if (selectedCourses.Count == 0)
             {
-                MessageBox.Show("请先选择或勾选要删除的课程！");
+                MessageBox.Show("请先选择或勾选要删除的课程！", "提示", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 return;
             }
 
             if (MessageBox.Show($"确定要删除所选的 {selectedCourses.Count} 条课程记录吗？", "确认删除",
-                MessageBoxButton.YesNo, MessageBoxImage.Warning) != MessageBoxResult.Yes)
+                MessageBoxButton.YesNo, MessageBoxImage.Question) != MessageBoxResult.Yes)
             {
                 return;
             }

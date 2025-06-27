@@ -51,12 +51,17 @@
             <Button x:Name="SearchButton" Content="搜索" Click="SearchButton_Click"  Height="30"/>
                 <Button Content="清除筛选" Click="ClearFilterButton_Click" Height="30"/>
 
+                <Label Content="上课时间:"/>
                 <ComboBox x:Name="CTimeComboBox" Width="120" SelectionChanged="FilterComboBox_SelectionChanged"  Height="30"/>
-            <ComboBox x:Name="CCollegeComboBox" Width="120" SelectionChanged="FilterComboBox_SelectionChanged"  Height="30"/>
-            <ComboBox x:Name="CKindComboBox" Width="120" SelectionChanged="FilterComboBox_SelectionChanged" Height="30"/>
-            <ComboBox x:Name="TestComboBox" Width="120" SelectionChanged="FilterComboBox_SelectionChanged"  Height="30"/>
-            <ComboBox x:Name="CWeekComboBox" Width="120" SelectionChanged="FilterComboBox_SelectionChanged"  Height="30"/>
-        </StackPanel>
+                <Label Content="开设学院:"/>
+                <ComboBox x:Name="CCollegeComboBox" Width="120" SelectionChanged="FilterComboBox_SelectionChanged"  Height="30"/>
+                <Label Content="课程类型:"/>
+                <ComboBox x:Name="CKindComboBox" Width="120" SelectionChanged="FilterComboBox_SelectionChanged" Height="30"/>
+                <Label Content="考察方式:"/>
+                <ComboBox x:Name="TestComboBox" Width="120" SelectionChanged="FilterComboBox_SelectionChanged"  Height="30"/>
+                <Label Content="上课周:"/>
+                <ComboBox x:Name="CWeekComboBox" Width="120" SelectionChanged="FilterComboBox_SelectionChanged"  Height="30"/>
+            </StackPanel>
         </ScrollViewer>
 
         <DataGrid x:Name="CourseDataGrid" Grid.Row="1" AutoGenerateColumns="False" Margin="5">

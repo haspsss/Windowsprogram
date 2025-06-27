@@ -35,7 +35,7 @@ namespace courseselect.Example
         public AdminMainWindow(SqlConnection connection, string userId,string userName)
         {
             InitializeComponent();
-            this.Title = $"教师主界面 - {userId}";
+            this.Title = $"管理者主界面 - {userId}：您好！";
             _connection = connection;
             _userId = userId;
             _userName = userName;
@@ -164,13 +164,20 @@ namespace courseselect.Example
         }
         private void LogoutButton_Click(object sender, RoutedEventArgs e)
         {
-            // 关闭当前窗口（学生主界面）
-            this.Close();
+            var result = MessageBox.Show("是否确认退出登录？", "提示", MessageBoxButton.OKCancel, MessageBoxImage.Question);
 
-            // 显示登录窗口
-            var loginWindow = new LoginWindow(_connection);
-            loginWindow.Show();
+            if (result == MessageBoxResult.OK)
+            {
+                // 关闭当前窗口（学生主界面）
+                this.Close();
+
+                // 显示登录窗口
+                var loginWindow = new LoginWindow(_connection);
+                loginWindow.Show();
+            }
+            // 否则什么也不做，用户取消退出
         }
+
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {

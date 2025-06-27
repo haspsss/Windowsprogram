@@ -264,7 +264,8 @@ WHERE sc.sc_cid = @cid";
 
         private void FilterTeacher_Click(object sender, RoutedEventArgs e)
         {
-            string keyword = TeacherSearchBox.Text.Trim();
+            string keyword = TeacherSearchBox.Text.Trim().ToLower();  // 小写处理做统一匹配
+
             if (string.IsNullOrEmpty(keyword))
             {
                 TeacherList.ItemsSource = AllTeachers;
@@ -272,18 +273,21 @@ WHERE sc.sc_cid = @cid";
             else
             {
                 var filtered = new ObservableCollection<NTeacherInfo>();
+
                 foreach (var t in AllTeachers)
                 {
-                    if (t.Ttid.Contains(keyword) || t.Name.Contains(keyword))
+                    string matchTarget = (t.Ttid + " " + t.Name + " " + t.SexDisplay + " " + t.College + " " + t.Department).ToLower();
+
+                    if (matchTarget.Contains(keyword))
                     {
-                        // ✅ 恢复课程列表（取消对课程的筛选）
+                        // ✅ 恢复所有课程列表
                         t.Courses.Clear();
                         foreach (var c in t.AllCourses)
                         {
                             t.Courses.Add(c);
                         }
 
-                        // ✅ 对每门课程重置学生列表
+                        // ✅ 重载每门课程的学生列表
                         foreach (var course in t.Courses)
                         {
                             course.Students.Clear();
@@ -326,6 +330,7 @@ WHERE sc.sc_cid = @cid";
         }
 
 
+
         private void FilterCourse_Click(object sender, RoutedEventArgs e)
         {
             var button = sender as Button;
@@ -349,14 +354,16 @@ WHERE sc.sc_cid = @cid";
 
             if (searchBox == null) return;
 
-            string keyword = searchBox.Text.Trim();
+            string keyword = searchBox.Text.Trim().ToLower();
 
             var allCourses = teacher.AllCourses.ToList();
 
             var filtered = new ObservableCollection<NCourseInfo>();
             foreach (var course in allCourses)
             {
-                if (course.Cid.Contains(keyword) || course.Cname.Contains(keyword))
+                string matchTarget = $"{course.Cid} {course.Cname} {course.Ckind} {course.Ccollege}".ToLower();
+
+                if (matchTarget.Contains(keyword))
                 {
                     // ✅ 重置学生列表（恢复全部）
                     course.Students.Clear();
@@ -398,9 +405,8 @@ WHERE sc.sc_cid = @cid";
             {
                 teacher.Courses.Add(item);
             }
-
-            // ✅ 不重置教师列表
         }
+
 
 
 
@@ -656,13 +662,7 @@ WHERE sc.sc_cid = @cid";
                 teacher.Courses.Add(c);
             }
 
-            // ❌ 不要刷新 TeacherList.ItemsSource，保持教师筛选状态
-            // TeacherList.ItemsSource = null;
-            // TeacherList.ItemsSource = AllTeachers;
         }
-
-
-
     }
 
     public class BoolToVisibilityConverter : IValueConverter

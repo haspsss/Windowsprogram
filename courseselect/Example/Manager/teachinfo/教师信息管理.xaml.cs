@@ -95,8 +95,7 @@ namespace courseselect.Example.Manager.teachinfo
                             Political = reader["political"].ToString(),
                             Password = reader["password"].ToString(),
                             IfChangePw = reader["ifchangepw"].ToString(),
-                            Question = reader["question"]?.ToString(),
-                            Answer = reader["answer"]?.ToString(),
+                          
                             IsNew = false
                         });
                     }
@@ -183,7 +182,7 @@ namespace courseselect.Example.Manager.teachinfo
                         int count = (int)checkCmd.ExecuteScalar();
                         if (count > 0)
                         {
-                            MessageBox.Show($"学号 {teacher.Ttid} 已存在，无法重复添加，请修改。", "学号重复", MessageBoxButton.OK, MessageBoxImage.Warning);
+                            MessageBox.Show($"学号 {teacher.Ttid} 已存在，无法重复添加，请修改。", "学号重复", MessageBoxButton.OK, MessageBoxImage.Error);
                             hasError = true;
                             continue; // 跳过这个
                         }
@@ -191,8 +190,8 @@ namespace courseselect.Example.Manager.teachinfo
 
                     // 插入新数据
                     using (SqlCommand cmd = new SqlCommand(@"
-                INSERT INTO teacher (ttid, name, sex, birth, department, college, phone, political, password, ifchangepw, question, answer)
-                VALUES (@ttid, @name, @sex, @birth, @department, @college, @phone, @political, @password, @ifchangepw, @question, @answer)", _connection))
+                INSERT INTO teacher (ttid, name, sex, birth, department, college, phone, political, password, ifchangepw)
+                VALUES (@ttid, @name, @sex, @birth, @department, @college, @phone, @political, @password, @ifchangepw)", _connection))
                     {
                         cmd.Parameters.AddWithValue("@ttid", teacher.Ttid);
                         cmd.Parameters.AddWithValue("@name", teacher.Name);
@@ -204,8 +203,7 @@ namespace courseselect.Example.Manager.teachinfo
                         cmd.Parameters.AddWithValue("@political", teacher.Political);
                         cmd.Parameters.AddWithValue("@password", teacher.Password);
                         cmd.Parameters.AddWithValue("@ifchangepw", teacher.IfChangePw);
-                        cmd.Parameters.AddWithValue("@question", (object)teacher.Question ?? DBNull.Value);
-                        cmd.Parameters.AddWithValue("@answer", (object)teacher.Answer ?? DBNull.Value);
+                       
                         cmd.ExecuteNonQuery();
                         teacher.IsNew = false;
                     }
@@ -215,7 +213,7 @@ namespace courseselect.Example.Manager.teachinfo
                     // 更新已有数据
                     using (SqlCommand cmd = new SqlCommand(@"
                 UPDATE teacher SET name=@name, sex=@sex, birth=@birth, department=@department, college=@college,
-                phone=@phone, political=@political, password=@password, ifchangepw=@ifchangepw, question=@question, answer=@answer
+                phone=@phone, political=@political, password=@password, ifchangepw=@ifchangepw
                 WHERE ttid=@ttid", _connection))
                     {
                         cmd.Parameters.AddWithValue("@ttid", teacher.Ttid);
@@ -228,8 +226,7 @@ namespace courseselect.Example.Manager.teachinfo
                         cmd.Parameters.AddWithValue("@political", teacher.Political);
                         cmd.Parameters.AddWithValue("@password", teacher.Password);
                         cmd.Parameters.AddWithValue("@ifchangepw", teacher.IfChangePw);
-                        cmd.Parameters.AddWithValue("@question", (object)teacher.Question ?? DBNull.Value);
-                        cmd.Parameters.AddWithValue("@answer", (object)teacher.Answer ?? DBNull.Value);
+                       
                         cmd.ExecuteNonQuery();
                     }
                 }
@@ -237,7 +234,7 @@ namespace courseselect.Example.Manager.teachinfo
 
             if (!hasError)
             {
-                MessageBox.Show("保存成功！");
+                MessageBox.Show("保存成功！", "提示", MessageBoxButton.OK, MessageBoxImage.Information);
                LoadTeachers(); // 刷新数据
             }
             else
@@ -251,10 +248,14 @@ namespace courseselect.Example.Manager.teachinfo
             var selected =TeachList.Where(s => s.IsSelected).ToList();
             if (selected.Count == 0)
             {
-                MessageBox.Show("请勾选要删除的学生！");
+                MessageBox.Show("请勾选要删除的教师！","错误提示",MessageBoxButton.OK,MessageBoxImage.Exclamation);
                 return;
             }
-
+            var result = MessageBox.Show("是否确认删除？", "确认删除", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result != MessageBoxResult.Yes)
+            {
+                return;
+            }
             foreach (var teacher in selected)
             {
                 // 判断是否是空白或信息不完整行（未填写学号或为新添加尚未保存的行）
@@ -292,27 +293,18 @@ namespace courseselect.Example.Manager.teachinfo
                TeachList.Remove(teacher);
             }
 
-            MessageBox.Show("删除操作完成！");
-           LoadTeachers(); // 可选：重新加载数据
+           
+
+          
+
+            LoadTeachers(); // 可选：重新加载数据
         }
 
         private void FilterComboBox_Changed(object sender, SelectionChangedEventArgs e)
         {
             FilterCourses();
         }
-        /*    private void PopulateFilterDropdowns()
-            {
-                SexComboBox.Items.Add("女");
-                SexComboBox.Items.Add("男");
-                PoliticalComboBox.Items.Add("党员");
-                PoliticalComboBox.Items.Add("预备党员");
-                PoliticalComboBox.Items.Add("团员");
-                PoliticalComboBox.Items.Add("群众");
-                CollegeComboBox.Items.Add("信息科学技术学院");
-                CollegeComboBox.Items.Add("艺术学院");
-                departmentComboBox.Items.Add("计科");
-
-            }*/
+       
         private void FilterCourses()
         {
             string keyword = SearchBox.Text.Trim().ToLower();
@@ -326,12 +318,12 @@ namespace courseselect.Example.Manager.teachinfo
         {
             string keyword = SearchBox.Text.Trim().ToLower();
             string selectedCollege = CollegeComboBox.SelectedItem?.ToString();
-            string selecteddepartment = DepartmentComboBox.SelectedItem?.ToString();
+            string selectedDepartment = DepartmentComboBox.SelectedItem?.ToString();
             string selectedSex = SexComboBox.SelectedItem?.ToString();
             string selectedPolitical = PoliticalComboBox.SelectedItem?.ToString();
 
-            var filtered =TeachList.Where(s =>
-                // 关键字匹配（模糊搜索）
+            var filtered = TeachList.Where(s =>
+                // 关键字模糊搜索
                 (string.IsNullOrEmpty(keyword) || (
                     s.Ttid.ToLower().Contains(keyword) ||
                     s.Name.ToLower().Contains(keyword) ||
@@ -340,11 +332,18 @@ namespace courseselect.Example.Manager.teachinfo
                     s.Political.ToLower().Contains(keyword) ||
                     s.SexDisplay.ToLower().Contains(keyword)
                 )) &&
-                // 下拉框筛选项匹配（精确匹配）
-                (string.IsNullOrEmpty(selectedCollege) || s.College == selectedCollege) &&
-                (string.IsNullOrEmpty(selecteddepartment) || s.Department == selecteddepartment) &&
-                (string.IsNullOrEmpty(selectedSex) || s.SexDisplay == selectedSex) &&
-                (string.IsNullOrEmpty(selectedPolitical) || s.Political == selectedPolitical)
+
+                // 学院模糊筛选（非“全部”时启用）
+                (string.IsNullOrEmpty(selectedCollege) || selectedCollege == "全部" || s.College.Contains(selectedCollege)) &&
+
+                // 系模糊筛选
+                (string.IsNullOrEmpty(selectedDepartment) || selectedDepartment == "全部" || s.Department.Contains(selectedDepartment)) &&
+
+                // 政治身份模糊筛选
+                (string.IsNullOrEmpty(selectedPolitical) || selectedPolitical == "全部" || s.Political.Contains(selectedPolitical)) &&
+
+                // 性别精确匹配（通常性别为“男”“女”）
+                (string.IsNullOrEmpty(selectedSex) || selectedSex == "全部" || s.SexDisplay == selectedSex)
             ).ToList();
 
             teacherDataGrid.ItemsSource = filtered;

@@ -155,9 +155,10 @@ namespace courseselect.Example.Student.courseselect
 
                 if (!string.IsNullOrWhiteSpace(searchText))
                 {
-                    query += " AND c.cname LIKE @SearchText";
+                    query += " AND (c.cid LIKE @SearchText OR c.cname LIKE @SearchText OR c.cday LIKE @SearchText OR c.ckind LIKE @SearchText OR c.ccollege LIKE @SearchText OR c.cdepartment LIKE @SearchText OR c.cmajor LIKE @SearchText OR c.cyear LIKE @SearchText OR c.cweek LIKE @SearchText OR c.ctime LIKE @SearchText OR c.ctest LIKE @SearchText OR t.name LIKE @SearchText)";
                     parameters.Add(new SqlParameter("@SearchText", "%" + searchText + "%"));
                 }
+
 
                 if (!string.IsNullOrWhiteSpace(selectedCTime) && selectedCTime != "全部")
                 {

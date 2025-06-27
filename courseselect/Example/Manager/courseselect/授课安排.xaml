@@ -64,12 +64,10 @@
                 <DataGridTemplateColumn Header="选择" Width="60">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <CheckBox IsChecked="{Binding IsSelected, Mode=TwoWay}"
-                      IsEnabled="{Binding IsDeletable}" />
+                            <CheckBox IsChecked="{Binding IsSelected, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-
                 <!-- 课程下拉框 -->
                 <DataGridTemplateColumn Header="课程" Width="200" >
                     <DataGridTemplateColumn.CellTemplate>
@@ -79,11 +77,14 @@
                     </DataGridTemplateColumn.CellTemplate>
                     <DataGridTemplateColumn.CellEditingTemplate>
                         <DataTemplate>
-                            <ComboBox ItemsSource="{Binding DataContext.CourseOptions, RelativeSource={RelativeSource AncestorType=Page}}"
-                                      DisplayMemberPath="Display"
-                                      SelectedValuePath="Cid"
-                                      SelectedValue="{Binding Cid, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                      SelectionChanged="CourseComboBox_SelectionChanged"/>
+                            <ComboBox 
+                ItemsSource="{Binding DataContext.CourseOptions, RelativeSource={RelativeSource AncestorType=Page}}"
+                DisplayMemberPath="Display"
+                SelectedValuePath="Cid"
+                SelectedValue="{Binding Cid, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                SelectionChanged="CourseComboBox_SelectionChanged"
+                IsEnabled="{Binding IsNew}" />
+                            <!-- 禁用已有行 -->
                         </DataTemplate>
                     </DataGridTemplateColumn.CellEditingTemplate>
                 </DataGridTemplateColumn>
@@ -97,14 +98,18 @@
                     </DataGridTemplateColumn.CellTemplate>
                     <DataGridTemplateColumn.CellEditingTemplate>
                         <DataTemplate>
-                            <ComboBox ItemsSource="{Binding DataContext.TeacherOptions, RelativeSource={RelativeSource AncestorType=Page}}"
-                                      DisplayMemberPath="Display"
-                                      SelectedValuePath="Ttid"
-                                      SelectedValue="{Binding Ttid, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                      SelectionChanged="TeacherComboBox_SelectionChanged"/>
+                            <ComboBox 
+                ItemsSource="{Binding DataContext.TeacherOptions, RelativeSource={RelativeSource AncestorType=Page}}"
+                DisplayMemberPath="Display"
+                SelectedValuePath="Ttid"
+                SelectedValue="{Binding Ttid, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                SelectionChanged="TeacherComboBox_SelectionChanged"
+                IsEnabled="{Binding IsNew}" />
+                            <!-- 禁用已有行 -->
                         </DataTemplate>
                     </DataGridTemplateColumn.CellEditingTemplate>
                 </DataGridTemplateColumn>
+
             </DataGrid.Columns>
         </DataGrid>
 

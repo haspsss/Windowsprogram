@@ -55,12 +55,16 @@ HorizontalAlignment="Left" />
                 <TextBox x:Name="SearchTextBox" Width="200" Height="30" />
             <Button x:Name="SearchButton" Content="搜索" Click="SearchButton_Click"  Height="30"/>
                 <Button Content="清除筛选" Click="ClearFilterButton_Click" Height="30" />
-
+                <Label Content="上课时间:"/>
                 <ComboBox x:Name="CTimeComboBox" Width="120" SelectionChanged="FilterComboBox_SelectionChanged"  Height="30"/>
-            <ComboBox x:Name="CCollegeComboBox" Width="120" SelectionChanged="FilterComboBox_SelectionChanged"  Height="30"/>
-            <ComboBox x:Name="CKindComboBox" Width="120" SelectionChanged="FilterComboBox_SelectionChanged" Height="30"/>
-            <ComboBox x:Name="TestComboBox" Width="120" SelectionChanged="FilterComboBox_SelectionChanged"  Height="30"/>
-            <ComboBox x:Name="CWeekComboBox" Width="120" SelectionChanged="FilterComboBox_SelectionChanged"  Height="30"/>
+                <Label Content="开设学院:"/>
+                <ComboBox x:Name="CCollegeComboBox" Width="120" SelectionChanged="FilterComboBox_SelectionChanged"  Height="30"/>
+                <Label Content="课程类型:"/>
+                <ComboBox x:Name="CKindComboBox" Width="120" SelectionChanged="FilterComboBox_SelectionChanged" Height="30"/>
+                <Label Content="考察方式:"/>
+                <ComboBox x:Name="TestComboBox" Width="120" SelectionChanged="FilterComboBox_SelectionChanged"  Height="30"/>
+                <Label Content="上课周:"/>
+                <ComboBox x:Name="CWeekComboBox" Width="120" SelectionChanged="FilterComboBox_SelectionChanged"  Height="30"/>
         </StackPanel>
         </ScrollViewer>
 
@@ -95,7 +99,6 @@ HorizontalAlignment="Left" />
                 <DataGridTextColumn Header="可容纳人数" Binding="{Binding CAccomdate}" />
                 <DataGridTextColumn Header="课程学分" Binding="{Binding CCredit}" />
                 <DataGridTextColumn Header="课程地点" Binding="{Binding CPlace}" />
-                <DataGridTextColumn Header="课程考试时间" Binding="{Binding CTestTime}" />
                 <DataGridTextColumn Header="课程类别" Binding="{Binding CKind}" />
                 <DataGridTextColumn Header="课程介绍" Binding="{Binding CIntro}" />
                 <DataGridTextColumn Header="课程所属学院" Binding="{Binding CCollege}" />

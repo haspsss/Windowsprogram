@@ -91,12 +91,12 @@ namespace courseselect.Example.Manager.stuinfo
                             Birth = reader["birth"].ToString(),
                             Major = reader["major"].ToString(),
                             College = reader["college"].ToString(),
+                            Credit = reader["credit"] == DBNull.Value ? 0 : Convert.ToInt32(reader["credit"]),
                             Phone = reader["phone"].ToString(),
                             Political = reader["political"].ToString(),
                             Password = reader["password"].ToString(),
                             IfChangePw = reader["ifchangepw"].ToString(),
-                            Question = reader["question"]?.ToString(),
-                            Answer = reader["answer"]?.ToString(),
+                           
                             IsNew = false
                         });
                     }
@@ -119,6 +119,7 @@ namespace courseselect.Example.Manager.stuinfo
                 string.IsNullOrWhiteSpace(s.Sex) &&
                 string.IsNullOrWhiteSpace(s.Birth) &&
                 string.IsNullOrWhiteSpace(s.Major) &&
+               
                 string.IsNullOrWhiteSpace(s.College) &&
                 string.IsNullOrWhiteSpace(s.Phone) &&
                 string.IsNullOrWhiteSpace(s.Political) &&
@@ -136,7 +137,7 @@ namespace courseselect.Example.Manager.stuinfo
                 !string.IsNullOrWhiteSpace(student.Sex) || !string.IsNullOrWhiteSpace(student.Birth) ||
                 !string.IsNullOrWhiteSpace(student.Major) || !string.IsNullOrWhiteSpace(student.College) ||
                 !string.IsNullOrWhiteSpace(student.Phone) || !string.IsNullOrWhiteSpace(student.Political) ||
-                !string.IsNullOrWhiteSpace(student.Password) || !string.IsNullOrWhiteSpace(student.IfChangePw)
+                !string.IsNullOrWhiteSpace(student.Password) || !string.IsNullOrWhiteSpace(student.IfChangePw) 
             ).Where(student =>
                 string.IsNullOrWhiteSpace(student.Sid) || string.IsNullOrWhiteSpace(student.Name) ||
                 string.IsNullOrWhiteSpace(student.Sex) || string.IsNullOrWhiteSpace(student.Birth) ||
@@ -191,8 +192,8 @@ namespace courseselect.Example.Manager.stuinfo
 
                     // 插入新数据
                     using (SqlCommand cmd = new SqlCommand(@"
-                INSERT INTO student (sid, name, sex, birth, major, college, phone, political, password, ifchangepw, question, answer)
-                VALUES (@sid, @name, @sex, @birth, @major, @college, @phone, @political, @password, @ifchangepw, @question, @answer)", _connection))
+                INSERT INTO student (sid, name, sex, birth, major, college,credit, phone, political, password, ifchangepw)
+                VALUES (@sid, @name, @sex, @birth, @major, @college,@credit, @phone, @political, @password, @ifchangepw)", _connection))
                     {
                         cmd.Parameters.AddWithValue("@sid", student.Sid);
                         cmd.Parameters.AddWithValue("@name", student.Name);
@@ -200,12 +201,12 @@ namespace courseselect.Example.Manager.stuinfo
                         cmd.Parameters.AddWithValue("@birth", student.Birth);
                         cmd.Parameters.AddWithValue("@major", student.Major);
                         cmd.Parameters.AddWithValue("@college", student.College);
+                        cmd.Parameters.AddWithValue("@credit", student.Credit);
                         cmd.Parameters.AddWithValue("@phone", student.Phone);
                         cmd.Parameters.AddWithValue("@political", student.Political);
                         cmd.Parameters.AddWithValue("@password", student.Password);
                         cmd.Parameters.AddWithValue("@ifchangepw", student.IfChangePw);
-                        cmd.Parameters.AddWithValue("@question", (object)student.Question ?? DBNull.Value);
-                        cmd.Parameters.AddWithValue("@answer", (object)student.Answer ?? DBNull.Value);
+                       
                         cmd.ExecuteNonQuery();
                         student.IsNew = false;
                     }
@@ -214,8 +215,8 @@ namespace courseselect.Example.Manager.stuinfo
                 {
                     // 更新已有数据
                     using (SqlCommand cmd = new SqlCommand(@"
-                UPDATE student SET name=@name, sex=@sex, birth=@birth, major=@major, college=@college,
-                phone=@phone, political=@political, password=@password, ifchangepw=@ifchangepw, question=@question, answer=@answer
+                UPDATE student SET name=@name, sex=@sex, birth=@birth, major=@major, college=@college,credit=@credit,
+                phone=@phone, political=@political, password=@password, ifchangepw=@ifchangepw
                 WHERE sid=@sid", _connection))
                     {
                         cmd.Parameters.AddWithValue("@sid", student.Sid);
@@ -224,12 +225,12 @@ namespace courseselect.Example.Manager.stuinfo
                         cmd.Parameters.AddWithValue("@birth", student.Birth);
                         cmd.Parameters.AddWithValue("@major", student.Major);
                         cmd.Parameters.AddWithValue("@college", student.College);
+                        cmd.Parameters.AddWithValue("@credit", student.Credit);
                         cmd.Parameters.AddWithValue("@phone", student.Phone);
                         cmd.Parameters.AddWithValue("@political", student.Political);
                         cmd.Parameters.AddWithValue("@password", student.Password);
                         cmd.Parameters.AddWithValue("@ifchangepw", student.IfChangePw);
-                        cmd.Parameters.AddWithValue("@question", (object)student.Question ?? DBNull.Value);
-                        cmd.Parameters.AddWithValue("@answer", (object)student.Answer ?? DBNull.Value);
+                      
                         cmd.ExecuteNonQuery();
                     }
                 }
@@ -237,12 +238,12 @@ namespace courseselect.Example.Manager.stuinfo
 
             if (!hasError)
             {
-                MessageBox.Show("保存成功！");
+                MessageBox.Show("保存成功！","提示",MessageBoxButton.OK,MessageBoxImage.Asterisk);
                 LoadStudents(); // 刷新数据
             }
             else
             {
-                MessageBox.Show("部分数据未保存，请检查学号是否重复。", "提示", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("部分数据未保存，请检查学号是否重复。", "错误提示", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
         }
 
@@ -251,7 +252,7 @@ namespace courseselect.Example.Manager.stuinfo
             var selected = StudentList.Where(s => s.IsSelected).ToList();
             if (selected.Count == 0)
             {
-                MessageBox.Show("请勾选要删除的学生！");
+                MessageBox.Show("请勾选要删除的学生！", "错误提示", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 return;
             }
 
@@ -292,27 +293,22 @@ namespace courseselect.Example.Manager.stuinfo
                 StudentList.Remove(student);
             }
 
-            MessageBox.Show("删除操作完成！");
-            LoadStudents(); // 可选：重新加载数据
+            // 弹出确认框，询问是否删除
+            var result = MessageBox.Show("是否确认删除？", "提示", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+
+            // 仅当用户点击“确定”时才执行删除逻辑或刷新操作
+            if (result == MessageBoxResult.OK)
+            {
+                LoadStudents(); // 执行删除/刷新
+            }
+
         }
 
         private void FilterComboBox_Changed(object sender, SelectionChangedEventArgs e)
         {
             FilterCourses();
         }
-    /*    private void PopulateFilterDropdowns()
-        {
-            SexComboBox.Items.Add("女");
-            SexComboBox.Items.Add("男");
-            PoliticalComboBox.Items.Add("党员");
-            PoliticalComboBox.Items.Add("预备党员");
-            PoliticalComboBox.Items.Add("团员");
-            PoliticalComboBox.Items.Add("群众");
-            CollegeComboBox.Items.Add("信息科学技术学院");
-            CollegeComboBox.Items.Add("艺术学院");
-            MajorComboBox.Items.Add("计科");
-           
-        }*/
+ 
         private void FilterCourses()
         {
             string keyword = SearchBox.Text.Trim().ToLower();
@@ -386,12 +382,12 @@ namespace courseselect.Example.Manager.stuinfo
         public string Birth { get; set; }
         public string Major { get; set; }
         public string College { get; set; }
+        public int Credit { get; set; }
         public string Phone { get; set; }
         public string Political { get; set; }
         public string Password { get; set; }
         public string IfChangePw { get; set; }
-        public string Question { get; set; }
-        public string Answer { get; set; }
+      
 
         public bool IsNew { get; set; } = false;
         public string SexDisplay

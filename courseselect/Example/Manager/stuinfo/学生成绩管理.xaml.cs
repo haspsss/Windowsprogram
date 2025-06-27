@@ -114,13 +114,22 @@ namespace courseselect.Example.Manager.stuinfo
 
         private void FilterChanged(object sender, RoutedEventArgs e)
         {
-            string keyword = SearchBox.Text.Trim();
+            string keyword = SearchBox.Text.Trim().ToLower();
             string selectedCollege = CollegeComboBox.SelectedItem as string;
             string selectedMajor = MajorComboBox.SelectedItem as string;
             string selectedSex = SexComboBox.SelectedItem as string;
 
             var filtered = GroupedList.Where(g =>
-                (string.IsNullOrWhiteSpace(keyword) || g.Sid.Contains(keyword) || g.Name.Contains(keyword)) &&
+                // 模糊搜索学生基本信息（不包含课程信息）
+                (string.IsNullOrWhiteSpace(keyword) ||
+                    g.Sid.ToLower().Contains(keyword) ||
+                    g.Name.ToLower().Contains(keyword) ||
+                    g.SexDisplay.ToLower().Contains(keyword) ||
+                    g.College.ToLower().Contains(keyword) ||
+                    g.Major.ToLower().Contains(keyword)
+                ) &&
+
+                // 下拉框筛选
                 (string.IsNullOrWhiteSpace(selectedCollege) || selectedCollege == "全部" || g.College == selectedCollege) &&
                 (string.IsNullOrWhiteSpace(selectedMajor) || selectedMajor == "全部" || g.Major == selectedMajor) &&
                 (string.IsNullOrWhiteSpace(selectedSex) || selectedSex == "全部" || g.SexDisplay == selectedSex)
@@ -128,6 +137,7 @@ namespace courseselect.Example.Manager.stuinfo
 
             StudentGroupList.ItemsSource = filtered;
         }
+
 
         private void ClearFilter_Click(object sender, RoutedEventArgs e)
         {

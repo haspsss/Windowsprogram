@@ -125,8 +125,7 @@
                     <DataGridTextColumn Header="政治身份" Binding="{Binding Political}" />
                     <DataGridTextColumn Header="密码" Binding="{Binding Password}" />
                     <DataGridTextColumn Header="是否改密" Binding="{Binding IfChangePw}" />
-                    <DataGridTextColumn Header="密保问题" Binding="{Binding Question}" />
-                    <DataGridTextColumn Header="密保答案" Binding="{Binding Answer}" />
+                  
                 </DataGrid.Columns>
 
             </DataGrid>
